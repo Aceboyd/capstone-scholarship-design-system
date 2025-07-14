@@ -9,7 +9,7 @@ import React from "react";
 import ApplicationPage from "./Pages/ApplicationPage.jsx";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
-import LoginPage from "./Pages/LoginPage.jsx";
+import Temp from "./Pages/Temp.jsx";
 import PortalSteps1 from "./Pages/PortalSteps1.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
@@ -26,7 +26,7 @@ function App() {
     <Router>
       <Routes>
         {/* === Auth Routes === */}
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<Temp />} />
         <Route path="/signup" element={<SignUpPage />} />
 
         {/* === User Routes === */}

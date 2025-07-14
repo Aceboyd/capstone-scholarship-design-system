@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import capeImage from "../assets/image/cape.png";
 import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
 
-// Mock login function for testing
+// Mock login function
 const login = async (userData) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -15,11 +15,13 @@ const login = async (userData) => {
       } else {
         reject(new Error("Please fill in all fields."));
       }
-    }, 1000); // Simulate a 1-second delay
+    }, 1000);
   });
 };
 
-const LoginPage = () => {
+const Temp = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,63 +31,52 @@ const LoginPage = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Form submission intercepted");
-
     const userData = {
       email: formData.email,
       password: formData.password,
     };
 
-    console.log("Form data:", userData);
-
     try {
-      console.log("Calling login API...");
-      const response = await login(userData); // Call the login function
+      const response = await login(userData);
       console.log("Login successful:", response);
-      setShowPopup(true); // Show the popup
+      setShowPopup(true);
+
+      // Optional auto-redirect
+      setTimeout(() => {
+        navigate("/landing");
+      }, 2000);
     } catch (error) {
-      console.error("Login failed:", error);
       alert(`Login failed: ${error.message}`);
     }
   };
 
   return (
     <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
-      {/* Watermark Logo */}
-      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 flex items-center justify-center overflow-hidden">
+      {/* Watermark */}
+      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 overflow-hidden">
         <img
           src={watermark}
           alt="Watermark"
           className="h-[265vh] w-[700px] opacity-7"
-          style={{
-            transform: "rotate(5deg)",
-          }}
+          style={{ transform: "rotate(5deg)" }}
         />
       </div>
 
       {/* Main Content */}
       <div className="flex flex-1">
-        {/* Left Section - Form */}
-        <div className="relative z-20 mt-[50px] flex w-full flex-1 flex-col items-center justify-start p-0">
+        {/* Left - Form */}
+        <div className="relative z-20 mt-[50px] flex w-full flex-1 flex-col items-center justify-start">
           <div className="w-full max-w-xl rounded-lg p-8">
             {/* Logo */}
             <div className="mb-12 flex justify-start">
-              <img
-                src={logo}
-                alt="Capstone Scholarship Logo"
-                className="h-30"
-              />
+              <img src={logo} alt="Logo" className="h-30" />
             </div>
 
-            {/* Form Title */}
             <h2 className="text-start text-4xl font-semibold text-[#040498]">
               Login to your accounts
             </h2>
@@ -96,9 +87,8 @@ const LoginPage = () => {
               </Link>
             </p>
 
-            {/* Form */}
+            {/* Login Form */}
             <form className="mt-8 space-y-8" onSubmit={handleLogin}>
-              {/* Email Address */}
               <div>
                 <label className="mb-2 block text-lg font-medium text-gray-700">
                   Email Address
@@ -114,7 +104,6 @@ const LoginPage = () => {
                 />
               </div>
 
-              {/* Password */}
               <div>
                 <label className="mb-2 block text-lg font-medium text-gray-700">
                   Password
@@ -130,43 +119,34 @@ const LoginPage = () => {
                 />
               </div>
 
-              {/* Login Button */}
-              <Link to="/landing">
-                <button
-                  className="mt-8 w-full cursor-pointer rounded-xl py-5 text-xl text-white hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 focus:outline-none"
-                  style={{
-                    backgroundColor: "rgba(0, 0, 254, 0.61)",
-                  }}
-                >
-                  Login
-                </button>
-              </Link>
+              <button
+                type="submit"
+                className="mt-8 w-full rounded-xl py-5 text-xl text-white hover:bg-gray-300 focus:ring-2 focus:ring-gray-300 focus:outline-none"
+                style={{ backgroundColor: "rgba(0, 0, 254, 0.61)" }}
+              >
+                Login
+              </button>
             </form>
 
             {/* OR Separator */}
-            <div
-              className="mt-8 text-center"
-              style={{
-                fontFamily: "Futura BK BT",
-                lineHeight: "40px",
-                letterSpacing: "0px",
-              }}
-            >
-              <span className="text-[#000000]">OR</span>
+            <div className="mt-8 text-center font-futura text-black">
+              <span>OR</span>
             </div>
 
-            {/* Google Sign-in Button */}
-            <a href="#">
-              <button className="mt-6 flex w-full cursor-pointer items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-5 text-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                <FcGoogle className="mr-2" />
-                Login with Google
-              </button>
-            </a>
+            {/* Google Login Placeholder */}
+            <button
+              type="button"
+              onClick={() => alert("Google login coming soon!")}
+              className="mt-6 flex w-full items-center justify-center rounded-xl border border-gray-300 bg-white px-6 py-5 text-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+            >
+              <FcGoogle className="mr-2" />
+              Login with Google
+            </button>
           </div>
         </div>
 
-        {/* Right Section - Image */}
-        <div className="relative flex hidden h-auto w-[550px] items-center justify-start bg-gray-100 p-0 before:absolute before:z-10 before:h-full before:w-full before:bg-gray-100 before:content-[''] md:block">
+        {/* Right Image Section */}
+        <div className="relative hidden w-[550px] items-center justify-start bg-gray-100 p-0 before:absolute before:z-10 before:h-full before:w-full before:bg-gray-100 before:content-[''] md:flex">
           <img
             src={capeImage}
             alt="Graduation Cap"
@@ -175,44 +155,25 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* {popup message} */}
+      {/* Popup */}
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Semi-transparent overlay with reduced opacity */}
           <div
-            className="fixed inset-0 z-10"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+            className="fixed inset-0 z-10 bg-black opacity-50"
           ></div>
 
-          {/* Popup Container */}
           <div className="max-w-xxl relative z-50 rounded-xl border border-gray-200 bg-white p-8 text-center shadow-lg">
-            <h2
-              className="mb-4"
-              style={{
-                color: "#040498",
-                fontFamily: "Futura Medium, sans-serif",
-                fontSize: "32.24px",
-                lineHeight: "35.8px",
-                fontWeight: 500,
-              }}
-            >
+            <h2 className="mb-4 text-[#040498] text-[32.24px] leading-[35.8px] font-medium">
               Welcome back, Scholar!
             </h2>
-
-            <p
-              className="mb-6"
-              style={{
-                color: "#0B0B0B",
-                fontFamily: "Futura BK BT, sans-serif",
-                fontSize: "24.62px",
-                lineHeight: "41px",
-              }}
-            >
+            <p className="mb-6 text-[#0B0B0B] text-[24.62px] leading-[41px] font-light">
               You're logged in. Let's explore scholarship opportunities.
             </p>
-
             <button
-              onClick={() => setShowPopup(false)}
+              onClick={() => {
+                setShowPopup(false);
+                navigate("/landing");
+              }}
               style={{
                 backgroundColor: "#0000FE",
                 width: "311px",
@@ -221,14 +182,13 @@ const LoginPage = () => {
                 borderRadius: "8px",
                 fontSize: "18px",
                 fontWeight: "500",
-                transition: "background-color 0.3s ease", // Smooth transition
               }}
               onMouseOver={(e) =>
                 (e.currentTarget.style.backgroundColor = "#0000CC")
-              } // Hover color
+              }
               onMouseOut={(e) =>
                 (e.currentTarget.style.backgroundColor = "#0000FE")
-              } // Default color
+              }
             >
               Get Started
             </button>
@@ -239,4 +199,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Temp;
