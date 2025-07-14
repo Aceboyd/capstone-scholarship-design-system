@@ -9,7 +9,7 @@ import React from "react";
 import ApplicationPage from "./Pages/ApplicationPage.jsx";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
-import Temp from "./Pages/Temp.jsx";
+import Temp from "./Pages/Temp1.jsx";
 import PortalSteps1 from "./Pages/PortalSteps1.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
