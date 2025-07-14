@@ -1,8 +1,8 @@
 import React from 'react';
 import { Instagram, Twitter } from 'lucide-react';
 
-// Import WhatsApp icon image
-import whatsappIcon from '../assets/image/icon/whasApp.png';
+// ✅ Corrected filename to match actual file: whasapp.png
+import whatsappIcon from '../assets/image/icon/whasapp.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
