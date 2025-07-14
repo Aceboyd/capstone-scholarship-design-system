@@ -7,7 +7,7 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "Can I apply for more than one scholarship at the same time?",
+      question: "Can I apply far more than one scholarship at the same time?",
       answer: "Yes, you may apply for multiple scholarships. However, if you are selected for more than one, you may be required to choose one, especially if they both offer full funding."
     },
     {
