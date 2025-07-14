@@ -1,0 +1,173 @@
+let cardInfo = [
+    {
+        mainTitle: "Ghana Stem Excellence Scholarship",
+        subTitle: "Ghana Education Trust Fund (GETFund)",
+        time: "1 day ago",
+        tuition: "Full Tuition + Research Grant",
+        date: "20th March 2025",
+        expiry: "23 days",
+        student: "Undergraduate & Master’s students in STEM",
+        progress: "images/progNone.png",
+        appStatus:"Not Started",
+        apply: "Apply Now",
+        tag1: "Fully Funded",
+        tag2: "STEM Research",
+        tag3: "National Schlorship",
+        bookmark: "images/bookmark.png"
+    },
+
+    {
+        mainTitle: "Women in STEM Ghana Initiative",
+        subTitle: "MTN Ghana Foundation & MasterCard Scholarship",
+        time: "3 days ago",
+        tuition: "₵10,000 per academic year + Mentorship",
+        date: "April 5, 2025",
+        expiry: "45 days",
+        student: "Female Students in Science, Technology, Engineering and Mathematics",
+        progress: "images/prog1.png",
+        appStatus:"In Progress",
+        apply: "Continue Application",
+        tag1: "Women in STEM",
+        tag2: "Merit-Based",
+        tag3: "Partial Funding",
+        bookmark: "images/bookmark.png"
+    },
+
+    {
+        mainTitle: "Ghana Tech Leaders Innovatio Grant",
+        subTitle: "Ghana Ministry of Innovation & AI Research",
+        time: "3 days ago",
+        tuition: "₵20,000 research grant + Internship",
+        date: "February 18, 2025",
+        expiry: "10 days",
+        student: "Postgraduate Students in AI, Robotics, and Data Science",
+        progress: "images/progNone.png",
+        appStatus:"Not Started",
+        apply: "Apply Now",
+        tag1: "Tech & AI",
+        tag2: "Research-Based",
+        tag3: "Industry Mentorship",
+        bookmark: "images/bookmark1.png"
+    },
+
+    {
+        mainTitle: "Future Innovators Tech Fund",
+        subTitle: "Microsoft Africa & Ghana Tech Hub",
+        time: "6 days ago",
+        tuition: "₵15,000 Research Grant + Internship at Microsoft",
+        date: "April 12, 2025",
+        expiry: "45 days",
+        student: "Ghanian students in Data Science, Cloud Computing and Cybersecurity",
+        progress: "images/prog2.png",
+        appStatus:"In Progress",
+        apply: "Continue Application",
+        tag1: "Women in STEM",
+        tag2: "Merit-Based",
+        tag3: "Partial Funding",
+        bookmark: "images/bookmark1.png"
+    },
+
+    {
+        mainTitle: "Africa Science & Engineering Fellowship",
+        subTitle: "African Union & UNESCO STEM Initiative",
+        time: "Posted 6 days ago",
+        tuition: "Full Tuition + Research Funding",
+        date: "May 1, 2025",
+        expiry: "60 days",
+        student: "Undergraduate students in Engineering and Applied Sciences",
+        progress: "images/prog2.png",
+        appStatus:"In Progress",
+        apply: "Continue Application",
+        tag1: "Fully Funded",
+        tag2: "STEM Research",
+        tag3: "Undergraduate Fellowship",
+        bookmark: "images/bookmark1.png"
+    },
+
+    {
+        mainTitle: "Renewable Energy Scholars Program",
+        subTitle: "African Development Bank (AfDB) & Ghana Energy Commission",
+        time: "1 week ago",
+        tuition: "₵25,000 Grant for Renewable Energy Research",
+        date: "March 15, 2025",
+        expiry: "20 days",
+        student: "Undergraduate students in Renewable Energy & Environmental Science",
+        progress: "images/progNone.png",
+        appStatus:"Not Started",
+        apply: "Apply Now",
+        tag1: "Renewable Energy",
+        tag2: "Fully Funded",
+        tag3: "Industry Collaboration",
+        bookmark: "images/bookmark.png"
+    },
+
+    {
+        mainTitle: "West Africa Tech Pioneers Award",
+        subTitle: "Google Africa & Ghana AI Consortium",
+        time: "1 week ago",
+        tuition: "₵30,000 Startup Grant + Internship",
+        date: "May 15, 2025",
+        expiry: "75 days",
+        student: "Undergraduate tech entrepreneurs & startup founders in AI and Machine Learning",
+        progress: "images/progNone.png",
+        appStatus:"Not Started",
+        apply: "Apply Now",
+        tag1: "Tech & AI",
+        tag2: "Startup Grant",
+        tag3: "PIndustry Mentorship",
+        bookmark: "images/bookmark1.png"
+    },
+
+    {
+        mainTitle: "Ghana Robotics & Automation Fund",
+        subTitle: "Ghana Robotics Academy & African Union",
+        time: "1 week ago",
+        tuition: "₵12,000 Research Grant + Robotics Competition",
+        date: "April 8, 2025",
+        expiry: "40 days",
+        student: "Undergraduate students in Robotics, Automation & AI",
+        progress: "images/progNone.png",
+        appStatus:"Not Started",
+        apply: "Apply Now",
+        tag1: "Robotics & Automation",
+        tag2: "Competition-Based",
+        tag3: "STEM Research",
+        bookmark: "images/bookmark1.png"
+    },
+
+    {
+        mainTitle: "Cybersecurity Future Leaders Program",
+        subTitle: "IBM Africa & Cyber Ghana Initiative",
+        time: "2 weeks ago",
+        tuition: "₵22,000 Research Grant + IBM Certification",
+        date: "June 10, 2025",
+        expiry: "100 days",
+        student: "Undergraduate students in Cybersecurity, Ethical Hacking, and IT Security",
+        progress: "images/prog3.png",
+        appStatus:"In Progress",
+        apply: "Continue Application",
+        tag1: "Cybersecurity",
+        tag2: "Research-Based",
+        tag3: "Industry Training",
+        bookmark: "images/bookmark1.png"
+    },
+
+    {
+        mainTitle: "Ghana Data Science & Analytics Scholarship",
+        subTitle: "Ghana Statistical Service & IBM Africa",
+        time: "2 weeks ago",
+        tuition: "₵12,500 Training Grant + Certification",
+        date: "April 18, 2025",
+        expiry: "50 days",
+        student: "Undergraduate students & working professionals in Data Science & Analytics",
+        progress: "images/prog2.png",
+        appStatus:"Not Started",
+        apply: "Apply Now",
+        tag1: "Data Science",
+        tag2: "Industry Training",
+        tag3: "Fully Funded",
+        bookmark: "images/bookmark1.png"
+    },
+]
+
+export {cardInfo}

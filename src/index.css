@@ -1,0 +1,33 @@
+@import "tailwindcss/preflight"; /* Resets browser styles */
+@import "tailwindcss/theme"; /* Loads Tailwind's core styles */
+@import "tailwindcss/utilities"; /* Enables utility classes */
+
+
+
+@font-face {
+    font-family: 'Futura';
+    src: url('./assets/fonts/Futura.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Avenir";
+    src: url("./assets/Fonts/AvenirCondensedHand.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+  @font-face {
+    font-family: 'Avenir';
+    src: url('./fonts/Avenir.woff2') format('woff2'),
+         url('./fonts/Avenir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .navbar {
+    font-family: 'Avenir', sans-serif;
+  }
