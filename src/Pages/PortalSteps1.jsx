@@ -1,4 +1,4 @@
-import Navbar from "../Component3/Header2"; 
+import Navbar from "../component3/Header2"; 
 import Steps from "../Components4/Steps";
 import Application2 from "../Components4/Application2";
 
