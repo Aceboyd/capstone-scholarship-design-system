@@ -13,7 +13,7 @@ import Temp from "./Pages/Temp1.jsx";
 import Steps1 from "./Pages/Steps1.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
-import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal.jsx";
+import Scholarship from "./Pages/Scholarship.jsx";
 import SignUpPage from "./Pages/SignUpPage.jsx";
 import Step3 from "./Pages/Step3.jsx";
 import StepsCompleted from "./Pages/StepsCompleted.jsx";
@@ -38,7 +38,7 @@ function App() {
         <Route path="/portalStep4" element={<PortalStep4 />} />
         <Route path="/portalStep5" element={<PortalStep5 />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
-        <Route path="/scholarshiplisting" element={<ScholarshipSecondPortal />} />
+        <Route path="/scholarship" element={<Scholarship />} />
         <Route path="/ghanapage" element={<Ghanapage />} />
 
         {/* === Admin Routes === */}
