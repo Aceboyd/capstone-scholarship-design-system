@@ -1,5 +1,5 @@
 import React from 'react';
-import arrowDown2 from '../assets/image/Group 88.JPG';
+import arrowDown2 from '../assets/image/Group 88.jpg';
 
 function App() {
   return (
