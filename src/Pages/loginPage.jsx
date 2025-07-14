@@ -87,7 +87,7 @@ const LoginPage = () => {
 
             {/* Form Title */}
             <h2 className="text-start text-4xl font-semibold text-[#040498]">
-              Login to your account
+              Login to your accounts
             </h2>
             <p className="mt-2 text-start text-lg text-[#040498]">
               Don't have an account?{" "}
