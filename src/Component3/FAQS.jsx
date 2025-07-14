@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import ArrowDown from '../assets/image/form/vector.png'; // Importing the image
+import ArrowDown from '../assets/image/form/Vector.png'; // Importing the image
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(2);
