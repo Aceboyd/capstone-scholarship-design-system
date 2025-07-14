@@ -10,7 +10,7 @@ import ApplicationPage from "./Pages/ApplicationPage.jsx";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import Temp from "./Pages/Temp1.jsx";
-import PortalSteps1 from "./Pages/PortalSteps1.jsx";
+import Steps1 from "./Pages/Steps1.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
 import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal.jsx";
@@ -32,7 +32,7 @@ function App() {
         {/* === User Routes === */}
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/application" element={<ApplicationPage />} />
-        <Route path="/portalStep1" element={<PortalSteps1 />} />
+        <Route path="/Step1" element={<Steps1 />} />
         <Route path="/step3" element={<Step3 />} />
         <Route path="/steps-completed" element={<StepsCompleted />} />
         <Route path="/portalStep4" element={<PortalStep4 />} />
