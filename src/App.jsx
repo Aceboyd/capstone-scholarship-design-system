@@ -6,20 +6,20 @@ import {
 } from "react-router-dom";
 import React from "react";
 
-import ApplicationPage from "./Pages/ApplicationPage";
-import Ghanapage from "./Pages/Ghanapage";
-import LandingPage from "./Pages/LandingPage";
-import LoginPage from "./Pages/LoginPage";
-import PortalSteps1 from "./Pages/PortalSteps1";
-import PortalStep4 from "./Pages/PortalStep4"; // ✅ Corrected
-import PortalStep5 from "./Pages/PortalStep5"; // ✅ Corrected
-import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal"; // ✅ Match exact file name
-import SignUpPage from "./Pages/SignUpPage";
-import Step3 from "./Pages/Step3";
-import StepsCompleted from "./Pages/StepsCompleted";
-import Admin from "./Pages/Admin";
-import Dashboard from "./component5/Dashboard";
-import UserDashboard from "./UserDashboard/UserMain";
+import ApplicationPage from "./Pages/ApplicationPage.jsx";
+import Ghanapage from "./Pages/Ghanapage.jsx";
+import LandingPage from "./Pages/LandingPage.jsx";
+import LoginPage from "./Pages/LoginPage.jsx";
+import PortalSteps1 from "./Pages/PortalSteps1.jsx";
+import PortalStep4 from "./Pages/PortalStep4.jsx";
+import PortalStep5 from "./Pages/PortalStep5.jsx";
+import ScholarshipSecondPortal from "./Pages/ScholarshipSecondportal.jsx";
+import SignUpPage from "./Pages/SignUpPage.jsx";
+import Step3 from "./Pages/Step3.jsx";
+import StepsCompleted from "./Pages/StepsCompleted.jsx";
+import Admin from "./Pages/Admin.jsx";
+import Dashboard from "./component5/Dashboard.jsx"; // Make sure this file exists
+import UserDashboard from "./UserDashboard/UserMain.jsx"; // Make sure this file exists
 
 function App() {
   return (
