@@ -5,7 +5,7 @@ import ApplicationPage from "./Pages/ApplicationPage.jsx";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import Temp from "./Pages/Temp1.jsx";
-import Step1 from "./Pages/Step1.jsx";
+import Step1 from "./Pages/Steps1.jsx"; // ✅ Correct import
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
 import SignUpPage from "./Pages/SignUpPage.jsx";
@@ -14,7 +14,7 @@ import StepsCompleted from "./Pages/StepsCompleted.jsx";
 import Admin from "./Pages/Admin.jsx";
 import Dashboard from "./component5/Dashboard.jsx";
 import UserDashboard from "./UserDashboard/UserMain.jsx";
-import Scholarship from "./Pages/Scholarship.jsx"; // Now refers to the renamed ScholarshipSecondportal
+import Scholarship from "./Pages/Scholarship.jsx";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         {/* User Routes */}
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/application" element={<ApplicationPage />} />
-        <Route path="/step-1" element={<Step1 />} />
+        <Route path="/step-1" element={<Step1 />} /> {/* ✅ Fixed usage */}
         <Route path="/step-3" element={<Step3 />} />
         <Route path="/steps-completed" element={<StepsCompleted />} />
         <Route path="/portal-step-4" element={<PortalStep4 />} />
