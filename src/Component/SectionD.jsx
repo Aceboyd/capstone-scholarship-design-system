@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 // Image imports
 import testimoImage from '../assets/image/icon/Testimonials.png';
 import tudentImage from '../assets/image/icon/Student.png';
-import quoteImage from '../assets/image/icon/vector.png';
+import quoteImage from '../assets/image/icon/Vector.png';
 
 const testimonials = [
   {
