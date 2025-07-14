@@ -1,47 +1,42 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
 
 import ApplicationPage from "./Pages/ApplicationPage.jsx";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import Temp from "./Pages/Temp1.jsx";
-import Steps1 from "./Pages/Steps1.jsx";
+import Step1 from "./Pages/Step1.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
-import Scholarship from "./Pages/Scholarship.jsx";
 import SignUpPage from "./Pages/SignUpPage.jsx";
 import Step3 from "./Pages/Step3.jsx";
 import StepsCompleted from "./Pages/StepsCompleted.jsx";
 import Admin from "./Pages/Admin.jsx";
-import Dashboard from "./component5/Dashboard.jsx"; // Make sure this file exists
-import UserDashboard from "./UserDashboard/UserMain.jsx"; // Make sure this file exists
+import Dashboard from "./component5/Dashboard.jsx";
+import UserDashboard from "./UserDashboard/UserMain.jsx";
+import Scholarship from "./Pages/Scholarship.jsx"; // Now refers to the renamed ScholarshipSecondportal
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* === Auth Routes === */}
+        {/* Auth Routes */}
         <Route path="/" element={<Temp />} />
         <Route path="/signup" element={<SignUpPage />} />
 
-        {/* === User Routes === */}
+        {/* User Routes */}
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/application" element={<ApplicationPage />} />
-        <Route path="/Step1" element={<Steps1 />} />
-        <Route path="/step3" element={<Step3 />} />
+        <Route path="/step-1" element={<Step1 />} />
+        <Route path="/step-3" element={<Step3 />} />
         <Route path="/steps-completed" element={<StepsCompleted />} />
-        <Route path="/portalStep4" element={<PortalStep4 />} />
-        <Route path="/portalStep5" element={<PortalStep5 />} />
+        <Route path="/portal-step-4" element={<PortalStep4 />} />
+        <Route path="/portal-step-5" element={<PortalStep5 />} />
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/scholarship" element={<Scholarship />} />
         <Route path="/ghanapage" element={<Ghanapage />} />
 
-        {/* === Admin Routes === */}
+        {/* Admin Routes */}
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/application-management" element={<Dashboard />} />
         <Route path="/admin/program-setup" element={<Dashboard />} />
@@ -52,7 +47,7 @@ function App() {
         <Route path="/admin/user-management" element={<Dashboard />} />
         <Route path="/admin/settings" element={<Dashboard />} />
 
-        {/* === Catch-all: Redirect unknown routes to Signup === */}
+        {/* Catch-all: Redirect unknown routes to Signup */}
         <Route path="*" element={<Navigate to="/signup" />} />
       </Routes>
     </Router>
