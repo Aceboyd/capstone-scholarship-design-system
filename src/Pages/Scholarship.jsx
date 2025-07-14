@@ -1,4 +1,4 @@
-import Navbar from "../component3/Header2";
+import Navbar from "../Component3/Header2";
 import Sidebar from "../Components4/Sidebar";
 import Content from "../Components4/Content";
 import SearchBar from "../Components4/SearchBar";

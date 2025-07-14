@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../component3/Header2";
-import Banner3 from "../component3/Banner3";
-import StepsCompleteds from "../component3/StepsCompleteds";
-import Foot from "../component3/Footer";
+import Header from "../Component3/Header2";
+import Banner3 from "../Component3/Banner3";
+import StepsCompleteds from "../Component3/StepsCompleteds";
+import Foot from "../Component3/Footer";
 
 const StepsCompleted = () => {
   return (

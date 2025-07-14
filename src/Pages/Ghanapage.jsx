@@ -1,14 +1,14 @@
-import Banner from "../component3/Banner";
-import Banner2 from "../component3/Banner2";
-import Eligibility from "../component3/Eligibility";
-import FAQ from "../component3/FAQS";
-import Foot from "../component3/Footer";
-import Header from "../component3/Header2";
-import HowToApply from "../component3/HowToApply";
-import NavigationBar from "../component3/NavigationBar";
-import ScholarshipComponent from "../component3/ScholarshipComponent";
-import ScholarshipRequirements from "../component3/ScholarshipRequirements";
-import ScholarshipSection from "../component3/ScholarshipSection";
+import Banner from "../Component3/Banner";
+import Banner2 from "../Component3/Banner2";
+import Eligibility from "../Component3/Eligibility";
+import FAQ from "../Component3/FAQS";
+import Foot from "../Component3/Footer";
+import Header from "../Component3/Header2";
+import HowToApply from "../Component3/HowToApply";
+import NavigationBar from "../Component3/NavigationBar";
+import ScholarshipComponent from "../Component3/ScholarshipComponent";
+import ScholarshipRequirements from "../Component3/ScholarshipRequirements";
+import ScholarshipSection from "../Component3/ScholarshipSection";
 
 const Ghanapage = () => {
   return (
