@@ -2,7 +2,7 @@ import React from 'react';
 import { Instagram, Twitter } from 'lucide-react';
 
 // Import WhatsApp icon image
-import whatsappIcon from '../assets/image/icon/whatsapp.png';
+import whatsappIcon from '../assets/image/icon/whasapp.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
