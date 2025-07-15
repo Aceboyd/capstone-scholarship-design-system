@@ -112,7 +112,7 @@ const ScholarshipForm = () => {
     console.log('Uploaded Files:', uploadedFiles); // Debug log to check uploaded files
     if (uploadedFiles.length > 0 && uploadedFiles.every(file => !file.error)) {
       setFormFilled(true);
-      navigate('/portalStep4');
+      navigate('/portal-step-4');
     } else {
       alert('Please upload at least one valid document (PDF, JPG, PNG, JPEG, or Microsoft Word, max 5MB) before proceeding.');
     }
@@ -393,7 +393,7 @@ const ScholarshipForm = () => {
               Back
             </a>
             <a
-              href="/portalStep4"
+              href="/portal-step-4"
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
               onClick={handleSubmit}
             >

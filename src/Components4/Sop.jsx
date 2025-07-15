@@ -81,7 +81,7 @@ export default function SOPForm() {
           {/* Navigation Buttons */}
           <div className="flex justify-between w-full mt-6">
             <button
-              onClick={() => navigate('/step3')}
+              onClick={() => navigate('/step-3')}
               className="flex items-center space-x-2 px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-100"
             >
               <ArrowLeft size={18} />
@@ -89,7 +89,7 @@ export default function SOPForm() {
             </button>
 
             <button
-              onClick={() => navigate('/portalStep5')}
+              onClick={() => navigate('/portal-step-5')}
               className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             >
               <span>Next</span>

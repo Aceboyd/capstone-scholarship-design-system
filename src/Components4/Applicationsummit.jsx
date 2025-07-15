@@ -144,7 +144,7 @@ export default function ApplicationSummit() {
       {/* Bottom Navigation */}
       <div className="w-full px-4 py-4 flex justify-between items-center bg-white border-t">
         <button
-          onClick={() => navigate('/portalStep4')} // ✅ Back
+          onClick={() => navigate('/portal-step-4')} // ✅ Back
           className="px-6 py-2 bg-gray-300 text-black rounded"
         >
           Back
