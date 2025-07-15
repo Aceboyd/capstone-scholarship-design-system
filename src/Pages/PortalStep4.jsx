@@ -244,7 +244,7 @@ export default function PortalStep4() {
           {/* Navigation Buttons Moved Down ✅ */}
           <div className="mt-8 flex justify-between md:col-span-3">
             <Link
-              to="/step3"
+              to="/step-3"
               className="flex cursor-pointer items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
             >
               <svg
@@ -264,7 +264,7 @@ export default function PortalStep4() {
             </Link>
 
             <Link
-              to="/portalStep5"
+              to="/portal-step-5"
               className="flex w-fit items-center justify-between gap-4 rounded-md bg-blue-600 px-3 py-2 text-white hover:bg-blue-700"
             >
               <span>Next</span>
