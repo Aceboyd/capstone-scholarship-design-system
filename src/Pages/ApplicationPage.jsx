@@ -104,7 +104,7 @@ const ScholarshipForm = () => {
       uploadedFile
     ) {
       setFormFilled(true);
-      navigate("/step3");
+      navigate("/step-3");
     } else {
       alert(
         "Please fill all fields and upload a transcript before proceeding.",
@@ -113,7 +113,7 @@ const ScholarshipForm = () => {
   };
 
   const handleBack = () => {
-    navigate("/portalSteps1");
+    navigate("/step-1");
   };
 
   return (
