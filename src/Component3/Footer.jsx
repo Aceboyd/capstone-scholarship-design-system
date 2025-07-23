@@ -8,9 +8,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#000080] text-white py-16">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <footer className="bg-[#000080] text-white py-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3  md:gap-6">
           {/* Quick Links */}
           <div>
             <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
@@ -39,10 +39,10 @@ const Footer = () => {
           </div>
 
           {/* Contact Us */}
-          <div>
+          <div className='pr-5'>
             <h3 className="text-xl font-semibold mb-6">Contact Us</h3>
             <div className="space-y-4">
-              <p>scholarships@capstone.gov.ng</p>
+              <p className='max-md:text-[15px]'>scholarships@capstone.gov.ng</p>
               <p>+234 (0) 702 123 456</p>
               <p>+234 (0) 809 187 653</p>
               <p>2nd Floor, Trust House, Ridge,<br />Lagos, Nigeria</p>
@@ -52,13 +52,13 @@ const Footer = () => {
 
           {/* Newsletter & Socials */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">Subscribe to our newsletter</h3>
+            <h3 className="w-full flex whitespace-pre text-xl font-semibold mb-6 max-md:mt-10">Subscribe to our newsletter</h3>
             <form className="mb-8">
-              <div className="flex gap-2">
+              <div className="flex md:flex-col lg:flex-row gap-2">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-2 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 border-none shadow-none"
+                  className="flex-1 px-4 py-2 rounded-md text-white ring-2 ring-white bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 border-none shadow-none"
                 />
                 <button
                   type="submit"
@@ -83,11 +83,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        <div className="mt-12 pt-8 border-t border-blue-800 text-center">
-          <p>© {currentYear} Capstone Scholarship Nigeria. All Rights Reserved.</p>
         </div>
-      </div>
+
+        <div className="w-full mt-12 text-sm md:text-base flex text-center border-t border-blue-800 ">
+          <p className='pt-5 mx-auto'>© {currentYear} Capstone Scholarship Nigeria. All Rights Reserved.</p>
+        </div>
     </footer>
   );
 };

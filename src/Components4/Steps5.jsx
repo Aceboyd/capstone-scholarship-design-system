@@ -1,19 +1,19 @@
 import React from "react";
 import number1Image from "../assets/image/form/1.png";
-import number2Image from "../assets/image/form/2.png";
-import number3Image from "../assets/image/form/3.png";
-import number4Image from "../assets/image/form/4.png";
-import number5Image from "../assets/image/form/5.png";
+import number2Image from "../assets/image/form/now.png";
+import number3Image from "../assets/image/form/3filled.png";
+import number4Image from "../assets/image/form/4filled.png";
+import number5Image from "../assets/image/form/5filled.png";
 
 const stepDetails = [
-  { label: "STEP 1", title: "Personal Details",  imagestep: number1Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center", status: "In Progress", style2: "bg-gray-200" },
-  { label: "STEP 2", title: "Academic Information", imagestep: number2Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 3", title: "Supporting Documents", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 4", title: "Write your Statement of Purpose", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 5", title: "Review Application and Submit", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 1", title: "Personal Details",  imagestep: number1Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 2", title: "Academic Information", imagestep: number2Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 3", title: "Supporting Documents", imagestep: number3Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 4", title: "Write your Statement of Purpose", imagestep: number4Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 5", title: "Review Application and Submit", imagestep: number5Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center", status: "In Progress" },
 ];
 
-const Steps = () => {
+const Steps5 = () => {
   return (
     <div className="mb-8">
       {/* Steps and Progress Bar */}
@@ -33,7 +33,7 @@ const Steps = () => {
                   </div>
                   
                  </div>
-                <div className="flex flex-col w-1/5 h-40 mt-7">
+                 <div className="flex flex-col w-1/5 h-40 mt-7">
                   <div className={`flex  w-[90%] h-1 bg-gray-200 rounded-full ${step.style2}`}>
                   </div>
                   <span className="text-sm text-gray-500 mt-1">{step.label}</span>
@@ -68,7 +68,7 @@ const Steps = () => {
           <div className="w-24 h-1 bg-gray-200 rounded-full ml-2">
             <div
               className="h-full bg-blue-600 rounded-full"
-              style={{ width: `${20}%` }}
+              style={{ width: `${98}%` }}
             ></div>
           </div>
           <span className="ml-2 text-sm text-blue-600">In Progress</span>
@@ -78,4 +78,4 @@ const Steps = () => {
   );
 };
 
-export default Steps;
+export default Steps5;
