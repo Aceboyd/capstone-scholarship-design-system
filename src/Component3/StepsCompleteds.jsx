@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const StepsCompleteds = () => {
   return (
-    <div className="px-8 py-14 md:py-14 flex flex-col justify-start min-h-screen ml-20 mt-15">
+    <div className="px-8 py-14 md:py-14 flex flex-col justify-start min-h-screen md:mx-20 mt-15">
       {/* Confirmation Message */}
       <div className="text-left mb-20">
         <h1 className="text-2xl md:text-3xl font-semibold text-gray-800">
@@ -19,7 +19,7 @@ const StepsCompleteds = () => {
       </div>
 
       {/* What Happens Next Section */}
-      <div className="w-full max-w-2xl mb-20 whitespace-nowrap">
+      <div className="w-full mb-20">
         <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
           What Happens Next?
         </h2>
@@ -50,19 +50,17 @@ const StepsCompleteds = () => {
       </div>
 
       {/* Buttons */}
-      <div className="flex justify-center gap-12 mb-30">
-        <Link
-          to="/user-dashboard" // ✅ Updated path
-          className="bg-[#0000FE] text-white font-semibold py-3 px-6 rounded-lg text-base md:text-lg hover:bg-blue-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+      <div className="w-full px-4 py-4 flex max-md:justify-between items-center md:justify-center md:gap-15 ">
+        <Link to="/user-dashboard"><button
+          className="px-2 py-1 bg-blue-800 text-white rounded font-semibold max-md:text-sm"
         >
           Go to My Dashboard
-        </Link>
-        <Link
-          to="/landing" // ✅ Updated path
-          className="border border-[#0000FE] text-[#0000FE] font-semibold py-3 px-6 rounded-lg text-base md:text-lg hover:bg-blue-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+        </button></Link>
+        <Link to="/landing"><button
+          className="px-2 py-1 bg-white text-blue-800 rounded  border-1 border-blue-800 font-bold max-md:text-sm"
         >
           Back to Homepage
-        </Link>
+        </button></Link>
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Header2anon from '../Component3/Header2anon'
 
 // Placeholder images
-import capstoneLogo from "../assets/image/nice.png";
-import bannerImage from "../assets/image/form/banner.png";
-import userProfile from "../assets/image/form/face.png";
+
 import pdfIcon from "../assets/image/pdfIcon.png"; // Keep PDF icon
 import number1Image from "../assets/image/form/1.png";
 import number2Image from "../assets/image/form/2.png";
@@ -12,6 +11,10 @@ import number3Image from "../assets/image/form/3.png";
 import number4Image from "../assets/image/form/4.png";
 import number5Image from "../assets/image/form/5.png";
 import { Brain } from "lucide-react";
+import Background from "../Components4/Background";
+import Steps2 from "../Components4/Steps2";
+import Navigationresponsive2 from "../Components4/Navigationresponsive2";
+import Stepsresponsive2 from "../Components4/Stepsresponsive2";
 
 const ScholarshipForm = () => {
   const navigate = useNavigate();
@@ -117,254 +120,26 @@ const ScholarshipForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="md:bg-gray-100">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div>
-            <img
-              src={capstoneLogo}
-              alt="Capstone Scholarship"
-              className="h-18 w-auto"
-            />
-          </div>
-          <nav className="flex flex-1 justify-center">
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-600 hover:text-blue-600">
-                Home
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600">
-                Find Scholarships
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600">
-                How It Works
-              </a>
-              <a
-                href="#"
-                className="flex items-center text-gray-600 hover:text-blue-600"
-              >
-                Categories
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </nav>
-          <div className="flex items-center space-x-4">
-            <button className="text-gray-600">
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                ></path>
-              </svg>
-            </button>
-            <button className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-              Apply Now
-            </button>
-            <img
-              src={userProfile}
-              alt="User Profile"
-              className="h-10 w-10 rounded-full"
-            />
-          </div>
-        </div>
-      </header>
+      <Header2anon/>
 
       {/* Banner */}
-      <div className="relative h-60 w-full">
-        <div
-          className="h-full w-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${bannerImage})` }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: "rgba(0, 19, 211, 0.28)" }}
-        />
-      </div>
+      <div className="mt-8"><Background/></div>
 
       {/* Main Content */}
-      <main className="mx-auto max-w-5xl px-2 py-10 sm:px-4 lg:px-10">
+      <main className="mx-auto w-full px-2">
         {/* Progress Steps */}
-        <div className="mb-8">
+          <div className="mt-8"><Steps2/></div>   
+        
+        <div className="flex flex-col">
+          <div className="flex flex-row justify-center">
           {/* Circles and Progress Bars Row */}
-          <div className="flex items-center justify-between gap-2">
-            {/* Step 1 Circle */}
-            <div className="flex flex-col items-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-dashed border-blue-600">
-                <img
-                  src={number1Image}
-                  alt="Step 1"
-                  className="-ml-1.5 h-5 w-5 object-contain"
-                />
-              </div>
-            </div>
-            {/* Step 1 Progress Bar */}
-            <div className="-ml-5 flex w-[12%] items-center">
-              <div className="h-1 w-full rounded-full bg-gray-200">
-                <div className="h-full w-full rounded-full bg-blue-600"></div>
-              </div>
-            </div>
-            {/* Step 2 Circle */}
-            <div className="flex flex-col items-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-dashed border-blue-600">
-                <img
-                  src={number2Image}
-                  alt="Step 2"
-                  className="h-5 w-5 object-contain"
-                />
-              </div>
-            </div>
-            {/* Step 2 Progress Bar */}
-            <div className="-ml-7 flex w-[12%] items-center">
-              <div className="h-1 w-full rounded-full bg-gray-200">
-                <div
-                  className="h-full rounded-full bg-blue-600"
-                  style={{ width: `${progress}%` }}
-                ></div>
-              </div>
-            </div>
-            {/* Step 3 Circle */}
-            <div className="flex flex-col items-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-dashed border-gray-300">
-                <img
-                  src={number3Image}
-                  alt="Step 3"
-                  className="h-5 w-5 object-contain"
-                />
-              </div>
-            </div>
-            {/* Step 3 Progress Bar */}
-            <div className="-ml-7 flex w-[12%] items-center">
-              <div className="h-1 w-full rounded-full bg-gray-200">
-                <div className="h-full w-0 rounded-full bg-blue-600"></div>
-              </div>
-            </div>
-            {/* Step 4 Circle */}
-            <div className="flex flex-col items-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-dashed border-gray-300">
-                <img
-                  src={number4Image}
-                  alt="Step 4"
-                  className="h-5 w-5 object-contain"
-                />
-              </div>
-            </div>
-            {/* Step 4 Progress Bar */}
-            <div className="-ml-7 flex w-[12%] items-center">
-              <div className="h-1 w-full rounded-full bg-gray-200">
-                <div className="h-full w-0 rounded-full bg-blue-600"></div>
-              </div>
-            </div>
-            {/* Step 5 Circle */}
-            <div className="-ml-5 flex flex-col items-center">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-dashed border-gray-300">
-                <img
-                  src={number5Image}
-                  alt="Step 5"
-                  className="h-5 w-5 object-contain"
-                />
-              </div>
-            </div>
-            {/* Step 5 Progress Bar */}
-            <div className="-ml-7 flex w-[12%] items-center">
-              <div className="h-1 w-full rounded-full bg-gray-200">
-                <div className="h-full w-0 rounded-full bg-blue-600"></div>
-              </div>
-            </div>
-          </div>
-          {/* Step Descriptions and Status Row */}
-          <div className="-mt-2 flex justify-between gap-2">
-            {/* Step 1 Description and Status */}
-            <div className="ml-10 flex flex-col items-center">
-              <span className="text-sm text-[#000000]/50">STEP 1</span>
-              <span className="ml-4 text-sm text-black">Personal Details</span>
-              <span className="mt-1 ml-2 rounded-full bg-[#CCCFFF] px-2 py-1 text-xs text-[#0000FE]">
-                Completed
-              </span>
-            </div>
-            <div className="w-[12%]"></div>
-            {/* Step 2 Description and Status */}
-            <div className="ml-20 flex flex-col items-center">
-              <span className="mr-4 text-sm text-[#000000]/50">STEP 2</span>
-              <span className="ml-4 text-sm text-gray-600">
-                Academic Information
-              </span>
-              <span className="mt-1 ml-0 rounded-full border border-[#0000FE] px-3 py-1 text-xs whitespace-nowrap text-[#0000FE]">
-                In Progress
-              </span>
-            </div>
-            <div className="w-[12%]"></div>
-            {/* Step 3 Description and Status */}
-            <div className="ml-30 flex flex-col items-center">
-              <span className="-ml-15 text-sm text-[#000000]/50">STEP 3</span>
-              <span className="mr-8 text-sm text-gray-600">
-                Supporting Documents
-              </span>
-              <span className="mt-1 mr-10 text-xs text-gray-400">
-                Not Started
-              </span>
-            </div>
-            <div className="w-[12%]"></div>
-            {/* Step 4 Description and Status */}
-            <div className="flex flex-col items-center">
-              <span className="-ml-8 text-sm text-[#000000]/50">STEP 4</span>
-              <span className="ml-15 text-sm whitespace-nowrap text-gray-600">
-                Write your Statement <br /> of Purpose
-              </span>
-              <span className="mt-1 text-xs text-gray-400">Not Started</span>
-            </div>
-            <div className="w-[12%]"></div>
-            {/* Step 5 Description and Status */}
-            <div className="ml-5 flex flex-col items-center">
-              <span className="mr-13 text-sm text-[#000000]/50">STEP 5</span>
-              <span className="-mr-5 text-sm whitespace-nowrap text-gray-600">
-                Review Application <br /> and Submit
-              </span>
-              <span className="mt-1 -ml-10 text-xs text-gray-400">
-                Not Started
-              </span>
-            </div>
-            <div className="w-[12%]"></div>
-          </div>
-        </div>
-
-        {/* Form Title and Status */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">
-            Ghana STEM Excellence Scholarship Application Form
-          </h2>
-          <div className="mt-2 flex items-center">
-            <span className="text-sm text-gray-600">Application status:</span>
-            <div className="ml-2 h-1 w-24 rounded-full bg-gray-200">
-              <div
-                className="h-full rounded-full bg-blue-600"
-                style={{ width: `${30}%` }}
-              ></div>
-            </div>
-            <span className="ml-2 text-sm text-blue-600">In Progress</span>
-          </div>
-        </div>
+          <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive2/></div>
+        
 
         {/* Form Section with Right-Side Actions */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 max-w-6xl px-4 md:grid-cols-3 w-[80%]">
           {/* Form Content */}
           <div className="md:col-span-2">
             <div className="rounded-md bg-white p-6 shadow-md">
@@ -531,7 +306,7 @@ const ScholarshipForm = () => {
           </div>
 
           {/* Right-Side Actions */}
-          <div className="flex flex-col items-end md:col-span-1">
+          <div className="flex flex-col items-end md:col-span-1 max-md:hidden">
             <button className="mb-2 w-full max-w-xs rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
               Save Progress
             </button>
@@ -550,7 +325,7 @@ const ScholarshipForm = () => {
           </div>
 
           {/* Navigation Buttons Moved Down */}
-          <div className="mt-8 flex justify-between md:col-span-3">
+          <div className="mt-8 flex justify-between md:col-span-3 max-md:hidden py-4">
             <button
               id="back-button"
               onClick={handleBack}
@@ -594,6 +369,24 @@ const ScholarshipForm = () => {
               </svg>
             </a>
           </div>
+        </div>
+        </div>
+  <div className='md:hidden justify-between flex flex-row py-4'>
+    <Navigationresponsive2/>
+    <button
+    href="/step3"
+          onClick={handleNext}
+          className="mt-8 px-6 bg-blue-600 text-white rounded"
+        >
+          Next
+        </button>
+  </div>
+  <p className="mt-2 py-8 flex items-center justify-end text-sm text-indigo-700 font-medium md:hidden mx-auto">
+              <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
+                i
+              </span>
+              Note: Applications close on 26th March 2025
+            </p>
         </div>
       </main>
     </div>

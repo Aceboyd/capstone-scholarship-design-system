@@ -1,66 +1,77 @@
-import React, { useState } from "react";
+import React from "react";
+import number1Image from "../assets/image/form/1.png";
+import number2Image from "../assets/image/form/2.png";
+import number3Image from "../assets/image/form/3.png";
+import number4Image from "../assets/image/form/4.png";
+import number5Image from "../assets/image/form/5.png";
+
+const stepDetails = [
+  { label: "STEP 1", title: "Personal Details",  imagestep: number1Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 2", title: "Academic Information", imagestep: number2Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center", status: "In Progress" },
+  { label: "STEP 3", title: "Supporting Documents", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 4", title: "Write your Statement of Purpose", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 5", title: "Review Application and Submit", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+];
 
 const Steps2 = () => {
-  const [step, setStep] = useState(1);
-
-  const steps = [
-    { title: "Personal Details" },
-    { title: "Academic Information" },
-    { title: "Supporting Documents" },
-    { title: "Write your Statement of Purpose" },
-    { title: "Review Application and Submit" }
-  ];
-
   return (
-    <div className="w-full bg-[#f9f9ff] px-4 py-6">
-      <div className="max-w-6xl mx-auto bg-white rounded-md p-6 space-y-4">
-        
-        {/* Stepper without top border */}
-        <div className="flex justify-between">
-          {steps.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center w-full space-y-1"
-            >
-              <div className="text-sm text-gray-400 font-light tracking-wide">
-                STEP {index + 1}
-              </div>
-              <div
-                className={`w-8 h-8 flex items-center justify-center rounded-full border text-xs font-medium ${
-                  step > index + 1
-                    ? "border-gray-300 text-gray-400"
-                    : step === index + 1
-                    ? "border-blue-500 text-blue-500"
-                    : "border-dashed border-gray-300 text-gray-300"
-                }`}
-              >
-                {index + 1}
-              </div>
-              <p className="text-xs text-gray-600 font-light">{item.title}</p>
-              <span className="text-[10px] text-gray-400">
-                {step > index + 1 ? "Completed" : "Not started"}
-              </span>
-            </div>
-          ))}
+    <div className="mb-8">
+      {/* Steps and Progress Bar */}
+      <div className="flex flex-row items-center w-full overflow-x-auto justify-center mx-auto p-4">
+        <div className="flex items-center justify-between w-full max-w-6xl gap-2 max-md:hidden">
+          {stepDetails.map((step, index) => {
+            return (
+              <React.Fragment key={index}>
+                <div className="flex flex-row h-40 relative">
+                  <div
+                    className='w-10 h-10 rounded-full border-2 border-dashed flex items-center justify-center border-blue-700'
+                  >
+                    <img
+                      src={step.imagestep}
+                      className="w-5 h-5 object-contain"
+                    />
+                  </div>
+                  
+                 </div>
+                 <div className="flex flex-col w-1/5 h-40 mt-7">
+                  <div className={`flex  w-[90%] h-1 bg-gray-200 rounded-full ${step.style2}`}>
+                  </div>
+                  <span className="text-sm text-gray-500 mt-1">{step.label}</span>
+                  <span className="text-[8px] lg:text-[10px] xl:text-sm text-start text-gray-700 whitespace-pre">{step.title}</span>
+                  <span className={`${step.style} text-[8px]`}>{step.status}</span>
+                  </div>
+              </React.Fragment>
+            );
+          })}
         </div>
+      </div>
 
-        {/* Title + Progress Status */}
-        <div className="text-left space-y-1">
-          <h2 className="text-lg font-semibold text-gray-800">
-            Ghana Stem Excellence Scholarship Application Form
-          </h2>
-          <div className="flex items-center gap-2 justify-left text-sm">
-            <span className="text-gray-500 text-xs">Application status :</span>
-            <div className="w-40 h-1 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-1 bg-blue-500 rounded-full transition-all"
-                style={{ width: `${(step / 5) * 100}%` }}
-              ></div>
-            </div>
-            <span className="text-blue-700 text-xs font-medium">
-              {step === 1 ? "Not started" : step === 5 ? "Completed" : "In progress"}
-            </span>
+      {/* Title and Status */}
+      <div className="w-full px-4 py-4 flex justify-between items-center bg-white md:hidden">
+        <button
+          className="px-6 py-1 bg-blue-800 text-white rounded font-bold"
+        >
+          Save Progress
+        </button>
+        <button
+          className="px-2 py-1 bg-white text-blue-800 rounded border bprder-1 border-blue-800 font-bold"
+        >
+          Back to Homepage
+        </button>
+      </div>
+      <div className="mt-6 lg:w-2/3 px-2 lg:px-5">
+        <h2 className="text-sm sm:text-xl md:text-2xl font-bold text-gray-800 flex justify-center">
+          Ghana STEM Excellence Scholarship Application Form
+        </h2>
+        <div className="flex items-center mt-2 justify-center">
+          <span className="text-sm text-gray-600">Application status:</span>
+          <div className="w-24 h-1 bg-gray-200 rounded-full ml-2">
+            <div
+              className="h-full bg-blue-600 rounded-full"
+              style={{ width: `${40}%` }}
+            ></div>
           </div>
+          <span className="ml-2 text-sm text-blue-600">In Progress</span>
         </div>
       </div>
     </div>
