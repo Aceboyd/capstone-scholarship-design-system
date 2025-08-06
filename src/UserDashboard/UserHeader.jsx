@@ -1,9 +1,9 @@
 import { IoBookmarkSharp } from "react-icons/io5";
-import { LuMenu } from "react-icons/lu";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
 import Logo from "../assets/image/user-dashboard/logo.svg";
 import UserProfile from "../assets/image/user-dashboard/userprofile.png";
+import Drawer from "./UserComponent/Drawer";
 
 export default function UserHeader() {
   return (
@@ -17,9 +17,7 @@ export default function UserHeader() {
       </div>
 
       <div className="md:hidden">
-        <span>
-          <LuMenu size={20} color="0000FE" />
-        </span>
+        <Drawer />
       </div>
 
       <div className="flex items-center gap-4 text-[#0000FE]">
