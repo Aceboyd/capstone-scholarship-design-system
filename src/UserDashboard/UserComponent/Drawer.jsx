@@ -47,12 +47,12 @@ export default function Drawer() {
         }`}
       >
         <div className="flex flex-col justify-between">
-          <div className="flex h-full items-center justify-between border-b border-red-500 p-4">
+          <div className="flex h-full items-center justify-between px-4 pt-4">
             <div className="flex items-center gap-2">
               <img
                 src={LogoOnly}
                 alt="Capstone Scholarship Logo"
-                className="h-10 object-cover"
+                className="h-14 object-cover"
               />
 
               <p className="flex flex-col text-sm text-white">
