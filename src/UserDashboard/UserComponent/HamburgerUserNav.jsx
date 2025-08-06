@@ -56,7 +56,7 @@ export default function HamburgerUserNav() {
 
       {/* Support & Help Center */}
       <div className="mt-4 space-y-8 rounded-2xl bg-white px-6 py-4 text-[#0000FE]">
-        <p className="text-center text-sm">
+        <p className="text-center text-xs">
           Support & <span className="font-bold">Help Center</span>
         </p>
 
@@ -73,7 +73,7 @@ export default function HamburgerUserNav() {
             <PiChatsCircle />
           </span>
 
-          <p className="text-sm font-bold">08091234567</p>
+          <p className="text-xs font-bold">08091234567</p>
         </div>
       </div>
     </div>
