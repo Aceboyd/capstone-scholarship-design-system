@@ -10,7 +10,7 @@ import SortSearchFilter from "./UserComponent/SortSearchFilter";
 
 export default function UserMain() {
   return (
-    <section className="grid size-full grid-cols-[3fr_1.08fr] gap-4 p-4">
+    <section className="flex min-h-screen flex-col gap-4 px-4 pt-6 md:grid md:grid-cols-[3fr_1.08fr]">
       <div className="space-y-11">
         <Hero />
 
@@ -31,7 +31,7 @@ export default function UserMain() {
         <ApplicationHistory />
       </div>
 
-      <footer className="col-span-2 -mx-4">
+      <footer className="col-span-2 -mx-4 w-full text-center md:text-left">
         <CopyRight />
       </footer>
     </section>

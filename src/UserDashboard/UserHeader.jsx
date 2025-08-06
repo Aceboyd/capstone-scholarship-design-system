@@ -1,4 +1,5 @@
 import { IoBookmarkSharp } from "react-icons/io5";
+import { LuMenu } from "react-icons/lu";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
 import Logo from "../assets/image/user-dashboard/logo.svg";
@@ -6,13 +7,19 @@ import UserProfile from "../assets/image/user-dashboard/userprofile.png";
 
 export default function UserHeader() {
   return (
-    <div className="flex size-full items-center justify-between px-6 shadow-2xl">
-      <div>
+    <div className="flex size-full items-center justify-between px-6 py-6 shadow-2xl">
+      <div className="hidden md:block">
         <img
           src={Logo}
           alt="Capstone Scholarship Logo"
           className="w-full object-cover"
         />
+      </div>
+
+      <div className="md:hidden">
+        <span>
+          <LuMenu size={20} color="0000FE" />
+        </span>
       </div>
 
       <div className="flex items-center gap-4 text-[#0000FE]">
@@ -21,15 +28,19 @@ export default function UserHeader() {
         </span>
 
         <div className="flex items-center gap-2">
-          <p className="font-bold">Adewale</p>
+          <p className="hidden font-bold md:block">Adewale</p>
 
-          <img src={UserProfile} alt="User profile image" />
+          <img
+            src={UserProfile}
+            alt="User profile image"
+            className="hidden md:block"
+          />
 
           <div className="inline-flex items-center gap-2 font-medium">
             <span>
               <RiLogoutBoxRLine />
             </span>
-            <p>Logout</p>
+            <p className="hidden md:block">Logout</p>
           </div>
         </div>
       </div>
