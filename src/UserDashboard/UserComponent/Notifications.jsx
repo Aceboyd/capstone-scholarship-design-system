@@ -4,9 +4,9 @@ export default function Notifications() {
   return (
     <div className="space-y-4 rounded-xl bg-white px-6 py-4">
       <div className="flex items-center justify-between">
-        <p className="text-[17px] font-bold">Notifications</p>
+        <p className="text-[15px] font-bold md:text-[17px]">Notifications</p>
 
-        <span>
+        <span className="text-sm md:text-base">
           <SlOptions color="#99B8FF" />
         </span>
       </div>

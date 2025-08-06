@@ -4,15 +4,19 @@ import PieChart from "../../assets/image/user-dashboard/piechart.svg";
 
 export default function ScholarshipApplication() {
   return (
-    <div className="space-y-4 text-[13px]">
-      <p className="text-[15px] font-bold">Scholarship Applications</p>
+    <div className="space-y-4 text-[12px] md:text-[13px]">
+      <p className="text-[13px] font-bold md:text-[15px]">
+        Scholarship Applications
+      </p>
 
-      <div className="flex items-center justify-between rounded-md border-l-4 border-[#38CCC7] bg-white px-8">
-        <div className="space-y-4">
+      <div className="flex flex-col items-center justify-center rounded-md border-l-4 border-[#38CCC7] bg-white px-4 sm:flex-row sm:justify-between md:px-8">
+        <div className="space-y-4 py-4 sm:py-0">
           <div className="space-y-2">
-            <p className="text-sm font-bold">Search your applications</p>
+            <p className="text-xs font-bold md:text-sm">
+              Search your applications
+            </p>
 
-            <div className="flex w-[369px]">
+            <div className="flex">
               <input
                 type="text"
                 id="searchApplication"
@@ -29,7 +33,7 @@ export default function ScholarshipApplication() {
           </div>
 
           {/* CHECK BOX */}
-          <div className="flex justify-between">
+          <div className="flex flex-wrap justify-between gap-x-4 gap-y-2">
             <label
               htmlFor="submitted"
               className="flex cursor-pointer items-center gap-2"
@@ -69,7 +73,7 @@ export default function ScholarshipApplication() {
         </div>
 
         {/* Pie Chart */}
-        <div className="space-y-4 text-center text-[13px]">
+        <div className="space-y-4 py-4 text-center text-[13px] sm:py-0">
           <div className="flex flex-col justify-center gap-2 p-4">
             <div className="relative">
               <img
