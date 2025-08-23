@@ -31,7 +31,7 @@ const NavigationBar = () => {
       className="navbar sticky top-0 z-50 w-full border-b border-gray-200 bg-[#EBEDFF] py-2"
       style={{ fontFamily: "Open Sans, sans-serif" }}
     >
-      <div className="mx-auto flex max-w-6xl justify-around rounded-lg bg-white p-3 px-4 shadow-md">
+      <div className="mx-auto flex max-w-6xl flex-col sm:flex-row justify-around rounded-lg bg-white p-2 sm:p-3 px-2 sm:px-4 shadow-md gap-2 sm:gap-0 overflow-x-auto">
         {[
           { id: "overview", label: "Overview" },
           { id: "about-scholarship", label: "About Scholarship" },
@@ -43,7 +43,7 @@ const NavigationBar = () => {
           <button
             key={item.id}
             onClick={() => handleScroll(item.id)}
-            className={`rounded-lg px-4 py-2 transition duration-200 ${
+            className={`rounded-lg px-4 py-2 transition duration-200 w-full sm:w-auto ${
               activeSection === item.id
                 ? "bg-[#0000FE] text-white"
                 : "bg-gray-200 text-gray-600 hover:bg-gray-300"
