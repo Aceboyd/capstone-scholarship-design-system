@@ -1,4 +1,3 @@
-import React from 'react';
 import { Instagram, Twitter } from 'lucide-react';
 
 // ✅ Corrected filename to match actual file: whasapp.png
@@ -10,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#000080] text-white py-6">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3  md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 md:gap-6">
           {/* Quick Links */}
           <div>
             <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
@@ -83,11 +82,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        </div>
+      </div>
 
-        <div className="w-full mt-12 text-sm md:text-base flex text-center border-t border-blue-800 ">
-          <p className='pt-5 mx-auto'>© {currentYear} Capstone Scholarship Nigeria. All Rights Reserved.</p>
-        </div>
+      <div className="w-full mt-12 text-sm md:text-base flex text-center border-t border-blue-800">
+        <p className='pt-5 mx-auto'>© {currentYear} Capstone Scholarship Nigeria. All Rights Reserved.</p>
+      </div>
     </footer>
   );
 };
