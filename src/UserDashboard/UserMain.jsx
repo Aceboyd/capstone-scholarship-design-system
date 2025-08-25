@@ -10,8 +10,8 @@ import SortSearchFilter from "./UserComponent/SortSearchFilter";
 
 export default function UserMain() {
   return (
-    <section className="grid size-full grid-cols-1 md:grid-cols-[3fr_1.08fr] gap-2 md:gap-4 p-2 md:p-4">
-      <div className="space-y-8 md:space-y-11">
+    <section className="flex min-h-screen flex-col gap-4 px-4 pt-6 md:grid md:grid-cols-[3fr_1.08fr]">
+      <div className="space-y-11">
         <Hero />
         <ScholarshipLists />
         <MyApplication />
@@ -23,7 +23,8 @@ export default function UserMain() {
         <Notifications />
         <ApplicationHistory />
       </div>
-      <footer className="col-span-1 md:col-span-2 -mx-2 md:-mx-4 w-full text-center md:text-left">
+
+      <footer className="col-span-2 -mx-4 w-full text-center md:text-left">
         <CopyRight />
       </footer>
     </section>

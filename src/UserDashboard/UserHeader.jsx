@@ -7,9 +7,8 @@ import Drawer from "./UserComponent/Drawer";
 
 export default function UserHeader() {
   return (
-    <div className="flex size-full flex-col sm:flex-row items-start sm:items-center justify-between px-3 sm:px-6 py-6 shadow-2xl gap-2 sm:gap-0">
-      {/* Logo */}
-      <div className="max-w-[120px] sm:max-w-[180px]">
+    <div className="flex size-full items-center justify-between px-6 py-6 shadow-2xl">
+      <div className="hidden md:block">
         <img
           src={Logo}
           alt="Capstone Scholarship Logo"
@@ -17,31 +16,29 @@ export default function UserHeader() {
         />
       </div>
 
-      {/* Right Section: Drawer (mobile), Bookmark, User Profile, Logout */}
-      <div className="flex items-center gap-2 sm:gap-4 text-[#0000FE] mt-2 sm:mt-0">
-        {/* Drawer for mobile */}
-        <div className="md:hidden">
-          <Drawer />
-        </div>
+      <div className="md:hidden">
+        <Drawer />
+      </div>
 
-        {/* Bookmark, User Profile, Logout */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <span>
-            <IoBookmarkSharp className="text-lg sm:text-xl" />
-          </span>
-          <div className="flex items-center gap-1 sm:gap-2">
-            <p className="font-bold text-sm sm:text-base md:block">Adewale</p>
-            <img
-              src={UserProfile}
-              alt="User profile image"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover md:block"
-            />
-            <div className="inline-flex items-center gap-1 sm:gap-2 font-medium">
-              <span>
-                <RiLogoutBoxRLine className="text-lg sm:text-xl" />
-              </span>
-              <p className="text-xs sm:text-base md:block">Logout</p>
-            </div>
+      <div className="flex items-center gap-4 text-[#0000FE]">
+        <span>
+          <IoBookmarkSharp />
+        </span>
+
+        <div className="flex items-center gap-2">
+          <p className="hidden font-bold md:block">Adewale</p>
+
+          <img
+            src={UserProfile}
+            alt="User profile image"
+            className="hidden md:block"
+          />
+
+          <div className="inline-flex items-center gap-2 font-medium">
+            <span>
+              <RiLogoutBoxRLine />
+            </span>
+            <p className="hidden md:block">Logout</p>
           </div>
         </div>
       </div>
