@@ -6,11 +6,11 @@ import number4Image from "../assets/image/form/4.png";
 import number5Image from "../assets/image/form/5.png";
 
 const stepDetails = [
-  { label: "STEP 1", imagestep: number1Image, style: "mt-1 text-[10px] sm:text-xs text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 sm:px-3", status: "In Progress" },
+  { label: "STEP 1", imagestep: number1Image, style: "mt-1 text-[8px] sm:text-xs text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 sm:px-3", status: "In Progress" },
   { label: "STEP 2", imagestep: number2Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
   { label: "STEP 3", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
   { label: "STEP 4", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 5", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started", style2: "hidden" },
+  { label: "STEP 5", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started", style2: "hidden" }
 ];
 
 const Stepsresponsive = () => {
@@ -26,7 +26,7 @@ const Stepsresponsive = () => {
       
                   return (
                     <React.Fragment key={index}>
-                      <div className="flex flex-col m-3  justify-center items-center flex-1 ">
+                      <div className="flex flex-col m-2  justify-center items-center flex-1 ">
                         <div
                           className='w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-dashed border-blue-700 flex items-center justify-center'
                         >

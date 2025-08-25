@@ -120,7 +120,7 @@ const ScholarshipForm = () => {
   };
 
   return (
-    <div className="md:bg-gray-100">
+    <div className="bg-[#FAFAFF]">
       {/* Header */}
       <Header2anon/>
 
@@ -142,7 +142,7 @@ const ScholarshipForm = () => {
         <div className="grid grid-cols-1 gap-6 max-w-6xl px-4 md:grid-cols-3 w-[80%]">
           {/* Form Content */}
           <div className="md:col-span-2">
-            <div className="rounded-md bg-white p-6 shadow-md">
+            <div className="rounded-md bg-white p-6">
               <form>
                 <h3 className="mb-6 text-xl font-semibold">
                   Step 2: Academic Information
@@ -167,7 +167,7 @@ const ScholarshipForm = () => {
                   </div>
 
                   {/* Program of Study and Current Level */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700">
                         Program of Study
@@ -306,13 +306,13 @@ const ScholarshipForm = () => {
           </div>
 
           {/* Right-Side Actions */}
-          <div className="flex flex-col items-end md:col-span-1 max-md:hidden">
-            <button className="mb-2 w-full max-w-xs rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+          <div className="flex flex-col items-end md:col-span-1 max-md:hidden bg-[#FAFAFF] text-[12px]">
+            <button className="mb-2 w-full max-w-xs rounded-md bg-[#0000FE] px-4 py-2 text-white hover:bg-blue-700">
               Save Progress
             </button>
             <a
               href="#"
-              className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-blue-600 hover:bg-blue-50"
+              className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-[#0000FE] hover:bg-blue-50"
             >
               Back to Homepage
             </a>
@@ -325,7 +325,7 @@ const ScholarshipForm = () => {
           </div>
 
           {/* Navigation Buttons Moved Down */}
-          <div className="mt-8 flex justify-between md:col-span-3 max-md:hidden py-4">
+          <div className="mt-8 flex justify-between md:col-span-3 max-md:hidden py-4 bg-[#FAFAFF]">
             <button
               id="back-button"
               onClick={handleBack}
@@ -371,7 +371,7 @@ const ScholarshipForm = () => {
           </div>
         </div>
         </div>
-  <div className='md:hidden justify-between flex flex-row py-4'>
+  <div className='md:hidden justify-between flex flex-row py-4 bg-[#FAFAFF]'>
     <Navigationresponsive2/>
     <button
     href="/step3"

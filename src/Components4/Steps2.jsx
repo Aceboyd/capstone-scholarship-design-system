@@ -47,14 +47,14 @@ const Steps2 = () => {
       </div>
 
       {/* Title and Status */}
-      <div className="w-full px-4 py-4 flex justify-between items-center bg-white md:hidden">
+      <div className="w-full px-4 pb-4 flex justify-between text-[12px] items-center  md:hidden bg-[#FAFAFF]">
         <button
-          className="px-6 py-1 bg-blue-800 text-white rounded font-bold"
+          className="px-4 py-1 bg-[#0000FE] text-white rounded font-bold"
         >
           Save Progress
         </button>
         <button
-          className="px-2 py-1 bg-white text-blue-800 rounded border bprder-1 border-blue-800 font-bold"
+          className="px-4 py-1 bg-white text-[#0000FE] rounded border bprder-1 border-blue-800 font-bold"
         >
           Back to Homepage
         </button>
@@ -65,7 +65,7 @@ const Steps2 = () => {
         </h2>
         <div className="flex items-center mt-2 justify-center">
           <span className="text-sm text-gray-600">Application status:</span>
-          <div className="w-24 h-1 bg-gray-200 rounded-full ml-2">
+          <div className="w-24 h-2 bg-gray-200 rounded-full ml-2">
             <div
               className="h-full bg-blue-600 rounded-full"
               style={{ width: `${40}%` }}

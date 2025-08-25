@@ -19,7 +19,7 @@ let PortalSteps1 = () => {
     }, [isOpen]);
 
     return (
-        <div className="md:bg-gray-100">
+        <div className="bg-[#FAFAFF]">
             <Header2anon/>
             <div className="flex flex-col mt-8">
                 <Background />

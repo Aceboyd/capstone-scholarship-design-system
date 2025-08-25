@@ -18,7 +18,7 @@ const Application2 = () => {
 
   return (
     <>
-    <div className='flex flex-col md:bg-gray-100'>
+    <div className='flex flex-col'>
     <div className='flex flex-row justify-center '>
       <div className='w-[20%] md:hidden'><Stepsresponsive/></div>
     <div className="w-[80%] min-h-screen flex flex-col justify-start">
@@ -27,7 +27,7 @@ const Application2 = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
           
           {/* Left - Personal Details Form */}
-          <div className="col-span-2 bg-white p-6 rounded-lg shadow-md">
+          <div className="col-span-2 bg-white p-6">
             <h2 className="text-lg font-bold mb-4">Step {step}: Personal Details</h2>
 
             {/* First Name and Last Name */}
@@ -115,11 +115,11 @@ const Application2 = () => {
           </div>
 
           {/* Right - Buttons */}
-          <div className="flex flex-col md:justify-start gap-4 max-md:hidden">
-            <button className="px-5 py-2 bg-blue-500 text-white rounded-md w-[100%]">
+          <div className="flex flex-col md:justify-start gap-4 max-md:hidden bg-[#FAFAFF]">
+            <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%]">
               Save Progress
             </button>
-            <button className="px-5 py-2 bg-gray-200 text-black rounded-md w-full">
+            <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
               Back to Homepage
             </button>
             <p className="text-red-500 text-xs text-center mt-4">
@@ -130,7 +130,7 @@ const Application2 = () => {
       </div>
 
       {/* Bottom Navigation - Back Left, Next Right */}
-      <div className="w-full px-4 py-4 flex justify-between items-center  max-md:hidden">
+      <div className="w-full px-4 py-4 flex justify-between items-center bg-[#FAFAFF]  max-md:hidden">
         <button
           onClick={handleBack}
           className="px-6 py-2 bg-gray-300 text-black rounded"

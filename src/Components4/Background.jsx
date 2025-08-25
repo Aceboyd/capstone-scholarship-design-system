@@ -4,7 +4,12 @@ const Background = ({ children }) => {
             {/* If getf.png is meant to be small, contain it */}
             <img 
                 src="/getf.png" 
-                className="w-800 h-auto object-contain mt-4" 
+                className="hidden md:block w-800 h-auto object-contain mt-4" 
+                alt="background or logo" 
+            />
+            <img 
+                src="/bg-getf.png" 
+                className="md:hidden w-full  md:object-cover md:h-[25vh] mt-4" 
                 alt="background or logo" 
             />
 

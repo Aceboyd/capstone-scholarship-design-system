@@ -28,7 +28,7 @@ export default function PortalStep5() {
   };
 
   return (
-    <section className="md:bg-gray-100">
+    <section className="bg-[#FAFAFF]">
       {/* Header ✅ */}
       <Header2anon/>
 
@@ -46,16 +46,16 @@ export default function PortalStep5() {
             <div className="flex flex-col">
           <div className="flex flex-row justify-center">
             <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive5/></div>
-            <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 p-6 max-md:shadow-md gap-5">
+            <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 gap-5">
               {/* Step 5: Review Application and Submit */}
               <div className="w-full md:w-[70%] bg-white p-6">
                 <div className="space-y-2">
-                  <h2 className="text-xl sm:text-2xl">
+                  <h2 className="text-sm sm:text-2xl">
                     <span className="font-bold">Step 5:</span> Review
                     Application and Submit
                   </h2>
 
-                  <p className="max-w-3xl text-base text-pretty text-gray-700 sm:text-lg">
+                  <p className="max-w-3xl text-sm text-pretty text-gray-700 sm:text-lg">
                     Kindly review your application carefully and ensure that the
                     information you've provided across all steps is accurate.
                     Once you have cross-checked, you can submit your
@@ -64,19 +64,19 @@ export default function PortalStep5() {
                 </div>
 
                 {/* PERSONAL INFORMATION */}
-                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-4 py-6 sm:px-8">
+                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-2 py-6 sm:px-8">
                   <div className="flex w-full items-center justify-between">
-                    <h3 className="text-xl sm:text-2xl">
+                    <h3 className="text-sm sm:text-2xl">
                       Personal Information
                     </h3>
                     <button
                       type="button"
-                      className="inline-flex cursor-pointer items-center gap-2 text-xl font-medium text-blue-700 sm:text-2xl"
+                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-700 sm:text-2xl"
                     >
                       Edit <FaRegEdit className="text-lg" />
                     </button>
                   </div>
-                  <div className="flex flex-col gap-8 text-base sm:text-lg">
+                  <div className="flex flex-col gap-8 text-sm sm:text-lg">
                     <label htmlFor="firstName">
                       First Name:{" "}
                       <input
@@ -181,19 +181,19 @@ export default function PortalStep5() {
                 </div>
 
                 {/* ACADEMIC INFORMATION */}
-                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-4 py-6 sm:px-8">
+                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-2 py-6 sm:px-8">
                   <div className="flex w-full items-center justify-between">
-                    <h3 className="text-xl sm:text-2xl">
+                    <h3 className="text-sm sm:text-2xl">
                       Academic Information
                     </h3>
                     <button
                       type="button"
-                      className="inline-flex cursor-pointer items-center gap-2 text-xl font-medium text-blue-700 sm:text-2xl"
+                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-700 sm:text-2xl"
                     >
                       Edit <FaRegEdit className="text-lg" />
                     </button>
                   </div>
-                  <div className="flex flex-col gap-8 text-base sm:text-lg">
+                  <div className="flex flex-col gap-8 text-sm sm:text-lg">
                     <label htmlFor="institutionName">
                       Institution Name:{" "}
                       <input
@@ -247,19 +247,19 @@ export default function PortalStep5() {
                 </div>
 
                 {/* SUPPORTING DOCUMENTS */}
-                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-4 py-6 sm:px-8">
+                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-2 py-6 sm:px-8">
                   <div className="flex w-full items-center justify-between">
-                    <h3 className="text-xl sm:text-2xl">
+                    <h3 className="text-sm sm:text-2xl">
                       Supporting Documents
                     </h3>
                     <button
                       type="button"
-                      className="inline-flex cursor-pointer items-center gap-2 text-xl font-medium text-blue-700 sm:text-2xl"
+                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-700 sm:text-2xl"
                     >
                       Edit <FaRegEdit className="text-lg" />
                     </button>
                   </div>
-                  <div className="flex flex-col gap-8 text-base sm:text-lg">
+                  <div className="flex flex-col gap-8 text-sm sm:text-lg">
                     <label htmlFor="recommendationLetter">
                       Recommendation Letter:{" "}
                       <input
@@ -300,19 +300,19 @@ export default function PortalStep5() {
                 </div>
 
                 {/* STATEMENT OF PURPOSE */}
-                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-4 py-6 sm:px-8">
+                <div className="mt-16 max-w-3xl space-y-12 bg-gray-50 px-2 py-6 sm:px-8">
                   <div className="flex w-full items-center justify-between">
-                    <h3 className="text-xl sm:text-2xl">
+                    <h3 className="text-sm sm:text-2xl">
                       Statement of Purpose
                     </h3>
                     <button
                       type="button"
-                      className="inline-flex cursor-pointer items-center gap-2 text-xl font-medium text-blue-700 sm:text-2xl"
+                      className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-blue-700 sm:text-2xl"
                     >
                       Edit <FaRegEdit className="text-lg" />
                     </button>
                   </div>
-                  <div className="flex flex-col gap-8 text-base sm:text-lg">
+                  <div className="flex flex-col gap-8 text-sm sm:text-lg">
                     <textarea
                       rows={10}
                       defaultValue="My journey into Computer Science began in high school, where I led a STEM club project aimed at solving real-world challenges through practical innovation. Alongside my team, we designed and built a basic irrigation system using moisture sensors to help a small farming community conserve water during the dry season. As the team lead, I oversaw the design process, gathered feedback from local farmers, and presented our solution at a school-wide science fair. This hands-on experience ignited my passion for technology and opened my eyes to its potential to create meaningful change—particularly in underserved areas.
@@ -328,13 +328,13 @@ Receiving this scholarship would allow me to stay on this path, deepen my expert
               </div>
 
             {/* Right-Side Actions ✅ */}
-            <div className="flex flex-col items-end md:col-span-1 max-md:hidden w-[30%]">
-              <button className="mb-2 w-full max-w-xs rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+            <div className="flex flex-col items-end md:col-span-1 max-md:hidden w-[30%] bg-[#FAFAFF]">
+              <button className="mb-2 w-full max-w-xs rounded-md bg-[#0000FE] px-4 py-2 text-white hover:bg-blue-700">
                 Save Progress
               </button>
               <a
                 href="#"
-                className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-blue-600 hover:bg-blue-50"
+                className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-[#0000FE] hover:bg-blue-50"
               >
                 Back to Homepage
               </a>
@@ -353,7 +353,7 @@ Receiving this scholarship would allow me to stay on this path, deepen my expert
           <div className="max-w-3xl p-5">
             <label
               htmlFor="confirm"
-              className="flex items-center gap-4 text-base sm:text-lg"
+              className="flex items-center gap-4 text-sm sm:text-lg"
             >
               <input
                 type="checkbox"

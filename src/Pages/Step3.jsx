@@ -118,7 +118,7 @@ const ScholarshipForm = () => {
   };
 
   return (
-    <div className="min-h-screen md:bg-gray-100">
+    <div className="min-h-screen bg-[#FAFAFF]">
       {/* Header */}
       <Header2anon/>
 
@@ -138,7 +138,7 @@ const ScholarshipForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-[80%]">
           {/* Form Content */}
           <div className="md:col-span-2">
-            <div className="bg-white p-6 shadow-md rounded-md">
+            <div className="bg-white p-6">
               <form onSubmit={handleSubmit}>
                 <h3 className="text-xl font-semibold mb-6">Step 3: Supporting Documents</h3>
                 <div className="space-y-6">
@@ -218,11 +218,11 @@ const ScholarshipForm = () => {
           </div>
 
           {/* Right-Side Actions */}
-          <div className="md:col-span-1 flex flex-col items-end max-md:hidden">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 mb-2 w-full max-w-xs">
+          <div className="md:col-span-1 flex flex-col items-end max-md:hidden bg-[#FAFAFF]">
+            <button className="bg-[#0000FE] text-white px-4 py-2 rounded-md hover:bg-blue-700 mb-2 w-full max-w-xs">
               Save Progress
             </button>
-            <a href="#" className="border border-blue-600 text-blue-600 px-4 py-2 rounded-md hover:bg-blue-50 mb-2 w-full max-w-xs text-center block">
+            <a href="#" className="border border-blue-600 text-[#0000FE] px-4 py-2 rounded-md hover:bg-blue-50 mb-2 w-full max-w-xs text-center block">
               Back to Homepage
             </a>
             <p className="text-sm text-gray-600 mt-2 flex items-center justify-end">

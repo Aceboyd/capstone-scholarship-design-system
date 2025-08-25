@@ -14,7 +14,7 @@ const Navigationresponsive = () => {
         navigate('/application');
       };
   return (
-    <div className="w-full px-4 py-4 flex justify-between items-center bg-white">
+    <div className="w-full px-4 py-4 flex justify-between items-center ">
         <button
           onClick={handleBack}
           className="px-6 py-2 bg-gray-300 text-black rounded"

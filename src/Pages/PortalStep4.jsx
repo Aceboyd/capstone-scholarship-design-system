@@ -10,7 +10,7 @@ export default function PortalStep4() {
   
 
   return (
-    <section className="md:bg-gray-100">
+    <section className="bg-[#FAFAFF]">
       {/* Header */}
       <Header2anon/>
 
@@ -24,9 +24,9 @@ export default function PortalStep4() {
         <div className="flex flex-col">
           <div className="flex flex-row justify-center">
             <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive4/></div> 
-            <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 p-6 gap-5">
+            <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 px-1 gap-5">
               {/* STEP 4: WRITE YOUR STATEMENT OF PURPOSE ✅ */}
-              <div className="w-full md:w-[70%] p-6 space-y-2 bg-amber-50 md:bg-white rounded-2xl">
+              <div className="w-full md:w-[70%] p-6 space-y-2 bg-white">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <p className="text-xl">
@@ -65,7 +65,7 @@ export default function PortalStep4() {
                   ></textarea>
                 </div>
                 {/* SECTION 2: CAPSTONE AI ASSISTANT ✅ */}
-                <div className=" space-y-2 bg-amber-50 md:bg-white rounded-2xl p-5">
+                <div className=" space-y-2 p-5">
                 <div className="space-y-2">
                   <p className="text-xl">
                     <span className="font-bold">Section 2 :</span> Capstone AI
@@ -108,13 +108,13 @@ export default function PortalStep4() {
                 </div>
 
                {/* Right-Side Actions ✅ */}
-            <div className="flex flex-col items-end md:col-span-1 max-md:hidden w-[30%]">
-              <button className="mb-2 w-full max-w-xs rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+            <div className="flex flex-col items-end md:col-span-1 max-md:hidden w-[30%] bg-[#FAFAFF]">
+              <button className="mb-2 w-full max-w-xs rounded-md bg-[#0000FE] px-4 py-2 text-white hover:bg-blue-700">
                 Save Progress
               </button>
               <a
                 href="#"
-                className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-blue-600 hover:bg-blue-50"
+                className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-[#0000FE] hover:bg-blue-50"
               >
                 Back to Homepage
               </a>

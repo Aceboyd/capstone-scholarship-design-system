@@ -17,8 +17,8 @@ const Steps = () => {
   return (
     <div className="mb-8">
       {/* Steps and Progress Bar */}
-      <div className="flex flex-row items-center w-full overflow-x-auto justify-center mx-auto p-4">
-        <div className="flex items-center justify-between w-full max-w-6xl gap-2 max-md:hidden">
+      <div className="flex flex-row items-center w-full overflow-x-auto justify-center mx-auto p-4 max-md:hidden">
+        <div className="flex items-center justify-between w-full max-w-6xl gap-2">
           {stepDetails.map((step, index) => {
             return (
               <React.Fragment key={index}>
@@ -47,14 +47,14 @@ const Steps = () => {
       </div>
 
       {/* Title and Status */}
-      <div className="w-full px-4 py-4 flex justify-between items-center bg-white md:hidden">
+      <div className="w-full px-4 pb-4 flex justify-between text-[12px] items-center md:hidden bg-[#FAFAFF]">
         <button
-          className="px-6 py-1 bg-blue-800 text-white rounded font-bold"
+          className="px-4 py-1 bg-[#0000FE] text-white rounded font-bold"
         >
           Save Progress
         </button>
         <button
-          className="px-2 py-1 bg-white text-blue-800 rounded border bprder-1 border-blue-800 font-bold"
+          className="px-4 py-1 bg-white text-[#0000FE] rounded border bprder-1 border-blue-800 font-bold"
         >
           Back to Homepage
         </button>
@@ -65,9 +65,9 @@ const Steps = () => {
         </h2>
         <div className="flex items-center mt-2 justify-center">
           <span className="text-sm text-gray-600">Application status:</span>
-          <div className="w-24 h-1 bg-gray-200 rounded-full ml-2">
+          <div className="w-24 h-2 bg-gray-200 rounded-full ml-2">
             <div
-              className="h-full bg-blue-600 rounded-full"
+              className="h-full bg-[#0000FE] rounded-full"
               style={{ width: `${20}%` }}
             ></div>
           </div>

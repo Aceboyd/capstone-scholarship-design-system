@@ -10,7 +10,7 @@ const stepDetails = [
   { label: "STEP 2", imagestep: number2Image, style: "mt-1 text-[10px] sm:text-xs text-[#0000FE] bg-[#CCCFFF] rounded-full px-2", status: "Completed", style2: "bg-indigo-500" },
   { label: "STEP 3", imagestep: number3Image, style: "mt-1 text-[10px] sm:text-xs text-[#0000FE] bg-[#CCCFFF] rounded-full px-2", status: "Completed", style2: "bg-indigo-500" },
   { label: "STEP 4", imagestep: number4Image, style: "mt-1 text-[10px] sm:text-xs text-[#0000FE] bg-[#CCCFFF] rounded-full px-2", status: "Completed", style2: "bg-indigo-500" },
-  { label: "STEP 5", imagestep: number5Image, style: "mt-1 text-[10px] sm:text-xs text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 sm:px-3", status: "In Progress", style2: "hidden" },
+  { label: "STEP 5", imagestep: number5Image, style: "mt-1 text-[10px] sm:text-xs text-[#0000FE] bg-[#CCCFFF] rounded-full px-2", status: "Completed", style2: "hidden" },
 ];
 
 const Stepsresponsive5 = () => {
