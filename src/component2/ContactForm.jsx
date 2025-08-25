@@ -72,7 +72,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full space-y-6">
+    <form onSubmit={handleSubmit} className="w-full space-y-4 sm:space-y-6">
       <div>
         <label htmlFor="name" className="block text-gray-800 mb-2 font-medium">
           Your Name
@@ -83,9 +83,9 @@ const ContactForm = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-md border ${
+          className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border ${
             errors.name ? 'border-red-500' : 'border-gray-300'
-          } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+          } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-base sm:text-lg`}
           placeholder="John Doe"
         />
         {errors.name && (
@@ -103,9 +103,9 @@ const ContactForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-md border ${
+          className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border ${
             errors.email ? 'border-red-500' : 'border-gray-300'
-          } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+          } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-base sm:text-lg`}
           placeholder="your.email@example.com"
         />
         {errors.email && (
@@ -122,10 +122,10 @@ const ContactForm = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          rows={6}
-          className={`w-full px-4 py-3 rounded-md border ${
+          rows={4}
+          className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-md border ${
             errors.message ? 'border-red-500' : 'border-gray-300'
-          } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+          } focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-base sm:text-lg`}
           placeholder="How can we help you?"
         />
         {errors.message && (
@@ -137,7 +137,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-all duration-200 flex items-center justify-center ${
+          className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 sm:py-3 px-4 sm:px-6 rounded-md transition-all duration-200 flex items-center justify-center text-base sm:text-lg ${
             isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
           }`}
         >
