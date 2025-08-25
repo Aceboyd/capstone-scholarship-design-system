@@ -23,7 +23,7 @@ export default function UserMain() {
         <Notifications />
         <ApplicationHistory />
       </div>
-      <footer className="col-span-1 md:col-span-2 -mx-2 md:-mx-4">
+      <footer className="col-span-1 md:col-span-2 -mx-2 md:-mx-4 w-full text-center md:text-left">
         <CopyRight />
       </footer>
     </section>
