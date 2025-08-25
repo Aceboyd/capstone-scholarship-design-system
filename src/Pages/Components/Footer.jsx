@@ -12,7 +12,7 @@ let Footer = () => {
 
         <div className="space-y-4">
           <p className="text-2xl">Contact Us</p>
-          <p>scholarships@capstone.gov.ng</p>
+          <p className="flex justify-end">scholarships@capstone.gov.ng</p>
           <p>
             +234 (0) 702 123 456 , <br />
             +234 (0) 809 187 653

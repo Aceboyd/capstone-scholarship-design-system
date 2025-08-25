@@ -128,11 +128,11 @@ export default function ApplicationSummit() {
         </div>
 
         {/* Sidebar Actions */}
-        <div className="w-full lg:w-64 flex flex-col gap-4">
-          <button className="px-5 py-2 bg-blue-500 text-white rounded-md w-full">
+        <div className="w-full lg:w-64 flex flex-col gap-4 bg-[#FAFAFF]">
+          <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full">
             Save Progress
           </button>
-          <button className="px-5 py-2 bg-gray-200 text-black rounded-md w-full">
+          <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
             Back to Homepage
           </button>
           <p className="text-red-500 text-xs text-center mt-2">

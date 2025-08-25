@@ -5,6 +5,7 @@ import Application2 from "../Components4/Application2";
 import Background from "../Components4/Background";
 
 import { useState, useEffect } from "react";
+import Header2anon from "../Component3/Header2anon";
 
 let PortalSteps1 = () => {
     let [isOpen, setIsOpen] = useState(true);
@@ -18,9 +19,9 @@ let PortalSteps1 = () => {
     }, [isOpen]);
 
     return (
-        <div>
-            <Navbar />
-            <div className="flex flex-col -mt-1">
+        <div className="bg-[#FAFAFF]">
+            <Header2anon/>
+            <div className="flex flex-col mt-8">
                 <Background />
                 <div className="mt-12">
                     <Steps />

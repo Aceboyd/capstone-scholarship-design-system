@@ -1,24 +1,24 @@
 import React from "react";
 import number1Image from "../assets/image/form/1.png";
-import number2Image from "../assets/image/form/2.png";
+import number2Image from "../assets/image/form/now.png";
 import number3Image from "../assets/image/form/3.png";
 import number4Image from "../assets/image/form/4.png";
 import number5Image from "../assets/image/form/5.png";
 
 const stepDetails = [
-  { label: "STEP 1", title: "Personal Details",  imagestep: number1Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center", status: "In Progress", style2: "bg-gray-200" },
-  { label: "STEP 2", title: "Academic Information", imagestep: number2Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 3", title: "Supporting Documents", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 1", title: "Personal Details",  imagestep: number1Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 2", title: "Academic Information", imagestep: number2Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 3", title: "Supporting Documents", imagestep: number3Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center", status: "In Progress" },
   { label: "STEP 4", title: "Write your Statement of Purpose", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
   { label: "STEP 5", title: "Review Application and Submit", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
 ];
 
-const Steps = () => {
+const Steps3 = () => {
   return (
     <div className="mb-8">
       {/* Steps and Progress Bar */}
-      <div className="flex flex-row items-center w-full overflow-x-auto justify-center mx-auto p-4 max-md:hidden">
-        <div className="flex items-center justify-between w-full max-w-6xl gap-2">
+      <div className="flex flex-row items-center w-full overflow-x-auto justify-center mx-auto p-4">
+        <div className="flex items-center justify-between w-full max-w-6xl gap-2 max-md:hidden">
           {stepDetails.map((step, index) => {
             return (
               <React.Fragment key={index}>
@@ -33,7 +33,7 @@ const Steps = () => {
                   </div>
                   
                  </div>
-                <div className="flex flex-col w-1/5 h-40 mt-7">
+                 <div className="flex flex-col w-1/5 h-40 mt-7">
                   <div className={`flex  w-[90%] h-1 bg-gray-200 rounded-full ${step.style2}`}>
                   </div>
                   <span className="text-sm text-gray-500 mt-1">{step.label}</span>
@@ -47,7 +47,7 @@ const Steps = () => {
       </div>
 
       {/* Title and Status */}
-      <div className="w-full px-4 pb-4 flex justify-between text-[12px] items-center md:hidden bg-[#FAFAFF]">
+      <div className="w-full px-4 py-4 flex justify-between items-center bg-[#FAFAFF] md:hidden text-[12px]">
         <button
           className="px-4 py-1 bg-[#0000FE] text-white rounded font-bold"
         >
@@ -67,8 +67,8 @@ const Steps = () => {
           <span className="text-sm text-gray-600">Application status:</span>
           <div className="w-24 h-2 bg-gray-200 rounded-full ml-2">
             <div
-              className="h-full bg-[#0000FE] rounded-full"
-              style={{ width: `${20}%` }}
+              className="h-full bg-blue-600 rounded-full"
+              style={{ width: `${60}%` }}
             ></div>
           </div>
           <span className="ml-2 text-sm text-blue-600">In Progress</span>
@@ -78,4 +78,4 @@ const Steps = () => {
   );
 };
 
-export default Steps;
+export default Steps3;
