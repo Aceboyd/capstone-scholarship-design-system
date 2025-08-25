@@ -133,15 +133,20 @@ const SlideSection = () => {
       <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 relative">
         <Swiper
           modules={[Navigation, Pagination]}
-          spaceBetween={10}
-          slidesPerView={3}
-          slidesPerGroup={3}
+          spaceBetween={8}
+          slidesPerView={1}
+          slidesPerGroup={1}
           navigation={{
             nextEl: ".custom-swiper-next",
             prevEl: ".custom-swiper-prev",
           }}
           pagination={{ clickable: true }}
           breakpoints={{
+            0: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 8,
+            },
             640: {
               slidesPerView: 1,
               slidesPerGroup: 1,
@@ -162,12 +167,12 @@ const SlideSection = () => {
         >
           {scholarships.map((scholarship, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-lg shadow-md p-3 sm:p-5 mx-1 sm:mx-2 flex flex-col"
-                style={{ height: "auto", minHeight: "280px", maxHeight: "320px" }}>
+              <div className="relative bg-white rounded-lg shadow-md p-2 sm:p-5 mx-0.5 sm:mx-2 flex flex-col"
+                style={{ height: "auto", minHeight: "260px", maxHeight: "320px" }}>
                 
                 {/* Bookmark Image */}
                 <button 
-                  className="absolute top-3 sm:top-5 right-3 sm:right-6 z-10"
+                  className="absolute top-2 sm:top-5 right-2 sm:right-6 z-10"
                   onClick={() => toggleBookmark(index)}
                 >
                   <img 
@@ -190,7 +195,7 @@ const SlideSection = () => {
                     </div>
                   </div>
 
-                  <div className="mt-3 sm:mt-6 text-gray-600 text-[10px] sm:text-sm">
+                  <div className="mt-2 sm:mt-6 text-gray-600 text-[10px] sm:text-sm">
                     <p className="font-semibold mb-1 sm:mb-3">
                       <img src={money} alt="Amount" className="inline w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-3" />
                       {scholarship.amount}
@@ -211,7 +216,7 @@ const SlideSection = () => {
                 </div>
 
                 {/* Buttons closer to content */}
-                <div className="mt-4 sm:mt-8 flex justify-between gap-2">
+                <div className="mt-3 sm:mt-8 flex justify-between gap-2">
                   <button className="bg-gray-200 text-gray-700 px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-gray-300">
                     View Details
                   </button>

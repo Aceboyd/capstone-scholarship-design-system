@@ -16,12 +16,11 @@ const ContactPage = () => {
           <div className="w-24 h-1  mx-auto"></div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className=" p-8 animate-fadeIn">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="p-4 md:p-8 animate-fadeIn">
             <ContactInfo />
           </div>
-          
-          <div className=" p-8 animate-fadeIn animation-delay-300">
+          <div className="p-4 md:p-8 animate-fadeIn animation-delay-300">
             <ContactForm />
           </div>
         </div>

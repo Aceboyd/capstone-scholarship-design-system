@@ -40,14 +40,13 @@ export default function UserNav() {
   ];
 
   return (
-    <div className="flex size-full flex-col justify-between px-6 py-6">
+    <div className="flex size-full flex-col justify-between px-3 sm:px-6 py-4 sm:py-6 overflow-y-auto">
       {/* Navigation */}
       {navLists.map(({ icon, title }, index) => (
         <nav key={index}>
           <div className="group flex w-fit cursor-pointer items-center gap-2 text-white">
-            <span className="font text-xl">{icon}</span>
-
-            <p className="px-1 text-lg capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE]">
+            <span className="font text-base sm:text-xl">{icon}</span>
+            <p className="px-1 text-sm sm:text-lg capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE]">
               {title}
             </p>
           </div>
@@ -55,25 +54,22 @@ export default function UserNav() {
       ))}
 
       {/* Support & Help Center */}
-      <div className="mt-4 space-y-8 rounded-2xl bg-white px-6 py-4 text-[#0000FE]">
-        <p className="text-center text-sm">
+      <div className="mt-4 space-y-4 sm:space-y-8 rounded-2xl bg-white px-3 sm:px-6 py-3 sm:py-4 text-[#0000FE]">
+        <p className="text-center text-xs sm:text-sm">
           Support & <span className="font-bold">Help Center</span>
         </p>
-
         <div>
           <img
             src={helpCenterImage}
             alt="Help Center Image"
-            className="w-full object-cover"
+            className="w-full object-cover max-h-24 sm:max-h-40"
           />
         </div>
-
         <div className="flex items-center justify-center gap-2 text-center">
-          <span className="text-2xl">
+          <span className="text-xl sm:text-2xl">
             <PiChatsCircle />
           </span>
-
-          <p className="text-sm font-bold">08091234567</p>
+          <p className="text-xs sm:text-sm font-bold">08091234567</p>
         </div>
       </div>
     </div>
