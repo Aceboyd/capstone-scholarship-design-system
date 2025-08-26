@@ -14,10 +14,10 @@ const HowToApply = () => {
   return (
     <section
       id="how-to-apply"
-      className="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:px-8 my-10"
+      className="w-full lg:w-[90%] mx-auto py-10 px-4 sm:px-6 lg:px-8 my-10"
     >
-      <h2 className="text-3xl font-bold text-[#0000FE] mb-6 -ml-10">How To Apply</h2>
-      <p className="text-lg text-gray-700 mb-6 whitespace-nowrap -ml-10">
+      <h2 className="text-3xl font-bold text-[#0000FE] mb-6">How To Apply</h2>
+      <p className="text-lg text-gray-700 mb-6 ">
         Applying for the Ghana STEM Excellence Scholarship is a simple process. Follow these steps to submit your
         <br />application successfully:
       </p>
@@ -72,7 +72,7 @@ const HowToApply = () => {
           </div>
         ))}
       </div>
-      <p className="text-lg text-gray-700 mt-6 whitespace-nowrap">
+      <p className="text-lg text-gray-700 mt-6 lg:whitespace-nowrap">
         For further details, visit{" "}
         <a href="https://scholarships.getfund.gov.gh" className="text-[#0000FE] underline">
           scholarships.getfund.gov.gh
