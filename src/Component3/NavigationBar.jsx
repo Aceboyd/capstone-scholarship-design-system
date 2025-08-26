@@ -28,10 +28,10 @@ const NavigationBar = () => {
 
   return (
     <div
-      className="navbar sticky top-0 z-50 w-full border-b border-gray-200 bg-[#EBEDFF] py-2"
+      className="navbar  top-0 z-50 w-full border-b border-gray-200 bg-[#EBEDFF] py-2"
       style={{ fontFamily: "Open Sans, sans-serif" }}
     >
-      <div className="mx-auto flex max-w-6xl flex-col sm:flex-row justify-around rounded-lg bg-white p-2 sm:p-3 px-2 sm:px-4 shadow-md gap-2 sm:gap-0 overflow-x-auto">
+      <div className="mx-auto flex max-w-6xl flex-col lg:flex-row justify-around rounded-lg bg-white p-2 sm:p-3 px-2 sm:px-4 shadow-md gap-2 lg:gap-0 overflow-x-auto">
         {[
           { id: "overview", label: "Overview" },
           { id: "about-scholarship", label: "About Scholarship" },

@@ -27,15 +27,15 @@ const Eligibility = () => {
   return (
     <section
       id="eligibility-criteria"
-      className="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:px-8 my-10 mt-20 scroll-mt-24 ml-50"
+      className="w-full lg:w-[90%] mx-auto py-10 px-4 lg:px-8 my-10 mt-5 sm:mt-10"
     >
       <h2 className="text-3xl font-extrabold text-[#0000FE] mb-4">Eligibility Criteria</h2>
-      <p className="text-lg text-[#000000] mb-6 whitespace-nowrap">
+      <p className="text-lg text-[#000000] mb-6 lg:whitespace-nowrap">
         {highlightText(
           "The Ghana STEM Excellence Scholarship is open to outstanding students who meet the following criteria:"
         )}
       </p>
-      <ul className="space-y-5 text-gray-700 text-lg whitespace-nowrap">
+      <ul className="space-y-5 text-gray-700 text-lg lg:whitespace-nowrap">
         {[
           "Must be a Ghanaian citizen or a permanent resident.",
           "Open to undergraduate students currently enrolled in a recognised Ghanaian university.",

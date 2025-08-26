@@ -11,9 +11,9 @@ const ScholarshipSection = () => {
   return (
     <section 
       id="about-scholarship" 
-      className="py-6 bg-[#EBEDFF] min-h-[30vh] flex items-start animate-fadeIn scroll-mt-24"
+      className="py-6 bg-[#EBEDFF] min-h-[30vh] flex items-start animate-fadeIn"
     >
-      <div className="container mx-auto max-w-4xl">
+      <div className="mx-auto w-full lg:w-[90%] px-4 lg:px-8">
         <h2 className="text-3xl font-bold text-[#0000FE] mb-8 mt-10 tracking-tight">
           About Scholarship
         </h2>
