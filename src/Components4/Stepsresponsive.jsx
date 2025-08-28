@@ -6,11 +6,11 @@ import number4Image from "../assets/image/form/4.png";
 import number5Image from "../assets/image/form/5.png";
 
 const stepDetails = [
-  { label: "STEP 1", imagestep: number1Image, style: "mt-1 text-[8px] sm:text-xs text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 sm:px-3", status: "In Progress" },
-  { label: "STEP 2", imagestep: number2Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 3", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 4", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 5", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started", style2: "hidden" }
+  { label: "STEP 1", borderstyle: "border-blue-700", imagestep: number1Image, style: "mt-1 text-[8px] sm:text-xs text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 sm:px-3", status: "In Progress" },
+  { label: "STEP 2", borderstyle: "border-gray-300", imagestep: number2Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 3", borderstyle: "border-gray-300", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 4", borderstyle: "border-gray-300", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+  { label: "STEP 5", borderstyle: "border-gray-300", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started", style2: "hidden" }
 ];
 
 const Stepsresponsive = () => {
@@ -28,7 +28,7 @@ const Stepsresponsive = () => {
                     <React.Fragment key={index}>
                       <div className="flex flex-col m-2  justify-center items-center flex-1 ">
                         <div
-                          className='w-8 sm:w-10 h-8 sm:h-10 rounded-full border-2 border-dashed border-blue-700 flex items-center justify-center'
+                          className={`w-10 h-10 rounded-full border-2 border-dashed flex items-center justify-center ${step.borderstyle}`}
                         >
                           <img
                             src={step.imagestep}
@@ -38,7 +38,7 @@ const Stepsresponsive = () => {
                         <span className="text-sm text-gray-500">{step.label}</span>
                         <span className={`${step.style}`}>{step.status}</span>
                       
-                        <div className={`flex justify-center mx-auto items-center w-1 mb-2 h-10 bg-gray-200 rounded-full ${step.style2}`} >
+                        <div className={`flex justify-center mx-auto items-center w-[3px] mb-0 h-17 bg-gray-200 rounded-full ${step.style2}`} >
                           
                         </div>
                       </div>
