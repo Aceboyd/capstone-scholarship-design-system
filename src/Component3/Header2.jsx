@@ -1,33 +1,41 @@
-import React from "react";
 // Import the capstoneLogo image
-import capstoneLogo from "../assets/image/nice.png";
 import userProfile from "../assets/image/form/face.png"; // Assuming this was also used
+import capstoneLogo from "../assets/image/nice.png";
 
 const Header = () => {
   return (
     <header className="bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl flex-col sm:flex-row items-start sm:items-center justify-between px-2 sm:px-6 lg:px-8 py-2 sm:py-4 gap-2 sm:gap-0">
+      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-2 py-2 sm:flex-row sm:items-center sm:gap-0 sm:px-6 sm:py-4 lg:px-8">
         <div className="flex-shrink-0">
           <img
             src={capstoneLogo}
             alt="Capstone Scholarship"
-            className="h-12 sm:h-18 w-auto"
+            className="h-12 w-auto sm:h-18"
           />
         </div>
-        <nav className="flex flex-1 justify-center w-full sm:w-auto mt-2 sm:mt-0">
-          <div className="flex space-x-4 sm:space-x-6 overflow-x-auto">
-            <a href="#" className="text-gray-600 hover:text-blue-600 whitespace-nowrap">
+        <nav className="mt-2 flex w-full flex-1 justify-center sm:mt-0 sm:w-auto">
+          <div className="flex space-x-4 overflow-x-auto sm:space-x-6">
+            <a
+              href="#"
+              className="whitespace-nowrap text-gray-600 hover:text-blue-600"
+            >
               Home
             </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 whitespace-nowrap">
+            <a
+              href="#"
+              className="whitespace-nowrap text-gray-600 hover:text-blue-600"
+            >
               Find Scholarships
             </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 whitespace-nowrap">
+            <a
+              href="#"
+              className="whitespace-nowrap text-gray-600 hover:text-blue-600"
+            >
               How It Works
             </a>
             <a
               href="#"
-              className="flex items-center text-gray-600 hover:text-blue-600 whitespace-nowrap"
+              className="flex items-center whitespace-nowrap text-gray-600 hover:text-blue-600"
             >
               Categories
               <svg
@@ -46,7 +54,7 @@ const Header = () => {
             </a>
           </div>
         </nav>
-        <div className="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+        <div className="mt-2 flex items-center space-x-2 sm:mt-0 sm:space-x-4">
           <button className="text-gray-600">
             <svg
               className="h-5 w-5 sm:h-6 sm:w-6"
@@ -62,13 +70,13 @@ const Header = () => {
               ></path>
             </svg>
           </button>
-          <button className="rounded-md bg-blue-600 px-3 sm:px-4 py-1.5 sm:py-2 text-white hover:bg-blue-700 text-sm sm:text-base">
+          <button className="rounded-md bg-blue-600 px-3 py-1.5 text-sm text-white hover:bg-blue-700 sm:px-4 sm:py-2 sm:text-base">
             Apply Now
           </button>
           <img
             src={userProfile}
             alt="User Profile"
-            className="h-8 w-8 sm:h-10 sm:w-10 rounded-full"
+            className="h-8 w-8 rounded-full sm:h-10 sm:w-10"
           />
         </div>
       </div>
