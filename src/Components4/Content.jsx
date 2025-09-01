@@ -12,9 +12,9 @@ let Content = () => {
 
   return (
     <main>
-      <div className="rounded-lg bg-[#F4F5FF] p-4">
+      <div className="rounded-lg bg-[#F4F5FF] px-6 py-4">
         <div className="rounded-md">
-          <p className="pb-3 text-center text-2xl">
+          <p className="pb-3 text-2xl">
             21 Scholarships found for{" "}
             <span className="font-bold">
               “STEM Undergraduate Scholarships in Ghana”
