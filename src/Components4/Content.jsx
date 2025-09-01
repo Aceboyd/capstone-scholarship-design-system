@@ -59,20 +59,21 @@ let Content = () => {
       </div>
 
       <div className="pagination flex items-center justify-between pt-10 max-[800px]:flex-col max-[800px]:space-y-6">
-        <button className="cursor-pointer rounded-md border-1 border-gray-500 p-2">
-          Previous
-        </button>
-        <div className="pages flex gap-10 text-[#0000FE]">
-          <p className="rounded-md bg-[#F4F5FF] pr-4 pl-4">1</p>
-          <p>2</p>
-          <p>.</p>
-          <p>.</p>
-          <p>.</p>
-          <p>3</p>
+        <div className="flex items-center gap-6">
+          <button className="cursor-pointer rounded-md border-1 border-gray-500 p-2 pr-6 pl-6">
+            Previous
+          </button>
+          <div className="pages flex gap-10 text-[#0000FE]">
+            <p className="rounded-md bg-[#F4F5FF] pr-4 pl-4">1</p>
+            <p>2</p>
+            <p>...</p>
+            <p>3</p>
+          </div>
+          <button className="cursor-pointer rounded-md border-1 border-gray-500 p-2 pr-6 pl-6">
+            Next
+          </button>
         </div>
-        <button className="cursor-pointer rounded-md border-1 border-gray-500 p-2 pr-6 pl-6">
-          next
-        </button>
+
         <p className="text-gray-500">Showing 1-10 of 21 results</p>
       </div>
     </main>
