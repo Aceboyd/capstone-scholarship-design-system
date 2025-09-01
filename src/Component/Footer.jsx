@@ -1,7 +1,5 @@
-import React from 'react';
-import { Instagram, Twitter } from 'lucide-react';
 
-// Import WhatsApp icon image
+import { Instagram, Twitter } from 'lucide-react';
 import whatsappIcon from '../assets/image/icon/whasapp.png';
 
 const Footer = () => {
@@ -15,10 +13,8 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4 md:mb-6">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 sm:space-y-3 md:space-y-4">
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Quick Links</h3>
+            <ul className="space-y-3 sm:space-y-4">
               <li>
                 <a href="#" className="hover:text-blue-200 transition-colors text-sm sm:text-base">
                   Apply Now
@@ -44,17 +40,12 @@ const Footer = () => {
 
           {/* Contact Us */}
           <div>
-            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3 sm:mb-4 md:mb-6">
-              Contact Us
-            </h3>
-            <div className="space-y-2 sm:space-y-3 md:space-y-4 text-xs sm:text-sm md:text-base">
-              <p>scholarships@capstone.gov.ng</p>
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Contact Us</h3>
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
+              <p className='flex justify-end items-end '>scholarships@capstone.gov.ng</p>
               <p>+234 (0) 702 123 456</p>
               <p>+234 (0) 809 187 653</p>
-              <p>
-                2nd Floor, Trust House, Ridge,
-                <br /> Lagos, Nigeria
-              </p>
+              <p>2nd Floor, Trust House, Ridge,<br />Lagos, Nigeria</p>
               <p>Office Hours: Monday – Friday</p>
             </div>
           </div>

@@ -1,26 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App"; // The imported App component
-import "./index.css"; // Ensure Tailwind CSS is applied
-
-// Define and render the main application
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AppWithErrorBoundary /> {/* Render the App with ErrorBoundary */}
-  </React.StrictMode>
-);
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import "./index.css";
 
 class ErrorBoundary extends React.Component {
   state = { hasError: false };
-
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
-
   componentDidCatch(error, info) {
-    console.error('Error occurred:', error);
+    console.error("Error occurred:", error, info);
   }
-
   render() {
     if (this.state.hasError) {
       return <h1>Something went wrong.</h1>;
@@ -29,11 +20,18 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// New component to wrap App inside ErrorBoundary
 function AppWithErrorBoundary() {
   return (
     <ErrorBoundary>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ErrorBoundary>
   );
 }
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <AppWithErrorBoundary />
+  </React.StrictMode>
+);

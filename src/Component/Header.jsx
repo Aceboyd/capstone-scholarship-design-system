@@ -1,6 +1,7 @@
 import { Bell, ChevronDown, Bookmark, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types"; // Added PropTypes import
 
 import logo from "../assets/image/nice.png";
 
@@ -137,6 +138,12 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
       </div>
     </header>
   );
+};
+
+// Added PropTypes validation
+Header.propTypes = {
+  selectedCategories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setSelectedCategories: PropTypes.func.isRequired,
 };
 
 export default Header;

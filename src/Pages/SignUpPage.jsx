@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FiEdit, FiEye, FiEyeOff, FiMail } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-const navigate = useNavigate();
-
+import { Link, useNavigate } from "react-router-dom";
 
 import capeImage from "../assets/image/cape.png";
 import watermark from "../assets/image/first.png";
@@ -23,6 +20,8 @@ const register = async (userData) => {
 };
 
 const SignUpPage = () => {
+  const navigate = useNavigate(); // ✅ Move useNavigate inside component
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -60,7 +59,7 @@ const SignUpPage = () => {
 
   return (
     <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
-      {/* Watermark (desktop only) */}
+      {/* Watermark */}
       <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 hidden md:flex items-center justify-center overflow-hidden">
         <img
           src={watermark}
@@ -70,11 +69,9 @@ const SignUpPage = () => {
         />
       </div>
 
-      {/* Main Section */}
       <div className="flex flex-1 flex-col md:flex-row">
         <div className="relative z-20 mt-0 flex w-full flex-1 flex-col items-center justify-center p-4 sm:p-6 md:mt-[50px] md:justify-start md:p-8">
           <div className="w-full max-w-sm sm:max-w-md md:max-w-xl rounded-lg">
-            {/* Logo */}
             <div className="mb-4 flex justify-center md:mb-12 md:justify-start">
               <img src={nice} alt="Logo" className="h-8 sm:h-10 md:h-14" />
             </div>
@@ -96,14 +93,10 @@ const SignUpPage = () => {
               </button>
             </a>
 
-            {/* Form */}
             <form className="space-y-5 sm:space-y-6" onSubmit={handleRegister}>
               {/* Full Name */}
               <div className="relative">
-                <label
-                  htmlFor="fullName"
-                  className="hidden md:block text-lg font-medium text-[#040498] mb-1"
-                >
+                <label htmlFor="fullName" className="hidden md:block text-lg font-medium text-[#040498] mb-1">
                   Full Name
                 </label>
                 <input
@@ -121,10 +114,7 @@ const SignUpPage = () => {
 
               {/* Email */}
               <div className="relative">
-                <label
-                  htmlFor="email"
-                  className="hidden md:block text-lg font-medium text-[#040498] mb-1"
-                >
+                <label htmlFor="email" className="hidden md:block text-lg font-medium text-[#040498] mb-1">
                   Email Address
                 </label>
                 <input
@@ -142,10 +132,7 @@ const SignUpPage = () => {
 
               {/* Password */}
               <div className="relative">
-                <label
-                  htmlFor="password"
-                  className="hidden md:block text-lg font-medium text-[#040498] mb-1"
-                >
+                <label htmlFor="password" className="hidden md:block text-lg font-medium text-[#040498] mb-1">
                   Password
                 </label>
                 <input
@@ -159,24 +146,17 @@ const SignUpPage = () => {
                   className="w-full mobile-input md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 text-sm sm:text-base px-3 py-2 sm:py-3"
                 />
                 {showPassword ? (
-                  <FiEyeOff
-                    className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
-                    onClick={() => setShowPassword(false)}
-                  />
+                  <FiEyeOff className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
+                    onClick={() => setShowPassword(false)} />
                 ) : (
-                  <FiEye
-                    className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
-                    onClick={() => setShowPassword(true)}
-                  />
+                  <FiEye className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
+                    onClick={() => setShowPassword(true)} />
                 )}
               </div>
 
               {/* Confirm Password */}
               <div className="relative">
-                <label
-                  htmlFor="confirmPassword"
-                  className="hidden md:block text-lg font-medium text-[#040498] mb-1"
-                >
+                <label htmlFor="confirmPassword" className="hidden md:block text-lg font-medium text-[#040498] mb-1">
                   Confirm Password
                 </label>
                 <input
@@ -190,35 +170,24 @@ const SignUpPage = () => {
                   className="w-full mobile-input md:rounded-md md:border md:border-gray-300 md:px-6 md:py-5 text-sm sm:text-base px-3 py-2 sm:py-3"
                 />
                 {showConfirmPassword ? (
-                  <FiEyeOff
-                    className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
-                    onClick={() => setShowConfirmPassword(false)}
-                  />
+                  <FiEyeOff className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
+                    onClick={() => setShowConfirmPassword(false)} />
                 ) : (
-                  <FiEye
-                    className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
-                    onClick={() => setShowConfirmPassword(true)}
-                  />
+                  <FiEye className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500"
+                    onClick={() => setShowConfirmPassword(true)} />
                 )}
               </div>
 
-              {/* Terms and Conditions (desktop only) */}
+              {/* Terms */}
               <div className="hidden md:flex items-start text-sm text-gray-600">
                 <input type="checkbox" required className="mr-2 h-5 w-5" />
                 <span>
                   By creating an account, you agree to our{" "}
-                  <a href="#" className="text-blue-600 hover:underline">
-                    Terms of Use
-                  </a>{" "}
-                  and{" "}
-                  <a href="#" className="text-blue-600 hover:underline">
-                    Privacy Policy
-                  </a>
-                  .
+                  <a href="#" className="text-blue-600 hover:underline">Terms of Use</a> and{" "}
+                  <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>.
                 </span>
               </div>
 
-              {/* Register Button */}
               <button
                 type="submit"
                 className="w-full rounded-lg bg-gradient-to-r from-[#0000FE] to-[#4B6CB7] py-3 sm:py-4 text-white text-base sm:text-lg md:text-xl font-medium transition hover:opacity-90"
@@ -227,30 +196,24 @@ const SignUpPage = () => {
               </button>
             </form>
 
-            {/* Google Sign-in (Desktop only) */}
+            {/* Google (desktop) */}
             <div className="mt-6 sm:mt-8 hidden md:block text-center">
               <div className="text-[#000] font-sans mb-4">OR</div>
               <a href="#">
                 <button className="w-full flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-4 text-base sm:text-lg font-medium text-gray-700 hover:bg-gray-50">
-                  <FcGoogle className="mr-2" />
-                  Sign up with Google
+                  <FcGoogle className="mr-2" /> Sign up with Google
                 </button>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Image (Desktop only) */}
         <div className="relative hidden md:flex w-[500px] lg:w-[650px] items-center justify-center bg-gray-100 rounded-xl shadow-lg p-6">
-          <img
-            src={capeImage}
-            alt="Graduation Cap"
-            className="relative z-10 w-full h-full object-cover rounded-lg"
-          />
+          <img src={capeImage} alt="Graduation Cap" className="relative z-10 w-full h-full object-cover rounded-lg" />
         </div>
       </div>
 
-      {/* Success Popup */}
+      {/* Popup */}
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black opacity-50"></div>
@@ -261,19 +224,18 @@ const SignUpPage = () => {
             <p className="text-sm sm:text-lg text-gray-700 mb-4 sm:mb-6">
               Get started to explore all scholarship opportunities here.
             </p>
-           <button
-            onClick={() => {
-              setShowPopup(false);
-              navigate("/"); // add the page to navigate to
-            }}
-            className="bg-[#0000FE] hover:bg-[#0000CC] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg">
-            Get Started
-          </button>
+            <button
+              onClick={() => {
+                setShowPopup(false);
+                navigate("/"); // navigate when popup closes
+              }}
+              className="bg-[#0000FE] hover:bg-[#0000CC] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg">
+              Get Started
+            </button>
           </div>
         </div>
       )}
 
-      {/* Mobile Styling */}
       <style>{`
         @media (max-width: 767px) {
           .mobile-input {
@@ -294,5 +256,3 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
-
-

@@ -49,6 +49,17 @@ export default function UserNav() {
             <p className="px-1 text-sm sm:text-lg capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE]">
               {title}
             </p>
+            <span className="font text-xl">{icon}</span>
+
+            {title && (
+              <p
+                className={`px-1 text-sm capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE] ${
+                  index === 1 ? "rounded bg-white text-[#0000FE]" : ""
+                }`}
+              >
+                {title}
+              </p>
+            )}
           </div>
         </nav>
       ))}

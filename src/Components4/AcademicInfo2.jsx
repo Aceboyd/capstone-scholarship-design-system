@@ -54,11 +54,11 @@ const AcademicInfo2 = () => {
         </div>
 
         {/* Right - Buttons & Note */}
-        <div className="flex flex-col justify-start gap-4 self-start">
-          <button className="px-5 py-2 bg-blue-500 text-white rounded-md w-full">
+        <div className="flex flex-col justify-start gap-4 self-start bg-[#FAFAFF] ">
+          <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full">
             Save Progress
           </button>
-          <button className="px-5 py-2 bg-gray-200 text-black rounded-md w-full">
+          <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
             Back to Homepage
           </button>
           <p className="text-red-500 text-xs text-center mt-4">
