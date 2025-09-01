@@ -138,7 +138,7 @@ const Accordion = () => {
   };
 
   return (
-    <div className="flex w-full flex-col gap-3 bg-[#f4f5ff] px-3">
+    <div className="flex w-full flex-col gap-3 bg-[#f4f5ff] px-3 pb-6">
       {accordingData.map((according, index) => {
         const isOpen = isAccordingOpen === index;
 

@@ -14,7 +14,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="space-y-4">
+    <aside className="space-y-6">
       {/* SELECTED FILTER & RESET FILTERS */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
