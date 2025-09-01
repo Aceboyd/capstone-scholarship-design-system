@@ -5,7 +5,9 @@ let SearchBar = (props) => {
       style={{ backgroundImage: `url(${"../images/searchbackground.png"})` }}
     >
       <button
+        type="button"
         onClick={props.toggle}
+        aria-label="Open filters"
         className="rounded-md cursor-pointer min-[800px]:hidden bg-[#EBEDFF] p-1 sm:p-2"
       >
         <svg
@@ -18,10 +20,11 @@ let SearchBar = (props) => {
         </svg>
       </button>
       <div className="flex items-center p-1 sm:p-2 rounded-md bg-white">
-        <img src="images/search.png" className="h-4 sm:h-5 mr-1" />
+        <img src="images/search.png" alt="search icon" className="h-4 sm:h-5 mr-1" />
         <input
           type="search"
-          className="p-1 sm:p-2 w-32 sm:w-60 text-xs sm:text-base"
+          aria-label="Search scholarships"
+          className="p-1 sm:p-2 w-40 sm:w-60 text-xs sm:text-base"
           placeholder="STEM Undergraduate in Ghana"
         />
       </div>

@@ -15,13 +15,13 @@ let Content = () => {
   return (
 <div className='flex-1'>
 <div className=" rounded-lg">
-        <div className="min-[700px]:mx-10 p-4 bg-[#F4F5FF] rounded-md">
-            <p className="text-center text-2xl pb-3">21 Scholarships found for <span className="font-bold">“STEM Undergraduate Scholarships in Ghana”</span></p>
+        <div className="mx-2 sm:mx-4 md:mx-10 p-4 bg-[#F4F5FF] rounded-md">
+            <p className="text-center text-xl sm:text-2xl pb-3">21 Scholarships found for <span className="font-bold">“STEM Undergraduate Scholarships in Ghana”</span></p>
             <hr />
-            <div className="flex justify-between pt-4 items-center">
-                <p>RESULTS 21</p>
+            <div className="flex flex-col sm:flex-row justify-between pt-4 items-center gap-3">
+                <p className="font-medium">RESULTS 21</p>
                 <div className="flex items-center gap-3">SORT BY:
-                    <select className="border-1 border-black rounded-md p-2 text-[#0000FE] font-bold">
+                    <select className="border-1 border-black rounded-md p-2 text-[#0000FE] font-bold w-40 sm:w-56">
                         <option>Latest</option>
                         <option>Earliest</option>
                         <option>Most Popular</option>
@@ -32,9 +32,9 @@ let Content = () => {
                 </div>
             </div>
 
-            <div className="flex gap-4 w-[90px] mx-auto pt-4 max-[800px]:hidden">
-                <img onClick={ChangeGrid} src="images/list.png" alt="list icon" className='cursor-pointer' />
-                <img onClick={ChangeGrid} src="images/grid.png" alt="grid icon" className='cursor-pointer' />
+            <div className="flex gap-4 mx-auto pt-4">
+                <button aria-label="toggle list view" onClick={ChangeGrid}><img src="images/list.png" alt="list icon" className='cursor-pointer' /></button>
+                <button aria-label="toggle grid view" onClick={ChangeGrid}><img src="images/grid.png" alt="grid icon" className='cursor-pointer' /></button>
             </div>
 
             <div className='pt-6'>
@@ -45,9 +45,9 @@ let Content = () => {
         </div>
     </div>
 
-    <div className='pagination flex max-[800px]:flex-col max-[800px]:space-y-6 items-center justify-around pt-10'>
+    <div className='pagination flex flex-col sm:flex-row items-center sm:justify-around gap-4 pt-10'>
                 <button className='p-2 rounded-md border-1 border-gray-500 cursor-pointer'>Previous</button>
-                <div className='pages flex gap-10 text-[#0000FE]'>
+                <div className='pages flex gap-6 sm:gap-10 text-[#0000FE]'>
                     <p className='bg-[#F4F5FF] pl-4 pr-4 rounded-md'>1</p>
                     <p>2</p>
                     <p>.</p>
@@ -56,7 +56,7 @@ let Content = () => {
                     <p>3</p>
                 </div>
                 <button className='p-2 pr-6 pl-6 rounded-md border-1 border-gray-500 cursor-pointer'>next</button>
-                <p className='text-gray-500'>Showing 1-10 of 21 results</p>
+                <p className='text-gray-500 text-sm'>Showing 1-10 of 21 results</p>
             </div>
 </div>
   );

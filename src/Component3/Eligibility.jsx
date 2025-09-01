@@ -27,15 +27,15 @@ const Eligibility = () => {
   return (
     <section
       id="eligibility-criteria"
-      className="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:px-8 my-10 mt-20 scroll-mt-24 ml-50"
+      className="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8 my-8 sm:my-10 scroll-mt-24"
     >
-      <h2 className="text-3xl font-extrabold text-[#0000FE] mb-4">Eligibility Criteria</h2>
-      <p className="text-lg text-[#000000] mb-6 whitespace-nowrap">
+      <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0000FE] mb-4">Eligibility Criteria</h2>
+      <p className="text-base sm:text-lg text-[#000000] mb-6">
         {highlightText(
           "The Ghana STEM Excellence Scholarship is open to outstanding students who meet the following criteria:"
         )}
       </p>
-      <ul className="space-y-5 text-gray-700 text-lg whitespace-nowrap">
+      <ul className="space-y-4 sm:space-y-5 text-gray-700 text-base sm:text-lg">
         {[
           "Must be a Ghanaian citizen or a permanent resident.",
           "Open to undergraduate students currently enrolled in a recognised Ghanaian university.",
@@ -44,15 +44,15 @@ const Eligibility = () => {
           "Must demonstrate a keen interest in STEM research, innovation, and development.",
           "Preference may be given to students from low-income backgrounds who require financial assistance.",
           "Involvement in STEM-related projects, hackathons, or innovation competitions is an added advantage.",
-          "Must submit a personal statement, CV, transcripts, and a recommendation letter from an academic <br />advisor or professor.",
+          "Must submit a personal statement, CV, transcripts, and a recommendation letter from an academic advisor or professor.",
         ].map((item, idx) => (
-          <li key={idx} className="flex items-start">
+          <li key={idx} className="flex items-start gap-3">
             <img
               src={checkmark}
               alt="Checkmark"
-              className="mr-2 w-5 h-5"
+              className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
             />
-            {highlightText(item)}
+            <div className="flex-1">{highlightText(item)}</div>
           </li>
         ))}
       </ul>

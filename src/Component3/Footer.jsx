@@ -8,8 +8,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#000080] text-white py-16">
-      <div className="max-w-7xl mx-auto px-8">
+    <footer className="bg-[#000080] text-white py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Quick Links */}
           <div>
@@ -54,15 +54,15 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-6">Subscribe to our newsletter</h3>
             <form className="mb-8">
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-2 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 border-none shadow-none"
+                  className="w-full sm:flex-1 px-4 py-2 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 border-none shadow-none"
                 />
                 <button
                   type="submit"
-                  className="bg-white text-[#000080] px-6 py-2 rounded-md font-semibold hover:bg-blue-100 transition-colors"
+                  className="w-full sm:w-auto bg-white text-[#000080] px-6 py-2 rounded-md font-semibold hover:bg-blue-100 transition-colors"
                 >
                   Submit
                 </button>
@@ -72,20 +72,20 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Our Socials</h3>
             <div className="flex gap-4">
               <a href="#" className="hover:text-blue-200 transition-colors">
-                <Instagram size={24} />
+                <Instagram size={20} />
               </a>
               <a href="#" className="hover:text-blue-200 transition-colors">
-                <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6" />
+                <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
               </a>
               <a href="#" className="hover:text-blue-200 transition-colors">
-                <Twitter size={24} />
+                <Twitter size={20} />
               </a>
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-blue-800 text-center">
-          <p>© {currentYear} Capstone Scholarship Nigeria. All Rights Reserved.</p>
+          <p className="text-sm">© {currentYear} Capstone Scholarship Nigeria. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

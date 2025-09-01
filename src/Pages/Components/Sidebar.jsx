@@ -11,8 +11,8 @@ let Sidebar = (props) => {
   }
 
 
-    return (
-        <div className={`${props.hello ? "max-[800px]:invisible max-[800px]:w-0" : "max-[700px]:visible"} w-80 space-y-2`}>
+  return (
+    <div role="complementary" aria-label="Filters" className={`${props.hello ? "max-[800px]:invisible max-[800px]:w-0" : "max-[700px]:visible"} w-80 max-w-full md:min-h-screen space-y-2 max-[700px]:w-full max-[700px]:max-h-[70vh] max-[700px]:overflow-y-auto`}>
         <div>
           <div className="flex items-center mx-5 pb-2">
           <img src="images/filter.png" alt="filter icon" />
@@ -24,15 +24,15 @@ let Sidebar = (props) => {
 
           <div className={`${show ? "" : "hidden"} space-y-2`}>
            <div className='flex max-[700px]:flex-col max-[700px]:space-y-2 max-[700px]:ml-8 ml-8 min-[700px]:gap-4 '>
-           <button className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md">Undergraduate<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
-           <button className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md">STEM<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
+           <button type="button" className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md focus:outline-none focus:ring-2 focus:ring-[#0000FE]">Undergraduate<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
+           <button type="button" className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md focus:outline-none focus:ring-2 focus:ring-[#0000FE]">STEM<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
            </div>
             <div className='flex max-[700px]:flex-col max-[700px]:space-y-2 max-[700px]:ml-8 ml-8 min-[700px]:gap-4 '>
-            <button className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md">Ghana<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
-            <button className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md">Closing in 30 days<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
+            <button type="button" className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md focus:outline-none focus:ring-2 focus:ring-[#0000FE]">Ghana<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
+            <button type="button" className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit rounded-md focus:outline-none focus:ring-2 focus:ring-[#0000FE]">Closing in 30 days<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
             </div>
-            <button className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit ml-8 rounded-md">Africa-wide Sponsorship<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
-            <button className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit ml-8 rounded-md">Closing in 90 days<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
+            <button type="button" className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit ml-8 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0000FE]">Africa-wide Sponsorship<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
+            <button type="button" className="p-2 bg-[#EBEDFF] flex items-center gap-2 text-sm w-fit ml-8 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0000FE]">Closing in 90 days<img src="images/cancel.png" className="cursor-pointer" alt="cancel" /></button>
           </div>
         </div>
 
@@ -44,12 +44,12 @@ let Sidebar = (props) => {
           <p className="font-bold">By Study Level </p> <img src="images/down arrow.png" alt="down arrow" />
         </div>
         <hr />
-        <div className="mx-4 space-y-2">
-        <div className="flex"><input type="checkbox" className="w-6 max-[700px]:w-4" /><p>Undergraduate</p></div>
-        <div className="flex"><input type="checkbox" className="w-6 max-[700px]:w-4"  /><p>Postgraduate (Master's)</p></div>
-        <div className="flex"><input type="checkbox" className="w-6 max-[700px]:w-4"  /><p>PhD / Doctoral</p></div>
-        <div className="flex"><input type="checkbox" className="w-6 max-[700px]:w-4"  /><p>Postdoctoral Research</p></div>
-        </div>
+  <div className="mx-4 space-y-2">
+  <div className="flex items-center gap-2"><input type="checkbox" className="w-6 max-[700px]:w-4 focus:ring-2 focus:ring-[#0000FE]" /><p>Undergraduate</p></div>
+  <div className="flex items-center gap-2"><input type="checkbox" className="w-6 max-[700px]:w-4 focus:ring-2 focus:ring-[#0000FE]"  /><p>Postgraduate (Master's)</p></div>
+  <div className="flex items-center gap-2"><input type="checkbox" className="w-6 max-[700px]:w-4 focus:ring-2 focus:ring-[#0000FE]"  /><p>PhD / Doctoral</p></div>
+  <div className="flex items-center gap-2"><input type="checkbox" className="w-6 max-[700px]:w-4 focus:ring-2 focus:ring-[#0000FE]"  /><p>Postdoctoral Research</p></div>
+  </div>
         <hr />
         </div>
   
