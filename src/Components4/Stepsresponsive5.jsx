@@ -38,7 +38,7 @@ const Stepsresponsive5 = () => {
                         <span className="text-sm text-gray-500">{step.label}</span>
                         <span className={`${step.style}`}>{step.status}</span>
                       
-                        <div className={`flex justify-center mx-auto items-center w-1 mb-2 h-10 bg-gray-200 rounded-full ${step.style2}`} >
+                        <div className={`flex justify-center mx-auto items-center w-[3px] mb-0 h-17 bg-gray-200 rounded-full ${step.style2}`} >
                           
                         </div>
                       </div>

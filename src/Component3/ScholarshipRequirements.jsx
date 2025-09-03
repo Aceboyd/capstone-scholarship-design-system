@@ -20,28 +20,37 @@ const ScholarshipRequirements = () => {
   return (
     <section
       id="scholarship-requirements"
-      className="bg-[#03037E] text-white pt-10 px-4 sm:px-6 lg:px-8" // Added pt-10 for top padding
+      className="bg-[#03037E] text-white pt-8 pb-12 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-start">
+
+      <div className="w-full lg:w-[90%] mx-auto flex flex-col lg:flex-row items-start">
         {/* Text Section */}
         <div className="lg:w-1/2 mb-8 lg:mb-0">
           <h2 className="text-3xl font-bold mb-4">Scholarship Requirements</h2>
-          <p className="text-lg mb-6 whitespace-nowrap">
+          <p className="text-lg lg:whitespace-pre">
               To be considered for the Ghana STEM Excellence Scholarship, applicants must meet the following requirements:
+
+      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-start gap-8">
+        {/* Text Section */}
+        <div className="lg:w-1/2 mb-8 lg:mb-0">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Scholarship Requirements</h2>
+          <p className="text-base sm:text-lg mb-6">
+            To be considered for the Ghana STEM Excellence Scholarship, applicants must meet the following requirements:
+
           </p>
 
           {/* Section 1: Supporting Documents */}
-          <div className="mt-25 mb-7">
+          <div className="mt-6 mb-7">
             <h3 className="text-xl font-semibold mb-5">1. Supporting Documents</h3>
-            <ul className="space-y-4 text-lg ml-5">
+            <ul className="space-y-3 text-base sm:text-lg pl-4">
               {[
                 "Official academic transcripts from your current institution and your CV.",
                 "A statement of purpose (max. 500 words) outlining your academic goals and career aspirations.",
                 "Two letters of recommendation from professors or industry professionals.",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start">
-                  <span className="mr-2">•</span>
-                  {highlightText(item)}
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="mr-2 mt-1">•</span>
+                  <div className="flex-1">{highlightText(item)}</div>
                 </li>
               ))}
             </ul>
@@ -50,15 +59,15 @@ const ScholarshipRequirements = () => {
           {/* Section 2: Application Process */}
           <div>
             <h3 className="text-xl font-semibold mb-5">2. Application Process</h3>
-            <ul className="space-y-4 text-lg ml-5">
+            <ul className="space-y-3 text-base sm:text-lg pl-4">
               {[
                 "Complete the online scholarship application form.",
                 "Upload ALL required documents in PDF format.",
                 "Submit your application before the deadline (March 20, 2025).",
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start">
-                  <span className="mr-2">•</span>
-                  {highlightText(item)}
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="mr-2 mt-1">•</span>
+                  <div className="flex-1">{highlightText(item)}</div>
                 </li>
               ))}
             </ul>
@@ -66,11 +75,15 @@ const ScholarshipRequirements = () => {
         </div>
 
         {/* Image Section */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 flex-shrink-0">
           <img
             src={scholarshipImage}
             alt="Students studying"
-            className="w-full h-auto ml-30 mt-25"
+
+            className="w-full h-auto lg:ml-5 mt-25"
+
+            className="w-full h-auto rounded-md shadow-sm mt-4 lg:mt-0"
+
           />
         </div>
       </div>

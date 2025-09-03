@@ -1,28 +1,38 @@
-import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { CiFilter } from "react-icons/ci";
+import { MdClear } from "react-icons/md";
 
-import cancelImage from "../assets/cancel.png";
+import ScholarshipAccordionList from "../ScholarshipLising/ScholarshipAccordionLists";
 
-let Sidebar = (props) => {
-  let [show, isShown] = useState(true);
-
-  let remove = () => {
-    isShown(!show);
-    console.log("clicked");
-  };
+export default function Sidebar() {
+  const filterWords = [
+    "Undergraduate",
+    "STEM",
+    "Ghana",
+    "Closing in 30 days",
+    "Africa-wide Sponsorship",
+    "Closing in 90 days",
+  ];
 
   return (
+
     <div
-      className={`${props.hello ? "max-[800px]:invisible max-[800px]:w-0" : "max-[500px]:visible"} w-60 space-y-2`}
+      role="complementary"
+      aria-label="Filters"
+      className={`
+        ${props.hello ? "max-[800px]:invisible max-[800px]:w-0" : "max-[500px]:visible"}
+        w-60 max-w-full md:min-h-screen bg-white space-y-2
+        max-[700px]:w-full max-[700px]:min-h-0 max-[700px]:space-y-1 max-[700px]:bg-white max-[700px]:max-h-[70vh] max-[700px]:overflow-y-auto
+        max-[500px]:w-full max-[500px]:min-h-0 max-[500px]:space-y-1 max-[500px]:bg-white
+      `}
     >
       <div>
-        <div className="mx-5 flex items-center pb-2">
-          <img src="images/filter.png" alt="filter icon" />
-          <div className="flex gap-2">
-            <p className="text-[#000000]">Selected Filter</p>
+        <div className="mx-5 flex items-center pb-2 max-[700px]:mx-2 max-[500px]:mx-1">
+          <img src="images/filter.png" alt="filter icon" className="w-5 h-5 max-[700px]:w-4 max-[700px]:h-4" />
+          <div className="flex gap-2 max-[700px]:gap-1">
+            <p className="text-[#000000] text-base max-[700px]:text-sm">Selected Filter</p>
             <p
               onClick={remove}
-              className="cursor-pointer font-bold text-[#0000FE]"
+              className="cursor-pointer font-bold text-[#0000FE] text-base max-[700px]:text-sm"
             >
               Reset Filters
             </p>
@@ -30,112 +40,111 @@ let Sidebar = (props) => {
         </div>
 
         <div className={`${show ? "" : "hidden"} space-y-2`}>
-          <div className="ml-8 flex max-[700px]:ml-8 max-[700px]:flex-col max-[700px]:space-y-2 min-[700px]:gap-4">
-            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm">
+          <div className="ml-8 flex flex-wrap gap-2 max-[700px]:ml-2 max-[700px]:flex-row max-[700px]:overflow-x-auto max-[700px]:gap-2 max-[700px]:pb-2">
+            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm max-[700px]:text-xs max-[700px]:p-1 focus:outline-none focus:ring-2 focus:ring-[#0000FE]">
               Undergraduate
-              <img src={cancelImage} className="cursor-pointer" alt="cancel" />
+              <img src={cancelImage} className="cursor-pointer w-4 h-4" alt="cancel" />
             </button>
-            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm">
+            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm max-[700px]:text-xs max-[700px]:p-1 focus:outline-none focus:ring-2 focus:ring-[#0000FE]">
               STEM
-              <img src={cancelImage} className="cursor-pointer" alt="cancel" />
+              <img src={cancelImage} className="cursor-pointer w-4 h-4" alt="cancel" />
             </button>
           </div>
-          <div className="ml-8 flex max-[700px]:ml-8 max-[700px]:flex-col max-[700px]:space-y-2 min-[700px]:gap-4">
-            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm">
+          <div className="ml-8 flex flex-wrap gap-2 max-[700px]:ml-2 max-[700px]:flex-row max-[700px]:overflow-x-auto max-[700px]:gap-2 max-[700px]:pb-2">
+            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm max-[700px]:text-xs max-[700px]:p-1">
               Ghana
-              <img src={cancelImage} className="cursor-pointer" alt="cancel" />
+              <img src={cancelImage} className="cursor-pointer w-4 h-4" alt="cancel" />
             </button>
-            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm">
+            <button className="flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm max-[700px]:text-xs max-[700px]:p-1">
               Closing in 30 days
-              <img src={cancelImage} className="cursor-pointer" alt="cancel" />
+              <img src={cancelImage} className="cursor-pointer w-4 h-4" alt="cancel" />
             </button>
           </div>
-          <button className="ml-8 flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm">
+          <button className="ml-8 flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm max-[700px]:text-xs max-[700px]:p-1 max-[700px]:ml-2 focus:outline-none focus:ring-2 focus:ring-[#0000FE]">
             Africa-wide Sponsorship
-            <img src={cancelImage} className="cursor-pointer" alt="cancel" />
+            <img src={cancelImage} className="cursor-pointer w-4 h-4" alt="cancel" />
           </button>
-          <button className="ml-8 flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm">
+          <button className="ml-8 flex w-fit items-center gap-2 rounded-md bg-[#EBEDFF] p-2 text-sm max-[700px]:text-xs max-[700px]:p-1 max-[700px]:ml-2 focus:outline-none focus:ring-2 focus:ring-[#0000FE]">
             Closing in 90 days
-            <img src={cancelImage} className="cursor-pointer" alt="cancel" />
+            <img src={cancelImage} className="cursor-pointer w-4 h-4" alt="cancel" />
           </button>
         </div>
       </div>
 
-      <div className="ml-8 bg-[#F4F5FF]">
-        <div className="mx-8 space-y-2 p-2 pb-4">
+      <div className="ml-8 bg-[#F4F5FF] max-[700px]:ml-0 max-[700px]:bg-white">
+        <div className="mx-8 space-y-2 p-2 pb-4 max-[700px]:mx-2 max-[700px]:p-1">
           <div className="flex items-center justify-between">
-            <p className="font-bold">By Study Level </p>{" "}
-            {/* <img src="images/down arrow.png" alt="down arrow" /> */}
+            <p className="font-bold text-lg max-[700px]:text-base">By Study Level </p>
             <span>
-              <FaChevronDown className="text-gray-400" />
+              <FaChevronDown className="text-gray-400 w-4 h-4 max-[700px]:w-3 max-[700px]:h-3" />
             </span>
           </div>
           <hr />
-          <div className="mx-4 space-y-2">
-            <div className="flex">
-              <input type="checkbox" className="w-6 max-[700px]:w-4" />
-              <p>Undergraduate</p>
+          <div className="mx-4 space-y-2 max-[700px]:mx-1">
+            <div className="flex items-center gap-2 max-[700px]:gap-1">
+              <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+              <p className="text-base max-[700px]:text-sm">Undergraduate</p>
             </div>
-            <div className="flex">
-              <input type="checkbox" className="w-6 max-[700px]:w-4" />
-              <p>Postgraduate (Master's)</p>
+            <div className="flex items-center gap-2 max-[700px]:gap-1">
+              <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+              <p className="text-base max-[700px]:text-sm">Postgraduate (Master's)</p>
             </div>
-            <div className="flex">
-              <input type="checkbox" className="w-6 max-[700px]:w-4" />
-              <p>PhD / Doctoral</p>
+            <div className="flex items-center gap-2 max-[700px]:gap-1">
+              <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+              <p className="text-base max-[700px]:text-sm">PhD / Doctoral</p>
             </div>
-            <div className="flex">
-              <input type="checkbox" className="w-6 max-[700px]:w-4" />
-              <p>Postdoctoral Research</p>
+            <div className="flex items-center gap-2 max-[700px]:gap-1">
+              <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+              <p className="text-base max-[700px]:text-sm">Postdoctoral Research</p>
             </div>
           </div>
           <hr />
         </div>
 
-        <div className="mx-8 space-y-2 p-2">
-          <div className="flex justify-between">
-            <p className="font-bold max-[700px]:text-sm">By Field of Study </p>{" "}
-            <img src="images/down arrow.png" alt="down arrow" />
+  <div className="mx-8 space-y-2 p-2 max-[700px]:mx-2 max-[700px]:p-1">
+          <div className="flex justify-between items-center">
+            <p className="font-bold text-lg max-[700px]:text-base">By Field of Study </p>
+            <img src="images/down arrow.png" alt="down arrow" className="w-4 h-4 max-[700px]:w-3 max-[700px]:h-3" />
           </div>
           <hr />
           <div className="space-y-2">
             <div>
               <div className="flex items-center justify-between pt-2">
-                <p className="font-semibold max-[700px]:text-sm">
+                <p className="font-semibold text-base max-[700px]:text-sm">
                   STEM (Science, Technology, Engineering, Math)
-                </p>{" "}
-                <img src="images/down arrow.png" alt="down arrow" />
+                </p>
+                <img src="images/down arrow.png" alt="down arrow" className="w-4 h-4 max-[700px]:w-3 max-[700px]:h-3" />
               </div>
             </div>
             <hr />
-            <div className="mx-4 space-y-2">
-              <div className="flex">
-                <input type="checkbox" className="w-6 max-[700px]:w-4" />
-                <p>Computer Science</p>
+            <div className="mx-4 space-y-2 max-[700px]:mx-1">
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Computer Science</p>
               </div>
-              <div className="flex">
-                <input type="checkbox" className="w-6 max-[700px]:w-4" />
-                <p>Data Science and AI</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Data Science and AI</p>
               </div>
-              <div className="flex">
-                <input type="checkbox" className="w-6 max-[700px]:w-4" />
-                <p>Cybersecurity</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Cybersecurity</p>
               </div>
-              <div className="flex">
-                <input type="checkbox" className="w-7 max-[700px]:w-4" />
-                <p>Mechanical Engineering</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-7 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Mechanical Engineering</p>
               </div>
-              <div className="flex">
-                <input type="checkbox" className="w-6 max-[700px]:w-4" />
-                <p>Electrical Engineering</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Electrical Engineering</p>
               </div>
-              <div className="flex">
-                <input type="checkbox" className="w-6 max-[700px]:w-4" />
-                <p>Renewable Energy</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Renewable Energy</p>
               </div>
-              <div className="flex">
-                <input type="checkbox" className="w-6 max-[700px]:w-4" />
-                <p>Biotechnology</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Biotechnology</p>
               </div>
             </div>
           </div>
@@ -189,33 +198,33 @@ let Sidebar = (props) => {
           </div>
         </div>
 
-        <div className="mx-8 space-y-2 p-2">
-          <div className="flex justify-between">
-            <p className="font-bold">By Country </p>{" "}
-            <img src="images/down arrow.png" alt="down arrow" />
+  <div className="mx-8 space-y-2 p-2 max-[700px]:mx-2 max-[700px]:p-1">
+          <div className="flex justify-between items-center">
+            <p className="font-bold text-lg max-[700px]:text-base">By Country </p>
+            <img src="images/down arrow.png" alt="down arrow" className="w-4 h-4 max-[700px]:w-3 max-[700px]:h-3" />
           </div>
 
           <div className="space-y-2">
             <div>
-              <div className="grid grid-cols-3 items-center rounded-md bg-white">
-                <img src="images/search.png" className="col-end-1" />
+              <div className="grid grid-cols-3 items-center rounded-md bg-white max-[700px]:grid-cols-2 max-[700px]:p-1">
+                <img src="images/search.png" className="col-end-1 w-4 h-4" />
                 <input
                   type="search"
-                  className="col-span-3 col-start-1 p-2 text-xs"
+                  className="col-span-2 col-start-1 p-2 text-xs max-[700px]:p-1 max-[700px]:text-xs"
                   placeholder="Search for countries"
                 />
                 <img
                   src="images/down arrow.png"
-                  className="col-start-4"
+                  className="col-start-3 w-4 h-4"
                   alt="down arrow"
                 />
               </div>
             </div>
 
             <div className="space-y-2 max-[700px]:mx-0">
-              <div className="flex">
-                <input type="checkbox" className="w-8 max-[700px]:w-4" />
-                <p>Ghana</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-8 h-8 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Ghana</p>
               </div>
             </div>
           </div>
@@ -232,123 +241,34 @@ let Sidebar = (props) => {
                 <img src="images/down arrow.png" alt="down arrow" />
               </div>
               <hr />
-              <div className="mx-4 space-y-2 pt-2">
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Mastercard Foundation Schlors Program
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    African Union Kwame Nkrumah Scientific Awards
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">Ashinaga Africa Initiative</p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Mo Ibrahim Foundation Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">Mandela Rhodes Scholarship</p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    African Leadership University (ALU) Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Graca Machel Trust Women Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Carnegie Corporation of New York – African Academic Scholars
-                    Program
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    DAAD In-Country/In-Region Africa Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Oxford-Weidenfeld & Hoffmann Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">Schwarzman Scholars for Africa</p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Nelson Mandela World Human Rights Moot Court Scholarship
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Wells Mountain Initiative (WMI) Scholars Program
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    UNESCO Africa Scholarship Program
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    University of Cape Town Mastercard Foundation Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    African Women in Science and Engineering (AWSE) Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    University of Pretoria Mastercard Foundation Scholars
-                    Program
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Alliance for African Partnership (AAP) Scholarships
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    Tony Elumelu Foundation Entrepreneurship Program
-                  </p>
-                </div>
-                <div className="grid gap-1">
-                  <input type="checkbox" className="w-6" />
-                  <p className="col-start-2">
-                    YALI Regional Leadership Center Scholarships
-                  </p>
-                </div>
+              <div className="mx-4 space-y-2 pt-2 max-[700px]:mx-1 max-[700px]:pt-1 max-[700px]:overflow-y-auto max-[700px]:max-h-40">
+                {[
+                  "Mastercard Foundation Schlors Program",
+                  "African Union Kwame Nkrumah Scientific Awards",
+                  "Ashinaga Africa Initiative",
+                  "Mo Ibrahim Foundation Scholarships",
+                  "Mandela Rhodes Scholarship",
+                  "African Leadership University (ALU) Scholarships",
+                  "Graca Machel Trust Women Scholarships",
+                  "Carnegie Corporation of New York – African Academic Scholars Program",
+                  "DAAD In-Country/In-Region Africa Scholarships",
+                  "Oxford-Weidenfeld & Hoffmann Scholarships",
+                  "Schwarzman Scholars for Africa",
+                  "Nelson Mandela World Human Rights Moot Court Scholarship",
+                  "Wells Mountain Initiative (WMI) Scholars Program",
+                  "UNESCO Africa Scholarship Program",
+                  "University of Cape Town Mastercard Foundation Scholarships",
+                  "African Women in Science and Engineering (AWSE) Scholarships",
+                  "University of Pretoria Mastercard Foundation Scholars Program",
+                  "Alliance for African Partnership (AAP) Scholarships",
+                  "Tony Elumelu Foundation Entrepreneurship Program",
+                  "YALI Regional Leadership Center Scholarships"
+                ].map((org, idx) => (
+                  <div key={idx} className="grid grid-cols-12 gap-1 items-center">
+                    <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4 col-span-1" />
+                    <p className="col-span-11 text-base max-[700px]:text-sm">{org}</p>
+                  </div>
+                ))}
               </div>
             </div>
             <hr />
@@ -416,29 +336,57 @@ let Sidebar = (props) => {
               </div>
             </div>
             <hr />
-            <div className="mx-4 space-y-2">
-              <div className="flex gap-1">
-                <input type="checkbox" className="w-6" />
-                <p>Closing this week</p>
+            <div className="mx-4 space-y-2 max-[700px]:mx-1">
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Closing this week</p>
               </div>
-              <div className="grid gap-1">
-                <input type="checkbox" className="w-6" />
-                <p className="col-start-2">Closing in the next 30 days</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Closing in the next 30 days</p>
               </div>
-              <div className="grid gap-1">
-                <input type="checkbox" className="w-6" />
-                <p className="col-start-2">Closing in the next 90 days</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Closing in the next 90 days</p>
               </div>
-              <div className="grid gap-1">
-                <input type="checkbox" className="w-6" />
-                <p className="col-start-2">Closing in the next 4-6 months</p>
+              <div className="flex items-center gap-2 max-[700px]:gap-1">
+                <input type="checkbox" className="w-6 h-6 max-[700px]:w-4 max-[700px]:h-4" />
+                <p className="text-base max-[700px]:text-sm">Closing in the next 4-6 months</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
 
-export default Sidebar;
+    <aside className="space-y-6">
+      {/* SELECTED FILTER & RESET FILTERS */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1">
+          <span>
+            <CiFilter size={24} />
+          </span>
+          <p>Selected filter</p>
+        </div>
+
+        <p className="text-[#0000FE]">Reset filters</p>
+      </div>
+
+      {/* FILTERS WORDS SEARCHED */}
+      <div className="space-y-2.5 space-x-2.5 text-gray-600">
+        {filterWords.map((text, i) => (
+          <div
+            key={i}
+            className="inline-flex items-center gap-2.5 rounded-md bg-[#f4f5ff] p-2"
+          >
+            <p>{text}</p>
+            <span>
+              <MdClear size={20} />
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* ACCORDION LISTINGS */}
+      <ScholarshipAccordionList />
+    </aside>
+  );
+}
