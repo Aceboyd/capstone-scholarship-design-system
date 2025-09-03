@@ -85,7 +85,7 @@ const Steps = ({ progress, appStatus }) => {
                     ></div>
                   </div>
                   <span className="text-sm text-gray-500 mt-1">{step.label}</span>
-                  <span className="text-[8px] lg:text-[10px] xl:text-sm text-start text-gray-700 whitespace-pre">{step.title}</span>
+                  <span className="text-[8px] lg:text-[15px] xl:text-sm text-start text-gray-700 whitespace-pre">{step.title}</span>
                   <span className={`${step.style} text-[8px]`}>{step.status}</span>
                 </div>
               </React.Fragment>

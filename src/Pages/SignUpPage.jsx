@@ -73,7 +73,7 @@ const SignUpPage = () => {
         <div className="relative z-20 mt-0 flex w-full flex-1 flex-col items-center justify-center p-4 sm:p-6 md:mt-[50px] md:justify-start md:p-8">
           <div className="w-full max-w-sm sm:max-w-md md:max-w-xl rounded-lg">
             <div className="mb-4 flex justify-center md:mb-12 md:justify-start">
-              <img src={nice} alt="Logo" className="h-8 sm:h-10 md:h-14" />
+              <img src={nice} alt="Logo" className="h-8 sm:h-10 md:h-30" />
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#040498] mb-2 text-start">

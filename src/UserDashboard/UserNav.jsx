@@ -9,34 +9,13 @@ import helpCenterImage from "../assets/image/user-dashboard/pic2.svg";
 
 export default function UserNav() {
   const navLists = [
-    {
-      icon: <IoIosMenu />,
-      title: null,
-    },
-    {
-      icon: <HiMiniHome />,
-      title: "dashboard",
-    },
-    {
-      icon: <FaEdit />,
-      title: "my application",
-    },
-    {
-      icon: <IoMdNotifications />,
-      title: "notifications",
-    },
-    {
-      icon: <FaGraduationCap />,
-      title: "scholarship list",
-    },
-    {
-      icon: <FaUser />,
-      title: "profile",
-    },
-    {
-      icon: <BsFillGearFill />,
-      title: "settings",
-    },
+    { icon: <IoIosMenu />, title: null },
+    { icon: <HiMiniHome />, title: "dashboard" },
+    { icon: <FaEdit />, title: "my application" },
+    { icon: <IoMdNotifications />, title: "notifications" },
+    { icon: <FaGraduationCap />, title: "scholarship list" },
+    { icon: <FaUser />, title: "profile" },
+    { icon: <BsFillGearFill />, title: "settings" },
   ];
 
   return (
@@ -46,14 +25,9 @@ export default function UserNav() {
         <nav key={index}>
           <div className="group flex w-fit cursor-pointer items-center gap-2 text-white">
             <span className="font text-base sm:text-xl">{icon}</span>
-            <p className="px-1 text-sm sm:text-lg capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE]">
-              {title}
-            </p>
-            <span className="font text-xl">{icon}</span>
-
             {title && (
               <p
-                className={`px-1 text-sm capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE] ${
+                className={`px-1 text-sm sm:text-lg capitalize transition-colors duration-300 group-hover:rounded group-hover:bg-white group-hover:text-[#0000FE] ${
                   index === 1 ? "rounded bg-white text-[#0000FE]" : ""
                 }`}
               >
@@ -72,7 +46,7 @@ export default function UserNav() {
         <div>
           <img
             src={helpCenterImage}
-            alt="Help Center Image"
+            alt="Help Center"
             className="w-full object-cover max-h-24 sm:max-h-40"
           />
         </div>
