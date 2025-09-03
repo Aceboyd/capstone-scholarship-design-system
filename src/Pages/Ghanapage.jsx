@@ -1,4 +1,3 @@
-
 import Background from "../Components4/Background";
 import Banner2 from "../Component3/Banner2";
 import Eligibility from "../Component3/Eligibility";

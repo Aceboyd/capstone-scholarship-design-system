@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { cardInfo } from "./cardInfo";
 
@@ -75,12 +76,13 @@ let Card = (props) => {
               </div>
               <div className="flex items-center gap-1 max-[800px]:w-40 max-[800px]:place-self-center max-[700px]:pt-2">
                 {key === 0 ? (
-                  <a
-                    href="/ghanapage"
-                    className="cursor-pointer rounded-md bg-[#0000FE] px-3 py-2 text-white max-[700px]:text-xs"
-                  >
-                    {details.apply}
-                  </a>
+                 <Link
+                          to="/ghanapage"
+                        className="cursor-pointer rounded-md bg-[#0000FE] px-3 py-2 text-white max-[700px]:text-xs"
+                        >
+                           {details.apply}
+                  </Link>
+
                 ) : (
                   <button className="cursor-pointer rounded-md bg-[#0000FE] p-2 text-white max-[700px]:text-xs">
                     {details.apply}
