@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header2anon from '../Component3/Header2anon'
-
-// Placeholder images
-
-import pdfIcon from "../assets/image/pdfIcon.png"; // Keep PDF icon
+import Header2anon from '../Component3/Header2anon';
+import pdfIcon from "../assets/image/pdfIcon.png";
 import number1Image from "../assets/image/form/1.png";
 import number2Image from "../assets/image/form/2.png";
 import number3Image from "../assets/image/form/3.png";
@@ -23,10 +20,11 @@ const ScholarshipForm = () => {
   const [programOfStudy, setProgramOfStudy] = useState("");
   const [currentLevel, setCurrentLevel] = useState("");
   const [gpa, setGpa] = useState("");
-  const [uploadedFile, setUploadedFile] = useState(null); // Changed to single file
-  const [progress, setProgress] = useState(0);
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const [progress, setProgress] = useState(25); // Application status starts at 25%
+  const [step2Progress, setStep2Progress] = useState(0); // Step 2 progress starts at 0%
+  const [appStatus, setAppStatus] = useState("In Progress");
 
-  // Calculate progress whenever form fields change
   useEffect(() => {
     const totalFields = 5;
     let filledFields = 0;
@@ -37,12 +35,26 @@ const ScholarshipForm = () => {
     if (gpa.trim()) filledFields++;
     if (uploadedFile) filledFields++;
 
-    const progressPercentage = (filledFields / totalFields) * 100;
-    setProgress(progressPercentage);
+    // Application status: 25% (Step 1) + 5% per field in Step 2
+    const totalProgress = 25 + (filledFields / totalFields) * 25;
+    setProgress(totalProgress);
+
+    // Step 2 progress: 0% to 100% based on fields
+    const step2Progress = (filledFields / totalFields) * 100;
+    setStep2Progress(step2Progress);
+
+    // Update application status
+    if (totalProgress === 25) {
+      setAppStatus("In Progress");
+    } else if (totalProgress < 50) {
+      setAppStatus("In Progress");
+    } else {
+      setAppStatus("Completed");
+    }
   }, [institutionName, programOfStudy, currentLevel, gpa, uploadedFile]);
 
   const handleFileUpload = (e) => {
-    const file = e.target.files[0]; // Only take first file
+    const file = e.target.files[0];
     if (!file) return;
 
     if (
@@ -52,7 +64,7 @@ const ScholarshipForm = () => {
       ].includes(file.type)
     ) {
       alert(
-        `Unsupported file type: ${file.name}. Please upload a Word document (.doc or .docx).`,
+        `Unsupported file type: ${file.name}. Please upload a Word document (.doc or .docx).`
       );
       return;
     }
@@ -110,7 +122,7 @@ const ScholarshipForm = () => {
       navigate("/step-3");
     } else {
       alert(
-        "Please fill all fields and upload a transcript before proceeding.",
+        "Please fill all fields and upload a transcript before proceeding."
       );
     }
   };
@@ -121,149 +133,88 @@ const ScholarshipForm = () => {
 
   return (
     <div className="bg-[#FAFAFF]">
-      {/* Header */}
-      <Header2anon/>
-
-      {/* Banner */}
-      <div className="mt-8"><Background/></div>
-
-      {/* Main Content */}
+      <Header2anon />
+      <div className="mt-8"><Background /></div>
       <main className="mx-auto w-full px-2">
-        {/* Progress Steps */}
-          <div className="mt-8"><Steps2/></div>   
-        
+        <div className="mt-8">
+          <Steps2 progress={progress} step2Progress={step2Progress} appStatus={appStatus} />
+        </div>
         <div className="flex flex-col">
           <div className="flex flex-row justify-center">
-          {/* Circles and Progress Bars Row */}
-          <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive2/></div>
-        
-
-        {/* Form Section with Right-Side Actions */}
-        <div className="grid grid-cols-1 gap-6 max-w-6xl px-4 md:grid-cols-3 w-[80%]">
-          {/* Form Content */}
-          <div className="md:col-span-2">
-            <div className="rounded-md bg-white p-6">
-              <form>
-                <h3 className="mb-6 text-xl font-semibold">
-                  Step 2: Academic Information
-                </h3>
-                <div className="space-y-6">
-                  {/* Institution Name */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Institution Name
-                    </label>
-                    <input
-                      type="text"
-                      value={
-                        formFilled
-                          ? "Egbuna Princess University"
-                          : institutionName
-                      }
-                      onChange={(e) => setInstitutionName(e.target.value)}
-                      placeholder="Start typing your institution name"
-                      className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Program of Study and Current Level */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Program of Study
-                      </label>
-                      <input
-                        type="text"
-                        value={formFilled ? "Computer Science" : programOfStudy}
-                        onChange={(e) => setProgramOfStudy(e.target.value)}
-                        placeholder="e.g. Computer Science, Engineering"
-                        className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">
-                        Current Level
-                      </label>
-                      <select
-                        value={formFilled ? "Level 300" : currentLevel}
-                        onChange={(e) => setCurrentLevel(e.target.value)}
-                        className="mt-1 block w-full rounded-md border border-gray-300 p-3 text-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      >
-                        <option value="">Select your current level</option>
-                        <option value="Level 100">Level 100</option>
-                        <option value="Level 200">Level 200</option>
-                        <option value="Level 300">Level 300</option>
-                        <option value="Level 400">Level 400</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Grade Point Average (GPA) */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Grade Point Average (GPA)
-                    </label>
-                    <input
-                      type="text"
-                      value={formFilled ? "3.8" : gpa}
-                      onChange={(e) => setGpa(e.target.value)}
-                      placeholder="Enter your current GPA"
-                      className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Upload Transcript */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                      Upload Transcript
-                    </label>
-                    <div className="mt-1 rounded-md border-2 border-dashed border-gray-300 p-6 text-center">
-                      {uploadedFile ? (
-                        <div className="mt-2 rounded-md bg-gray-50 p-3">
-                          <div className="mb-2 flex items-center justify-between">
-                            <div className="flex items-center">
-                              <img
-                                src={pdfIcon}
-                                alt="PDF Icon"
-                                className="mr-2 h-6 w-6"
-                              />
-                              <span>
-                                {uploadedFile.name} ({uploadedFile.progress}%)
-                              </span>
-                            </div>
-                            <div className="flex items-center">
-                              <span
-                                className={
-                                  uploadedFile.error
-                                    ? "text-red-600"
-                                    : uploadedFile.progress === 100
-                                      ? "text-[#0000FE]"
-                                      : "text-gray-600"
-                                }
-                              >
-                                {uploadedFile.status}
-                              </span>
-                              {uploadedFile.progress < 100 &&
-                                !uploadedFile.error && (
-                                  <button
-                                    type="button"
-                                    className="ml-2 text-[#0000FE] hover:text-blue-800"
-                                    onClick={handleCancelUpload}
-                                  >
-                                    Cancel
-                                  </button>
-                                )}
-                            </div>
-                          </div>
-                          <div className="h-1 w-full rounded-full bg-gray-200">
-                            <div
-                              className="h-full rounded-full bg-[#0000FE]"
-                              style={{ width: `${uploadedFile.progress}%` }}
-                            ></div>
-                          </div>
+            <div className="md:hidden mt-8 w-[20%]">
+              <Stepsresponsive2 progress={progress} step2Progress={step2Progress} appStatus={appStatus} />
+            </div>
+            <div className="grid grid-cols-1 gap-6 max-w-6xl px-4 md:grid-cols-3 w-[80%]">
+              <div className="md:col-span-2">
+                <div className="rounded-md bg-white p-6">
+                  <form>
+                    <h3 className="mb-6 text-xl font-semibold">
+                      Step 2: Academic Information
+                    </h3>
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Institution Name
+                        </label>
+                        <input
+                          type="text"
+                          value={
+                            formFilled
+                              ? "Egbuna Princess University"
+                              : institutionName
+                          }
+                          onChange={(e) => setInstitutionName(e.target.value)}
+                          placeholder="Start typing your institution name"
+                          className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        />
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Program of Study
+                          </label>
+                          <input
+                            type="text"
+                            value={formFilled ? "Computer Science" : programOfStudy}
+                            onChange={(e) => setProgramOfStudy(e.target.value)}
+                            placeholder="e.g. Computer Science, Engineering"
+                            className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                          />
                         </div>
-                      ) : (
-                        <>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700">
+                            Current Level
+                          </label>
+                          <select
+                            value={formFilled ? "Level 300" : currentLevel}
+                            onChange={(e) => setCurrentLevel(e.target.value)}
+                            className="mt-1 block w-full rounded-md border border-gray-300 p-3 text-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                          >
+                            <option value="">Select your current level</option>
+                            <option value="Level 100">Level 100</option>
+                            <option value="Level 200">Level 200</option>
+                            <option value="Level 300">Level 300</option>
+                            <option value="Level 400">Level 400</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Grade Point Average (GPA)
+                        </label>
+                        <input
+                          type="text"
+                          value={formFilled ? "3.8" : gpa}
+                          onChange={(e) => setGpa(e.target.value)}
+                          placeholder="Enter your current GPA"
+                          className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Upload Transcript
+                        </label>
+                        <div className="mt-1 rounded-md border-2 border-dashed border-gray-300 p-6 text-center">
                           <div className="flex justify-center">
                             <svg
                               className="h-12 w-12 text-gray-400"
@@ -296,97 +247,144 @@ const ScholarshipForm = () => {
                               accept=".doc,.docx"
                             />
                           </label>
-                        </>
-                      )}
+                        </div>
+                        {uploadedFile && (
+                          <div className="mt-4 rounded-md bg-gray-50 p-3">
+                            <div className="mb-2 flex items-center justify-between">
+                              <div className="flex items-center">
+                                <img
+                                  src={pdfIcon}
+                                  alt="PDF Icon"
+                                  className="mr-2 h-6 w-6"
+                                />
+                                <span>
+                                  {uploadedFile.name} ({uploadedFile.progress}%)
+                                </span>
+                              </div>
+                              <div className="flex items-center">
+                                <span
+                                  className={
+                                    uploadedFile.error
+                                      ? "text-red-600"
+                                      : uploadedFile.progress === 100
+                                      ? "text-[#0000FE]"
+                                      : "text-gray-600"
+                                  }
+                                >
+                                  {uploadedFile.status}
+                                </span>
+                                {uploadedFile.progress < 100 &&
+                                  !uploadedFile.error && (
+                                    <button
+                                      type="button"
+                                      className="ml-2 text-[#0000FE] hover:text-blue-800"
+                                      onClick={handleCancelUpload}
+                                    >
+                                      Cancel
+                                    </button>
+                                  )}
+                              </div>
+                            </div>
+                            <div className="h-1 w-full rounded-full bg-gray-200">
+                              <div
+                                className="h-full rounded-full bg-[#0000FE]"
+                                style={{ width: `${uploadedFile.progress}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
-              </form>
+              </div>
+              <div className="flex flex-col items-end md:col-span-1 max-md:hidden bg-[#FAFAFF] text-[12px]">
+                <button className="mb-2 w-full max-w-xs rounded-md bg-[#0000FE] px-6 py-3 text-lg text-white hover:bg-blue-700 cursor-pointer">
+                  Save Progress
+                </button>
+                <a
+                  href="#"
+                  className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-6 py-3 text-lg text-center text-[#0000FE] hover:bg-blue-50"
+                >
+                  Back to Homepage
+                </a>
+                <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
+                  <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
+                    i
+                  </span>
+                  Note: Applications closes on 26th March 2025
+                </p>
+              </div>
+              <div className="mt-8 flex justify-between md:col-span-3 max-md:hidden py-4 bg-[#FAFAFF]">
+                <button
+                  id="back-button"
+                  onClick={handleBack}
+                  className="flex cursor-pointer items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
+                >
+                  <svg
+                    className="mr-2 h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
+                  </svg>
+                  Back
+                </button>
+                <a
+                  id="next-button"
+                  href="/step3"
+                  className="flex items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
+                  onClick={handleNext}
+                >
+                  Next
+                  <svg
+                    className="ml-2 h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="auto"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-
-          {/* Right-Side Actions */}
-          <div className="flex flex-col items-end md:col-span-1 max-md:hidden bg-[#FAFAFF] text-[12px]">
-            <button className="mb-2 w-full max-w-xs rounded-md bg-[#0000FE] px-4 py-2 text-white hover:bg-blue-700">
-              Save Progress
-            </button>
-            <a
-              href="#"
-              className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-[#0000FE] hover:bg-blue-50"
-            >
-              Back to Homepage
-            </a>
-            <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
-              <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
-                i
-              </span>
-              Note: Applications closes on 26th March 2025
-            </p>
-          </div>
-
-          {/* Navigation Buttons Moved Down */}
-          <div className="mt-8 flex justify-between md:col-span-3 max-md:hidden py-4 bg-[#FAFAFF]">
+          <div className="md:hidden justify-between flex flex-row py-4 bg-[#FAFAFF]">
+            <Navigationresponsive2 />
             <button
-              id="back-button"
-              onClick={handleBack}
-              className="flex cursor-pointer items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
-            >
-              <svg
-                className="mr-2 h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-              Back
-            </button>
-            <a
-              id="next-button"
               href="/step3"
-              className="flex items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
               onClick={handleNext}
+              className="mt-8 px-6 py-2 bg-blue-600 text-white rounded"
             >
               Next
-              <svg
-                className="ml-2 h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="auto"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-            </a>
+            </button>
           </div>
-        </div>
-        </div>
-  <div className='md:hidden justify-between flex flex-row py-4 bg-[#FAFAFF]'>
-    <Navigationresponsive2/>
-    <button
-    href="/step3"
-          onClick={handleNext}
-          className="mt-8 px-6 bg-blue-600 text-white rounded"
-        >
-          Next
-        </button>
-  </div>
-  <p className="mt-2 py-8 flex items-center justify-end text-sm text-indigo-700 font-medium md:hidden mx-auto">
-              <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
-                i
-              </span>
-              Note: Applications close on 26th March 2025
-            </p>
+          <div className="w-full px-4 pb-4 flex justify-between text-[14px] items-center md:hidden bg-[#FAFAFF]">
+            <button className="px-6 py-3 bg-[#0000FE] text-lg text-white rounded font-bold">
+              Save Progress
+            </button>
+            <button className="px-6 py-3 bg-white text-lg text-[#0000FE] rounded border border-blue-800 font-bold">
+              Back to Homepage
+            </button>
+          </div>
+          <p className="mt-2 py-8 flex items-center justify-end text-sm text-indigo-700 font-medium md:hidden mx-auto">
+            <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
+              i
+            </span>
+            Note: Applications close on 26th March 2025
+          </p>
         </div>
       </main>
     </div>
