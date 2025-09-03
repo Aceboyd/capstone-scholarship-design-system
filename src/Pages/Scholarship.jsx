@@ -1,27 +1,22 @@
 import Navbar from "../Component3/Header2";
-import Sidebar from "../Components4/Sidebar";
 import Content from "../Components4/Content";
 import SearchBar from "../Components4/SearchBar";
-import { useState } from "react";
+import Sidebar from "../Components4/Sidebar";
 
-let ScholarshipSecondportal = () => {
-  let [hello, isOpen] = useState(true);
-
-  let toggle = () => {
-    isOpen(!hello);
-    console.log(hello);
-  };
-
+let ScholarshipPortal = () => {
   return (
     <div>
       <Navbar />
-      <SearchBar hello={hello} toggle={toggle} />
-      <div className="flex">
-        <Sidebar hello={hello} />
+
+      <SearchBar />
+
+      <div className="grid grid-cols-[2fr_8fr] gap-6 p-4">
+        <Sidebar />
+
         <Content />
       </div>
     </div>
   );
 };
 
-export default ScholarshipSecondportal;
+export default ScholarshipPortal;
