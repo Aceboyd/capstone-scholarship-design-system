@@ -1,14 +1,10 @@
 import React from "react";
-import scholarshipImage from "../assets/image/form/pic.png"; // Adjust the path and filename as needed
+import scholarshipImage from "../assets/image/form/pic.png"; // Adjust the path as needed
 
 const ScholarshipRequirements = () => {
   // Function to apply bold styling to specific phrases
   const highlightText = (text) => {
-    const phrases = [
-      "Ghana STEM Excellence Scholarship",
-      "March 20, 2025",
-    ];
-
+    const phrases = ["Ghana STEM Excellence Scholarship", "March 20, 2025"];
     let formattedText = text;
     phrases.forEach((phrase) => {
       const regex = new RegExp(`(${phrase})`, "g");
@@ -22,21 +18,13 @@ const ScholarshipRequirements = () => {
       id="scholarship-requirements"
       className="bg-[#03037E] text-white pt-8 pb-12 px-4 sm:px-6 lg:px-8"
     >
-
-      <div className="w-full lg:w-[90%] mx-auto flex flex-col lg:flex-row items-start">
-        {/* Text Section */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0">
-          <h2 className="text-3xl font-bold mb-4">Scholarship Requirements</h2>
-          <p className="text-lg lg:whitespace-pre">
-              To be considered for the Ghana STEM Excellence Scholarship, applicants must meet the following requirements:
-
-      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-start gap-8">
+      <div className="mx-auto max-w-5xl flex flex-col lg:flex-row items-start gap-8">
         {/* Text Section */}
         <div className="lg:w-1/2 mb-8 lg:mb-0">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">Scholarship Requirements</h2>
           <p className="text-base sm:text-lg mb-6">
-            To be considered for the Ghana STEM Excellence Scholarship, applicants must meet the following requirements:
-
+            To be considered for the Ghana STEM Excellence Scholarship, applicants must meet the
+            following requirements:
           </p>
 
           {/* Section 1: Supporting Documents */}
@@ -79,11 +67,7 @@ const ScholarshipRequirements = () => {
           <img
             src={scholarshipImage}
             alt="Students studying"
-
-            className="w-full h-auto lg:ml-5 mt-25"
-
             className="w-full h-auto rounded-md shadow-sm mt-4 lg:mt-0"
-
           />
         </div>
       </div>

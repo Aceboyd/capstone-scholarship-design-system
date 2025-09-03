@@ -1,5 +1,5 @@
 import React from "react";
-import checkmark from "../assets/image/form/mark.png"; // Adjust the path and filename as needed
+import checkmark from "../assets/image/form/mark.png";
 
 const Eligibility = () => {
   // Function to apply bold and black styling to specific phrases
@@ -15,7 +15,6 @@ const Eligibility = () => {
       "STEM-related projects, hackathons, or innovation competitions",
       "personal statement, CV, transcripts, and a recommendation letter",
     ];
-
     let formattedText = text;
     phrases.forEach((phrase) => {
       const regex = new RegExp(`(${phrase})`, "g");
@@ -27,26 +26,21 @@ const Eligibility = () => {
   return (
     <section
       id="eligibility-criteria"
-
-      className="w-full lg:w-[90%] mx-auto py-10 px-4 lg:px-8 my-10 mt-5 sm:mt-10"
+      className="mx-auto max-w-5xl py-8 px-4 sm:px-6 lg:px-8 my-8 sm:my-10 scroll-mt-24"
+      aria-labelledby="eligibility-criteria-heading"
     >
-      <h2 className="text-3xl font-extrabold text-[#0000FE] mb-4">Eligibility Criteria</h2>
-      <p className="text-lg text-[#000000] mb-6 lg:whitespace-nowrap">
-
-      className="max-w-3xl mx-auto py-8 px-4 sm:px-6 lg:px-8 my-8 sm:my-10 scroll-mt-24"
-    >
-      <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0000FE] mb-4">Eligibility Criteria</h2>
+      <h2
+        id="eligibility-criteria-heading"
+        className="text-2xl sm:text-3xl font-extrabold text-[#0000FE] mb-4"
+      >
+        Eligibility Criteria
+      </h2>
       <p className="text-base sm:text-lg text-[#000000] mb-6">
-
         {highlightText(
           "The Ghana STEM Excellence Scholarship is open to outstanding students who meet the following criteria:"
         )}
       </p>
-
-      <ul className="space-y-5 text-gray-700 text-lg lg:whitespace-nowrap">
-
       <ul className="space-y-4 sm:space-y-5 text-gray-700 text-base sm:text-lg">
-
         {[
           "Must be a Ghanaian citizen or a permanent resident.",
           "Open to undergraduate students currently enrolled in a recognised Ghanaian university.",
@@ -67,8 +61,9 @@ const Eligibility = () => {
           </li>
         ))}
       </ul>
-      <p className="text-lg text-[#0000FE] mt-6 italic">
-        <span className="font-semibold">Note:</span> Applicants must not be receiving full funding from another scholarship program.
+      <p className="text-base sm:text-lg text-[#0000FE] mt-6 italic">
+        <span className="font-semibold">Note:</span> Applicants must not be receiving full funding
+        from another scholarship program.
       </p>
     </section>
   );
