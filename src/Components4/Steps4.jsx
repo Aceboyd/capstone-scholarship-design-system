@@ -5,6 +5,15 @@ import number3Image from "../assets/image/form/3filled.png";
 import number4Image from "../assets/image/form/4.png";
 import number5Image from "../assets/image/form/5.png";
 
+
+const stepDetails = [
+  { label: "STEP 1", borderstyle: "border-blue-700", title: "Personal Details",  imagestep: number1Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 2", borderstyle: "border-blue-700", title: "Academic Information", imagestep: number2Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 3", borderstyle: "border-blue-700", title: "Supporting Documents", imagestep: number3Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE]  rounded-full px-1 lg:px-2 w-[100%] lg:w-[60%] text-center bg-[#CCCFFF]", status: "Completed", style2: "bg-indigo-500" },
+  { label: "STEP 4", borderstyle: "border-blue-700", title: "Write your Statement of Purpose", imagestep: number4Image, style: "mt-1 sm:text-[8px] md:text-[10px] lg:text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center", status: "In Progress" },
+  { label: "STEP 5", borderstyle: "border-gray-300", title: "Review Application and Submit", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
+];
+
 const Steps4 = ({ progress, appStatus }) => {
   const stepDetails = [
     {
@@ -66,6 +75,7 @@ const Steps4 = ({ progress, appStatus }) => {
     },
   ];
 
+
   return (
     <div className="mb-8">
       <div className="flex flex-row items-center w-full overflow-x-auto justify-center mx-auto p-4">
@@ -85,6 +95,27 @@ const Steps4 = ({ progress, appStatus }) => {
               <div className="flex flex-col w-1/5 h-40 mt-7">
                 <div className="flex w-[90%] h-1 bg-gray-200 rounded-full">
                   <div
+
+                    className={`w-10 h-10 rounded-full border-2 border-dashed flex items-center justify-center ${step.borderstyle}`}
+                  >
+                    <img
+                      src={step.imagestep}
+                      className="w-5 h-5 object-contain"
+                    />
+                  </div>
+                  
+                 </div>
+                 <div className="flex flex-col w-1/5 h-40 mt-7">
+                  <div className={`flex  w-[90%] h-1 bg-gray-200 rounded-full ${step.style2}`}>
+                  </div>
+                  <span className="text-sm text-gray-500 mt-1">{step.label}</span>
+                  <span className="text-[8px] lg:text-[10px] xl:text-sm text-start text-gray-700 whitespace-pre">{step.title}</span>
+                  <span className={`${step.style} text-[8px]`}>{step.status}</span>
+                  </div>
+              </React.Fragment>
+            );
+          })}
+
                     className={`h-full rounded-full ${step.style2}`}
                     style={{
                       width:
@@ -106,6 +137,7 @@ const Steps4 = ({ progress, appStatus }) => {
               </div>
             </React.Fragment>
           ))}
+
         </div>
       </div>
       <div className="w-full px-4 py-4 flex justify-between items-center md:hidden bg-[#FAFAFF] text-[12px]">
