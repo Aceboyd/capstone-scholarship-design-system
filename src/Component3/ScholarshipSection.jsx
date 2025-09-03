@@ -9,6 +9,14 @@ const ScholarshipSection = () => {
   };
 
   return (
+
+    <section 
+      id="about-scholarship" 
+      className="py-6 bg-[#EBEDFF] min-h-[30vh] flex items-start animate-fadeIn"
+    >
+      <div className="mx-auto w-full lg:w-[90%] px-4 lg:px-8">
+        <h2 className="text-3xl font-bold text-[#0000FE] mb-8 mt-10 tracking-tight">
+
     <section
       id="about-scholarship"
       aria-labelledby="about-scholarship-heading"
@@ -16,6 +24,7 @@ const ScholarshipSection = () => {
     >
       <div className="container mx-auto max-w-4xl px-4 sm:px-0">
         <h2 id="about-scholarship-heading" className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#0000FE] mb-6 sm:mb-8 mt-4 sm:mt-10 tracking-tight">
+
           About Scholarship
         </h2>
         <p className="text-black text-base sm:text-lg leading-relaxed mb-4">

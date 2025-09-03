@@ -7,9 +7,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
+
+    <footer className="bg-[#000080] text-white py-6">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:gap-6">
+
     <footer className="bg-[#000080] text-white py-16">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
           {/* Quick Links */}
           <div>
             <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
