@@ -33,17 +33,17 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faqs" className="w-full max-w-4xl mx-auto px-4 py-16 md:py-24">
+    <div id="faqs" className="w-full max-w-4xl mx-auto px-4 py-12 sm:py-16 md:py-24">
       {/* Header */}
       <div className="text-center mb-12 md:mb-16">
-        <h2 className="text-5xl md:text-6xl font-bold text-[#0000FE] mb-4">FAQs</h2>
-        <p className="text-2xl md:text-3xl text-[#0000FE] font-light">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0000FE] mb-4">FAQs</h2>
+        <p className="text-base sm:text-lg md:text-2xl text-[#0000FE] font-light">
           Frequently Asked Questions
         </p>
       </div>
 
       {/* FAQ List */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
@@ -52,31 +52,34 @@ const FAQ = () => {
             }`}
           >
             <button
-              className="w-full px-6 py-4 text-left flex justify-between items-center"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-start sm:items-center"
               onClick={() => toggleQuestion(index)}
+              aria-expanded={openIndex === index}
+              aria-controls={`faq-content-${index}`}
             >
-              <span className="text-lg font-medium text-gray-900">
+              <span className="text-base sm:text-lg font-medium text-gray-900">
                 {faq.question}
               </span>
               <div
-                className={`p-2 rounded-full transition-all duration-300 ${
+                className={`p-1 sm:p-2 rounded-full transition-all duration-300 mt-1 sm:mt-0 ${
                   openIndex === index ? 'bg-[#0000FE]' : 'bg-[#EBEDFF]'
                 }`}
               >
                 <ChevronDown
-                  className={`w-5 h-5 transition-transform duration-300 ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 ${
                     openIndex === index ? 'text-white transform rotate-180' : 'text-blue-600'
                   }`}
                 />
               </div>
             </button>
             <div
-              className={`px-6 transition-all duration-300 ${
-                openIndex === index ? 'py-4' : 'h-0 py-0'
+              id={`faq-content-${index}`}
+              className={`px-4 sm:px-6 transition-all duration-300 ${
+                openIndex === index ? 'py-3 sm:py-4' : 'h-0 py-0'
               }`}
             >
               {openIndex === index && (
-                <p className="text-gray-600">{faq.answer}</p>
+                <p className="text-sm sm:text-base text-gray-600">{faq.answer}</p>
               )}
             </div>
           </div>
