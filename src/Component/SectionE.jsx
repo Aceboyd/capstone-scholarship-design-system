@@ -11,40 +11,39 @@ function App() {
           backgroundImage: `url(${arrowDown2})`,
         }}
       >
-        <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-blue-900/70 backdrop-blur-[2px]"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 py-20">
+     <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-10 py-16 sm:py-20">
         {/* Headings */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-6 md:mb-8">
-          <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold text-white animate-fade-slide-up text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-white animate-fade-slide-up">
             Start your Journey Today!
           </h1>
           <h1
-            className="text-2xl sm:text-3xl md:text-6xl font-bold text-white animate-fade-slide-up text-center"
-            style={{ animationDelay: '100ms' }}
+          className="text-2xl sm:text-4xl md:text-6xl font-bold text-white animate-fade-slide-up"
           >
             Apply Now
           </h1>
         </div>
 
         {/* Subtext */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-1 sm:gap-2 md:gap-3 mb-10 md:mb-16 px-2">
+         <div className="flex flex-col items-center gap-1 sm:gap-2 md:gap-3 mb-8 sm:mb-12 md:mb-16 px-2">
           <p
-            className="text-base sm:text-lg md:text-2xl text-white/90 animate-fade-slide-up text-center"
+           className="text-sm sm:text-lg md:text-2xl text-white/90 animate-fade-slide-up"
             style={{ animationDelay: '200ms' }}
           >
             Don't miss your chance to join
           </p>
           <p
-            className="text-base sm:text-lg md:text-2xl text-white/90 animate-fade-slide-up text-center"
+            className="text-sm sm:text-lg md:text-2xl text-white/90 animate-fade-slide-up"
             style={{ animationDelay: '250ms' }}
           >
             Ghana's next generation of
           </p>
           <p
-            className="text-base sm:text-lg md:text-2xl text-white/90 animate-fade-slide-up text-center"
+            className="text-sm sm:text-lg md:text-2xl text-white/90 animate-fade-slide-up"
             style={{ animationDelay: '300ms' }}
           >
             innovators and changemakers.

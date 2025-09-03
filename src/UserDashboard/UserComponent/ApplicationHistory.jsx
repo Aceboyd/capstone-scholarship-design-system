@@ -35,10 +35,12 @@ export default function ApplicationHistory() {
 
   return (
     <div className="space-y-4 rounded-xl bg-white px-6 py-4">
-      <div className="flex items-end justify-between">
-        <p className="text-[17px] font-bold">Application History</p>
+      <div className="flex items-center md:items-end justify-between">
+        <p className="text-[15px] font-bold md:text-[17px]">
+          Application History
+        </p>
 
-        <span className="text-[13px] italic">See all</span>
+        <span className="text-[11px] italic md:text-[13px]">See all</span>
       </div>
 
       {applicationHistory.map(

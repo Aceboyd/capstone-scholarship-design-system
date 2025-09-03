@@ -1,101 +1,84 @@
-import React from 'react';
-import number1 from '../assets/image/sectionb/11.png'; // Number 1 PNG
-import number2 from '../assets/image/sectionb/22.png'; // Number 2 PNG
-import number3 from '../assets/image/sectionb/33.png'; // Number 3 PNG
-import arrowDown1 from '../assets/image/sectionb/arrow1.png'; // Dashed arrow 1
-import arrowDown2 from '../assets/image/sectionb/arrow2.png'; // Dashed arrow 2
+import React from "react";
+import number1 from "../assets/image/sectionb/11.png"; 
+import number2 from "../assets/image/sectionb/22.png"; 
+import number3 from "../assets/image/sectionb/33.png"; 
+import arrowDown1 from "../assets/image/sectionb/arrow1.png"; 
+import arrowDown2 from "../assets/image/sectionb/arrow2.png"; 
 
 const SectionB = () => {
   return (
-    <div className="bg-[#ffffff] pt-20 md:py-12 px-2 md:px-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto text-center">
         {/* Header Section */}
-        <h2 className="text-2xl md:text-4xl font-bold text-[#000000] mb-2 uppercase">
-          How <span className='text-[#0404FE]'>Capstone</span> Works
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 uppercase">
+          How <span className="text-[#0404FE]">Capstone</span> Works
         </h2>
-        <p className="text-sm md:text-[17px] text-[#000000] mb-6 md:mb-30">
+        <p className="text-sm sm:text-base md:text-lg text-black mb-12">
           Start getting Scholarships in three simple steps!
         </p>
 
-        {/* Vertical Steps Layout */}
-        <div className="flex flex-col items-center space-y-4">
+        {/* Steps */}
+        <div className="flex flex-col items-center space-y-12">
           {/* Step 1 */}
-          <div className="flex flex-col md:flex-row items-center justify-center w-full md:-mr-25">
-            {/* Number 1 */}
-            <div className="relative" style={{ width: '250px', height: '250px', maxWidth: '100%', md: { width: '250px', height: '250px' } }}>
-              <img src={number1} alt="Number 1" className="w-full h-full" />
+          <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center w-full">
+            {/* Number */}
+            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0">
+              <img src={number1} alt="Step 1" className="w-full h-full object-contain" />
             </div>
-            {/* Content (Title, Description, Illustration Placeholder) */}
-            <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-16 text-center md:text-left">
-              <h3 className="text-xl md:text-[35px] font-bold text-[#000000] mb-2 uppercase">
+
+            {/* Text */}
+            <div className="mt-4 md:mt-0 md:ml-10 text-center md:text-left">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase mb-2">
                 Find Scholarships
               </h3>
-              <p className="text-[#000000] text-sm md:text-[15px]">
-                Easily discover scholarships tailored to your<br />
+              <p className="text-sm sm:text-base md:text-lg text-black">
+                Easily discover scholarships tailored to your
                 qualifications and find the best opportunities for you.
               </p>
-              <div className="w-20 h-20 md:w-28 md:h-28 md:md:w-32 md:md:h-32 mt-2 md:mt-4 hidden md:block">
-                {/* Illustration removed, hidden on mobile */}
-              </div>
             </div>
           </div>
 
-          {/* Arrow 1 - Hidden on mobile */}
+          {/* Arrow 1 */}
           <img
             src={arrowDown1}
-            alt="Dashed arrow pointing down from Step 1 to Step 2"
-            className="hidden md:block h-105 w-auto -mt-[120px] -mb-1 -ml-170"
+            alt="Arrow"
+            className="hidden md:block w-24 h-auto -mt-8 mb-4"
           />
 
-          {/* Step 2 - Reversed Order */}
-          <div className="flex flex-col md:flex-row-reverse items-center justify-center w-full md:-mt-[110px] md:ml-24">
-            {/* Number 2 */}
-            <div
-              className="relative md:ml-40 md:mb-14 md:-mt-36"
-              style={{ width: '250px', height: '250px', maxWidth: '100%', md: { width: '250px', height: '250px' } }}
-            >
-              <img src={number2} alt="Number 2" className="w-full h-full" />
+          {/* Step 2 */}
+          <div className="flex flex-col md:flex-row-reverse items-center md:items-start md:justify-center w-full">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0">
+              <img src={number2} alt="Step 2" className="w-full h-full object-contain" />
             </div>
-            {/* Content (Title, Description, Illustration Placeholder) */}
-            <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:-mr-20 md:-mt-10 text-center md:text-left">
-              <h3 className="text-xl md:text-[35px] font-bold text-[#000000] mb-2 uppercase">
-                Apply for <br />Scholarships
+            <div className="mt-4 md:mt-0 md:mr-10 text-center md:text-left">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase mb-2">
+                Apply for Scholarships
               </h3>
-              <p className="text-[#000000] text-sm md:text-[15px]">
-                Submit your scholarship application easily<br />
-                with guided steps and requirements.
+              <p className="text-sm sm:text-base md:text-lg text-black">
+                Submit your scholarship application easily with guided steps and requirements.
               </p>
-              <div className="w-20 h-20 md:w-28 md:h-28 md:md:w-32 md:md:h-32 mt-2 md:mt-4 hidden md:block">
-                {/* Illustration removed, hidden on mobile */}
-              </div>
             </div>
           </div>
 
-          {/* Arrow 2 - Hidden on mobile */}
+          {/* Arrow 2 */}
           <img
             src={arrowDown2}
-            alt="Dashed arrow pointing down from Step 2 to Step 3"
-            className="hidden md:block h-150 w-auto -mt-[380px] -ml-20"
+            alt="Arrow"
+            className="hidden md:block w-24 h-auto -mt-8 mb-4"
           />
 
           {/* Step 3 */}
-          <div className="flex flex-col md:flex-row items-center justify-center w-full md:-mt-39 md:-mr-37">
-            {/* Number 3 */}
-            <div className="relative" style={{ width: '250px', height: '250px', maxWidth: '100%', md: { width: '250px', height: '250px' } }}>
-              <img src={number3} alt="Number 3" className="w-full h-full" />
+          <div className="flex flex-col md:flex-row items-center md:items-start md:justify-center w-full">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0">
+              <img src={number3} alt="Step 3" className="w-full h-full object-contain" />
             </div>
-            {/* Content (Title, Description, Illustration Placeholder) */}
-            <div className="flex flex-col items-center md:items-start mt-4 md:mt-0 md:ml-16 text-center md:text-left">  
-              <h3 className="text-xl md:text-[35px] font-bold text-[#000000] mb-2 uppercase">
+            <div className="mt-4 md:mt-0 md:ml-10 text-center md:text-left">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase mb-2">
                 Track Applications
               </h3>
-              <p className="text-[#000000] text-sm md:text-[15px]">
-                Stay updated on your application status, receive<br />
-                timely feedback, and track your progress—all in one place
+              <p className="text-sm sm:text-base md:text-lg text-black">
+                Stay updated on your application status, receive timely feedback, and track your progress—all in one place.
               </p>
-              <div className="w-20 h-20 md:w-28 md:h-28 md:md:w-32 md:md:h-32 mt-2 md:mt-4 hidden md:block">
-                {/* Illustration removed, hidden on mobile */}
-              </div>
             </div>
           </div>
         </div>

@@ -19,22 +19,22 @@ const Banner2 = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center text-center min-h-[400px] md:min-h-[500px]">
+  <div className="relative z-10 container mx-auto px-4 md:px-6 py-10 sm:py-16 md:py-24 lg:py-32 flex flex-col items-center justify-center text-center min-h-[250px] sm:min-h-[400px] md:min-h-[500px]">
         {/* Text Content */}
-        <div className="space-y-6 md:space-y-8 animate-fadeIn">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+        <div className="space-y-4 sm:space-y-6 md:space-y-8 animate-fadeIn">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
             Your <span className="text-[#0000FE]">STEM</span> Future starts here!
           </h1>
-          <p className="text-xl md:text-2xl font-medium text-white max-w-3xl mx-auto whitespace-nowrap -ml-10 mb-20">
+          <p className="text-base sm:text-xl md:text-2xl font-medium text-white max-w-3xl mx-auto -ml-2 sm:-ml-10 mb-10 sm:mb-20">
             Don't miss your chance to join Ghana's next generation of innovators and changemakers.
           </p>
         </div>
 
         {/* Button */}
-        <div className="mt-20 md:mt-12 animate-float">
+        <div className="mt-10 sm:mt-20 md:mt-12 animate-float">
           <Link 
             to="/step-1" 
-            className="bg-[#0000FE] hover:bg-blue-700 text-white font-semibold py-4 px-18 rounded-lg text-lg md:text-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="bg-[#0000FE] hover:bg-blue-700 text-white font-semibold py-3 px-8 sm:py-4 sm:px-18 rounded-lg text-base sm:text-lg md:text-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
             Apply Now
           </Link>

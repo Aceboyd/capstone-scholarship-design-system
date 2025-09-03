@@ -101,45 +101,49 @@ function App() {
       <img
         src={testimoImage}
         alt="Testimo"
-        className="absolute top-10 right-[-1rem] w-[220px] md:w-[420px] opacity-10 md:opacity-20 animate-fade-in"
+        className="absolute top-6 right-0 w-[180px] sm:w-[250px] md:w-[420px] opacity-10 md:opacity-20 animate-fade-in"
       />
       <img
         src={tudentImage}
-        alt="tudent"
-        className="absolute bottom-0 left-[-1rem] w-[220px] md:w-[420px] opacity-10 md:opacity-20 animate-fade-in"
+        alt="Student"
+        className="absolute bottom-0 left-0 w-[180px] sm:w-[250px] md:w-[420px] opacity-10 md:opacity-20 animate-fade-in"
       />
 
-      <div className="max-w-7xl mx-auto px-4 py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 py-12 sm:py-16 md:py-20">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16 animate-fade-in">
-          <h1 className="text-3xl md:text-5xl font-bold text-black mb-3 md:mb-4">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16 animate-fade-in">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black mb-2 sm:mb-4">
             STUDENT <span className="text-[#0404FE]">TESTIMONIALS</span>
           </h1>
-          <p className="text-gray-600 text-base md:text-lg animate-pulse">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg animate-pulse">
             Hear from Students like you!
           </p>
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {currentTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`bg-blue-50/50 rounded-2xl p-6 md:p-8 relative transform transition-all duration-500 hover:shadow-xl ${
-                isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+              className={`bg-blue-50/50 rounded-2xl p-5 sm:p-6 md:p-8 relative transform transition-all duration-500 hover:shadow-xl ${
+                isAnimating
+                  ? "opacity-0 translate-y-4"
+                  : "opacity-100 translate-y-0"
               } animate-fade-slide-up`}
               style={{
                 animationDelay: `${index * 150}ms`,
-                transform: `perspective(1000px) rotateY(${isAnimating ? '90deg' : '0deg'})`
+                transform: `perspective(1000px) rotateY(${
+                  isAnimating ? "90deg" : "0deg"
+                })`,
               }}
             >
               <img
                 src={quoteImage}
                 alt="Quote"
-                className="absolute top-4 left-4 w-8 h-8 md:w-10 md:h-10 animate-bounce"
+                className="absolute top-4 left-4 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 animate-bounce"
               />
-              <div className="mb-6 pt-6 md:pt-8">
-                <p className="text-gray-800 text-base md:text-lg leading-relaxed">
+              <div className="mb-6 pt-4 sm:pt-6 md:pt-8">
+                <p className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed">
                   {testimonial.quote}
                 </p>
               </div>
@@ -147,13 +151,15 @@ function App() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover hover:scale-110 transition-transform"
+                  className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full object-cover hover:scale-110 transition-transform"
                 />
                 <div>
-                  <h3 className="font-semibold text-sm md:text-base text-gray-800">
+                  <h3 className="font-semibold text-xs sm:text-sm md:text-base text-gray-800">
                     {testimonial.name}
                   </h3>
-                  <p className="text-gray-500 text-xs md:text-sm">{testimonial.title}</p>
+                  <p className="text-gray-500 text-[11px] sm:text-xs md:text-sm">
+                    {testimonial.title}
+                  </p>
                 </div>
               </div>
             </div>
@@ -161,32 +167,34 @@ function App() {
         </div>
 
         {/* Navigation & Dots */}
-        <div className="flex flex-col items-center gap-3 mt-10 md:mt-6">
+        <div className="flex flex-col items-center gap-4 mt-10 sm:mt-12">
           {/* Navigation Buttons */}
-          <div className="flex justify-center md:justify-end items-center gap-3 w-full md:mb-[-2rem]">
+          <div className="flex justify-center md:justify-end items-center gap-3 w-full">
             <button
               onClick={handlePrevious}
               disabled={isAnimating}
-              className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-gray-200 hover:bg-gray-50 transition-all duration-300 hover:scale-105 disabled:opacity-50 hover:shadow"
+              className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full border border-gray-200 hover:bg-gray-50 transition-all duration-300 hover:scale-105 disabled:opacity-50 hover:shadow"
             >
-              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-gray-400" strokeWidth={1.5} />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" strokeWidth={1.5} />
             </button>
             <button
               onClick={handleNext}
               disabled={isAnimating}
-              className="w-10 h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 hover:scale-105 disabled:opacity-50 hover:shadow"
+              className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 hover:scale-105 disabled:opacity-50 hover:shadow"
             >
-              <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white" strokeWidth={1.5} />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" strokeWidth={1.5} />
             </button>
           </div>
 
           {/* Pagination Dots */}
-          <div className="flex justify-center gap-2 md:gap-3">
+          <div className="flex justify-center gap-2 sm:gap-3">
             {Array.from({ length: totalPages }).map((_, index) => (
               <div
                 key={index}
                 className={`w-2 h-2 rounded-full transition-all duration-300 transform ${
-                  index === currentPage ? 'bg-blue-600 scale-125 animate-pulse' : 'bg-blue-200'
+                  index === currentPage
+                    ? "bg-blue-600 scale-125 animate-pulse"
+                    : "bg-blue-200"
                 }`}
               />
             ))}

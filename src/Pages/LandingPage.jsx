@@ -12,9 +12,8 @@ import SectionG from "../Component/SectionG";
 import Footer from "../Component/Footer";
 
 const LandingPage = () => {
-  const [selectedCategories, setSelectedCategories] = useState([]); // Store multiple categories
+  const [selectedCategories, setSelectedCategories] = useState([]); 
 
-  // Memoize the setSelectedCategories function to prevent unnecessary re-renders
   const handleSetSelectedCategories = useCallback((categories) => {
     setSelectedCategories(categories);
   }, []);
@@ -25,27 +24,29 @@ const LandingPage = () => {
       <Header
         setSelectedCategories={handleSetSelectedCategories}
         selectedCategories={selectedCategories}
-        className="w-full px-4 sm:px-6 lg:px-8" // Responsive padding
+        className="w-full px-3 sm:px-6 lg:px-12"
       />
 
       {/* Main Content */}
       <main className="flex-grow w-full">
         <Hero
           selectedCategories={selectedCategories}
-          className="w-full px-4 sm:px-6 lg:px-8" // Responsive padding
+          className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-8"
         />
-        <Sponsors className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SlideSection className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SectionB className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SectionC className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SectionD className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SectionE className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SectionF className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
-        <SectionG className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+
+        {/* Each section gets responsive spacing */}
+        <Sponsors className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SlideSection className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SectionB className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SectionC className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SectionD className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SectionE className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SectionF className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
+        <SectionG className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
       </main>
 
       {/* Footer */}
-      <Footer className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8" />
+      <Footer className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
     </div>
   );
 };

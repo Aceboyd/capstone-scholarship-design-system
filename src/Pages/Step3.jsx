@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// Placeholder images
-
-import pdfIcon from '../assets/image/pdfIcon.png'; // Icon for PDF files
-import jpgIcon from '../assets/image/nice.png'; // Icon for JPG/JPEG files
-import pngIcon from '../assets/image/pngIcon.png'; // Icon for PNG files
-import docIcon from '../assets/image/nice.png'; // Icon for Word files
-
+import pdfIcon from '../assets/image/pdfIcon.png';
+import jpgIcon from '../assets/image/nice.png';
+import pngIcon from '../assets/image/pngIcon.png';
+import docIcon from '../assets/image/nice.png';
 import { Brain } from 'lucide-react';
 import Header2anon from '../Component3/Header2anon';
 import Background from '../Components4/Background';
@@ -23,19 +19,18 @@ const ScholarshipForm = () => {
   const [currentLevel, setCurrentLevel] = useState('');
   const [gpa, setGpa] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [progress, setProgress] = useState(0); 
+  const [progress, setProgress] = useState(40); // Start at 40% (Steps 1 and 2 completed)
+  const [appStatus, setAppStatus] = useState('Not Started');
 
   useEffect(() => {
-    const totalFields = 1; 
-    let filledFields = 0;
-
-    if (uploadedFiles.length > 0) filledFields++; 
-
-    const progressPercentage = (filledFields / totalFields) * 100;
-    setProgress(progressPercentage);
+    const maxDocuments = 5; // Maximum expected documents
+    const filledFields = uploadedFiles.filter(file => !file.error).length;
+    const step3Progress = (filledFields / maxDocuments) * 20; // Each document contributes 4% (20% ÷ 5)
+    const totalProgress = 40 + step3Progress; // Start at 40% + Step 3 contribution
+    setProgress(totalProgress);
+    setAppStatus(filledFields > 0 ? 'In Progress' : 'Not Started');
   }, [uploadedFiles]);
 
-  // Function to get the appropriate icon based on file type
   const getFileIcon = (fileType) => {
     switch (fileType) {
       case 'application/pdf':
@@ -47,9 +42,9 @@ const ScholarshipForm = () => {
         return pngIcon;
       case 'application/msword':
       case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-        return docIcon; // Fallback to default icon if docIcon is not provided
+        return docIcon;
       default:
-        return pdfIcon; // Default fallback
+        return pdfIcon;
     }
   };
 
@@ -61,7 +56,7 @@ const ScholarshipForm = () => {
       'image/png',
       'image/jpg',
       'application/msword',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
     ];
 
     files.forEach(file => {
@@ -108,7 +103,7 @@ const ScholarshipForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Uploaded Files:', uploadedFiles); // Debug log to check uploaded files
+    console.log('Uploaded Files:', uploadedFiles);
     if (uploadedFiles.length > 0 && uploadedFiles.every(file => !file.error)) {
       setFormFilled(true);
       navigate('/portal-step-4');
@@ -119,159 +114,142 @@ const ScholarshipForm = () => {
 
   return (
     <div className="min-h-screen bg-[#FAFAFF]">
-      {/* Header */}
-      <Header2anon/>
-
-      {/* Banner */}
-      <div className='mt-8'><Background/></div>
-
-      {/* Main Content */}
+      <Header2anon />
+      <div className='mt-8'><Background /></div>
       <main className="mx-auto w-full px-2">
-        {/* Progress Steps */}
-          <div className="mt-8"><Steps3/></div>   
-        
+        <div className="mt-8"><Steps3 progress={progress} appStatus={appStatus} /></div>
         <div className="flex flex-col">
           <div className="flex flex-row justify-center">
-          {/* Circles and Progress Bars Row */}
-          <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive3/></div>        
-        {/* Form Section with Right-Side Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-[80%]">
-          {/* Form Content */}
-          <div className="md:col-span-2">
-            <div className="bg-white p-6">
-              <form onSubmit={handleSubmit}>
-                <h3 className="text-xl font-semibold mb-6">Step 3: Supporting Documents</h3>
-                <div className="space-y-6">
-                  <p className="text-sm text-gray-500">
-                    Kindly upload the following documents: Recommendation Letter, CV, Valid ID Card, Passport photograph and any other document that may strengthen your application.
-                  </p>
-                  {/* Upload Documents Section */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700">Upload Documents</label>
-                    <div className="mt-1 border-2 border-dashed border-gray-300 rounded-md p-6 text-center">
-                      <div className="flex justify-center">
-                        <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                        </svg>
-                      </div>
-                      <p className="mt-2 mb-2 text-sm text-gray-600">Choose a file or drag and drop here</p>
-                      <p className="text-xs mb-6 text-red-600">file supported: .PDF, .JPG, .PNG, .JPEG, .DOC, .DOCX max 5MB</p>
-                      <label className="mt-4 inline-block">
-                        <span className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 cursor-pointer">Browse files</span>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileUpload}
-                          accept=".pdf,.jpg,.png,.jpeg,.doc,.docx"
-                          multiple
-                        />
-                      </label>
-                    </div>
-                  </div>
-                  {/* Uploaded Files Section */}
-                  {uploadedFiles.length > 0 && (
-                    <div className="mt-4">
-                      <h4 className="text-sm font-medium text-gray-700">Uploaded Files</h4>
-                      {uploadedFiles.map((file, index) => (
-                        <div key={index} className="flex flex-col bg-gray-50 p-3 rounded-md mt-2">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <img src={getFileIcon(file.type)} alt="File Icon" className="w-6 h-6 mr-2" />
-                              <span className="text-sm text-gray-800">{file.name}</span>
-                              <span className="text-xs text-gray-500 ml-2">({file.progress}%)</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className={file.error ? 'text-red-600' : file.progress === 100 ? 'text-[#0000FE]' : 'text-blue-600'}>
-                                {file.status}
-                              </span>
-                              {file.progress < 100 && !file.error && (
-                                <button
-                                  type="button"
-                                  className="ml-2 text-blue-600 hover:text-blue-800"
-                                  onClick={() => handleCancelUpload(file.name)}
-                                >
-                                  Cancel
-                                </button>
-                              )}
-                            </div>
+            <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive3 progress={progress} appStatus={appStatus} /></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-[80%]">
+              <div className="md:col-span-2">
+                <div className="bg-white p-6">
+                  <form onSubmit={handleSubmit}>
+                    <h3 className="text-xl font-semibold mb-6">Step 3: Supporting Documents</h3>
+                    <div className="space-y-6">
+                      <p className="text-sm text-gray-500">
+                        Kindly upload the following documents: Recommendation Letter, CV, Valid ID Card, Passport photograph and any other document that may strengthen your application.
+                      </p>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">Upload Documents</label>
+                        <div className="mt-1 border-2 border-dashed border-gray-300 rounded-md p-6 text-center">
+                          <div className="flex justify-center">
+                            <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
                           </div>
-                          <div className="mt-2">
-                            <div className="w-full h-1 bg-gray-200 rounded-full">
-                              <div className="h-full bg-blue-600 rounded-full" style={{ width: `${file.progress}%` }}></div>
-                            </div>
-                          </div>
+                          <p className="mt-2 mb-2 text-sm text-gray-600">Choose a file or drag and drop here</p>
+                          <p className="text-xs mb-6 text-red-600">file supported: .PDF, .JPG, .PNG, .JPEG, .DOC, .DOCX max 5MB</p>
+                          <label className="mt-4 inline-block">
+                            <span className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 cursor-pointer">Browse files</span>
+                            <input
+                              type="file"
+                              className="hidden"
+                              onChange={handleFileUpload}
+                              accept=".pdf,.jpg,.png,.jpeg,.doc,.docx"
+                              multiple
+                            />
+                          </label>
                         </div>
-                      ))}
+                      </div>
+                      {uploadedFiles.length > 0 && (
+                        <div className="mt-4">
+                          <h4 className="text-sm font-medium text-gray-700">Uploaded Files</h4>
+                          {uploadedFiles.map((file, index) => (
+                            <div key={index} className="flex flex-col bg-gray-50 p-3 rounded-md mt-2">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center">
+                                  <img src={getFileIcon(file.type)} alt="File Icon" className="w-6 h-6 mr-2" />
+                                  <span className="text-sm text-gray-800">{file.name}</span>
+                                  <span className="text-xs text-gray-500 ml-2">({file.progress}%)</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <span className={file.error ? 'text-red-600' : file.progress === 100 ? 'text-[#0000FE]' : 'text-blue-600'}>
+                                    {file.status}
+                                  </span>
+                                  {file.progress < 100 && !file.error && (
+                                    <button
+                                      type="button"
+                                      className="ml-2 text-blue-600 hover:text-blue-800"
+                                      onClick={() => handleCancelUpload(file.name)}
+                                    >
+                                      Cancel
+                                    </button>
+                                  )}
+                                </div>
+                              </div>
+                              <div className="mt-2">
+                                <div className="w-full h-1 bg-gray-200 rounded-full">
+                                  <div className="h-full bg-blue-600 rounded-full" style={{ width: `${file.progress}%` }}></div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      <div className="flex items-start mt-4">
+                        <span className="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center mr-2 text-gray-600 text-xs">i</span>
+                        <p className="text-xs text-gray-600">
+                          Your uploaded documents will be securely saved, making it easy to reuse them for future scholarship applications.<br />
+                          You can edit, replace, or update your saved documents anytime from your Profile on the dashboard.
+                        </p>
+                      </div>
                     </div>
-                  )}
-                  {/* Note Section */}
-                  <div className="flex items-start mt-4">
-                    <span className="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center mr-2 text-gray-600 text-xs">i</span>
-                    <p className="text-xs text-gray-600">
-                      Your uploaded documents will be securely saved, making it easy to reuse them for future scholarship applications.<br />
-                      You can edit, replace, or update your saved documents anytime from your Profile on the dashboard.
-                    </p>
-                  </div>
+                  </form>
                 </div>
-              </form>
-            </div>
-          </div>
-
-          {/* Right-Side Actions */}
-          <div className="md:col-span-1 flex flex-col items-end max-md:hidden bg-[#FAFAFF]">
-            <button className="bg-[#0000FE] text-white px-4 py-2 rounded-md hover:bg-blue-700 mb-2 w-full max-w-xs">
-              Save Progress
-            </button>
-            <a href="#" className="border border-blue-600 text-[#0000FE] px-4 py-2 rounded-md hover:bg-blue-50 mb-2 w-full max-w-xs text-center block">
-              Back to Homepage
-            </a>
-            <p className="text-sm text-gray-600 mt-2 flex items-center justify-end">
-              <span className="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center mr-2 text-gray-600 text-xs">i</span>
-              Note: Applications closes on 26th March 2025
-            </p>
-          </div>
-
-          {/* Navigation Buttons Moved Down */}
-          <div className="md:col-span-3 flex justify-between mt-8 max-md:hidden py-4">
-            <a
-              href="/application"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
-              Back
-            </a>
-            <a
-              href="/portal-step-4"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
-              onClick={handleSubmit}
-            >
-              Next
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        </div>
-        <div className='md:hidden justify-between flex flex-row py-4'>
-            <Navigationresponsive3/>
-            <button
-            id="next-button"
-            href="/portal-step-4"
+              </div>
+              <div className="md:col-span-1 flex flex-col items-end max-md:hidden bg-[#FAFAFF]">
+                <button className="bg-[#0000FE] text-white px-4 py-2 rounded-md hover:bg-blue-700 mb-2 w-full max-w-xs">
+                  Save Progress
+                </button>
+                <a href="#" className="border border-blue-600 text-[#0000FE] px-4 py-2 rounded-md hover:bg-blue-50 mb-2 w-full max-w-xs text-center block">
+                  Back to Homepage
+                </a>
+                <p className="text-sm text-gray-600 mt-2 flex items-center justify-end">
+                  <span className="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center mr-2 text-gray-600 text-xs">i</span>
+                  Note: Applications closes on 26th March 2025
+                </p>
+              </div>
+              <div className="md:col-span-3 flex justify-between mt-8 max-md:hidden py-4">
+                <a
+                  href="/application"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+                  </svg>
+                  Back
+                </a>
+                <a
+                  href="/portal-step-4"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
                   onClick={handleSubmit}
-                  className="mt-8 px-6 py-2 bg-blue-600 text-white rounded"
                 >
                   Next
-                </button>
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className='md:hidden justify-between flex flex-row py-4'>
+            <Navigationresponsive3 />
+            <button
+              id="next-button"
+              href="/portal-step-4"
+              onClick={handleSubmit}
+              className="mt-8 px-6 py-2 bg-blue-600 text-white rounded"
+            >
+              Next
+            </button>
           </div>
           <p className="mt-2 py-8 flex items-center justify-end text-sm text-indigo-700 font-medium md:hidden mx-auto">
-              <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
-                i
-              </span>
-              Note: Applications close on 26th March 2025
-            </p>
+            <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
+              i
+            </span>
+            Note: Applications close on 26th March 2025
+          </p>
         </div>
       </main>
     </div>

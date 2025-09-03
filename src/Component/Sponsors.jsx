@@ -54,10 +54,10 @@ const Sponsors = () => {
           <div className="flex flex-nowrap animate-marquee">
             {duplicatedLogos.map((logo, index) => (
               <img
-                key={`${logo.alt}-${index}`} // Ensure unique keys for duplicated items
+                key={`${logo.alt}-${index}`}
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 sm:h-9 md:h-10 object-contain mx-2 sm:mx-3"
+                className="h-7 sm:h-9 md:h-10 object-contain mx-1 sm:mx-3"
                 onError={(e) => console.error(`Failed to load image: ${logo.src}`)}
                 loading="lazy"
               />
@@ -109,7 +109,7 @@ const Sponsors = () => {
         }
         @media (max-width: 640px) {
           .animate-marquee {
-            animation-duration: 12s;
+            animation-duration: 10s;
           }
         }
       `}</style>
