@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header2anon from '../Component3/Header2anon';
 import pdfIcon from "../assets/image/pdfIcon.png";
-import number1Image from "../assets/image/form/1.png";
-import number2Image from "../assets/image/form/2.png";
-import number3Image from "../assets/image/form/3.png";
-import number4Image from "../assets/image/form/4.png";
-import number5Image from "../assets/image/form/5.png";
 import { Brain } from "lucide-react";
 import Background from "../Components4/Background";
 import Steps2 from "../Components4/Steps2";
@@ -21,11 +16,22 @@ const ScholarshipForm = () => {
   const [currentLevel, setCurrentLevel] = useState("");
   const [gpa, setGpa] = useState("");
   const [uploadedFile, setUploadedFile] = useState(null);
-  const [progress, setProgress] = useState(25); // Application status starts at 25%
+  const [progress, setProgress] = useState(25); // Application status starts at 25% (Step 1 completed)
   const [step2Progress, setStep2Progress] = useState(0); // Step 2 progress starts at 0%
   const [appStatus, setAppStatus] = useState("In Progress");
+  const [isFillingStep2, setIsFillingStep2] = useState(false); // Tracks if Step 2 form is being filled
 
   useEffect(() => {
+    // Determine if any Step 2 fields are filled to set isFillingStep2
+    const isAnyFieldFilled =
+      institutionName.trim() ||
+      programOfStudy.trim() ||
+      currentLevel ||
+      gpa.trim() ||
+      uploadedFile;
+    setIsFillingStep2(isAnyFieldFilled);
+
+    // Calculate filled fields for progress
     const totalFields = 5;
     let filledFields = 0;
 
@@ -43,14 +49,8 @@ const ScholarshipForm = () => {
     const step2Progress = (filledFields / totalFields) * 100;
     setStep2Progress(step2Progress);
 
-    // Update application status
-    if (totalProgress === 25) {
-      setAppStatus("In Progress");
-    } else if (totalProgress < 50) {
-      setAppStatus("In Progress");
-    } else {
-      setAppStatus("Completed");
-    }
+    // Update application status, ensuring Step 2 stays "In Progress" until navigation
+    setAppStatus("In Progress");
   }, [institutionName, programOfStudy, currentLevel, gpa, uploadedFile]);
 
   const handleFileUpload = (e) => {
@@ -137,12 +137,22 @@ const ScholarshipForm = () => {
       <div className="mt-8"><Background /></div>
       <main className="mx-auto w-full px-2">
         <div className="mt-8">
-          <Steps2 progress={progress} step2Progress={step2Progress} appStatus={appStatus} />
+          <Steps2
+            progress={progress}
+            step2Progress={step2Progress}
+            appStatus={appStatus}
+            isFillingStep2={isFillingStep2}
+          />
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row justify-center">
             <div className="md:hidden mt-8 w-[20%]">
-              <Stepsresponsive2 progress={progress} step2Progress={step2Progress} appStatus={appStatus} />
+              <Stepsresponsive2
+                progress={progress}
+                step2Progress={step2Progress}
+                appStatus={appStatus}
+                isFillingStep2={isFillingStep2}
+              />
             </div>
             <div className="grid grid-cols-1 gap-6 max-w-6xl px-4 md:grid-cols-3 w-[80%]">
               <div className="md:col-span-2">

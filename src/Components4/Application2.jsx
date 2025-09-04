@@ -200,8 +200,11 @@ const Application2 = ({ onFormUpdate }) => {
                 <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
                   Back to Homepage
                 </button>
-                <p className="text-red-500 text-xs text-center mt-4">
-                  Note: Applications close on 26th March 2025
+                <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
+                  <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
+                    i
+                  </span>
+                  Note: Applications closes on 26th March 2025
                 </p>
               </div>
             </div>
