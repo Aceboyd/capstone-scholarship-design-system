@@ -7,19 +7,17 @@ const NavigationBar = () => {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ["Open Sans:400,600", "sans-serif"], // Fallback font: Open Sans
+        families: ["Open Sans:400,600", "sans-serif"],
       },
     });
   }, []);
 
   const handleScroll = (sectionId) => {
-    setActiveSection(sectionId); // Set the clicked section as active
+    setActiveSection(sectionId);
     const section = document.getElementById(sectionId);
     if (section) {
-      const navbarHeight =
-        document.querySelector(".navbar")?.offsetHeight || 80;
-      const sectionTop =
-        section.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 80;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY - navbarHeight;
       window.scrollTo({ top: sectionTop, behavior: "smooth" });
     } else {
       console.warn(`Section with id '${sectionId}' not found.`);
@@ -28,7 +26,7 @@ const NavigationBar = () => {
 
   return (
     <div
-      className="navbar  top-0 z-50 w-full border-b border-gray-200 bg-[#EBEDFF] py-2"
+      className="navbar z-50 w-full border-b border-gray-200 bg-[#EBEDFF] py-2 sticky top-0"
       style={{ fontFamily: "Open Sans, sans-serif" }}
     >
       <div className="mx-auto flex max-w-6xl flex-col lg:flex-row justify-around rounded-lg bg-white p-2 sm:p-3 px-2 sm:px-4 shadow-md gap-2 lg:gap-0 overflow-x-auto">
