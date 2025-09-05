@@ -42,7 +42,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Contact Us</h3>
             <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
-              <p className='flex justify-end items-end '>scholarships@capstone.gov.ng</p>
+              <p>scholarships@capstone.gov.ng</p>
               <p>+234 (0) 702 123 456</p>
               <p>+234 (0) 809 187 653</p>
               <p>2nd Floor, Trust House, Ridge,<br />Lagos, Nigeria</p>
