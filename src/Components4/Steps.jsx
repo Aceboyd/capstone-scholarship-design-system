@@ -125,26 +125,26 @@ const Steps = ({ progress, appStatus }) => {
 
       {/* Title and Status */}
       <div className="w-full px-4 pb-4 flex justify-between text-[12px] items-center md:hidden bg-[#FAFAFF]">
-        <button className="px-4 py-1 bg-[#0000FE] text-white rounded font-bold">
-          Save Progress
-        </button>
-        <button className="px-4 py-1 bg-white text-[#0000FE] rounded border border-blue-800 font-bold">
-          Back to Homepage
-        </button>
+        <button className="px-5 py-2 bg-[#0000FE] text-sm text-white rounded font-bold">
+              Save Progress
+            </button>
+            <button className="px-5 py-2 bg-white text-sm text-[#0000FE] rounded border border-blue-800 font-bold">
+              Back to Homepage
+            </button>
       </div>
-      <div className="mb-20 lg:w-2/3 px-2 lg:px-5 ml-20">
-        <h2 className="text-sm sm:text-xl md:text-3xl font-bold text-gray-800 mb-3.5">
+      <div className="mb-20 lg:w-2/3 px-2 lg:px-5 lg:ml-20 max-lg:text-center max-md:mt-7">
+        <h2 className="text-sm sm:text-xl md:text-3xl font-medium text-gray-800 mb-3.5">
           Ghana STEM Excellence Scholarship Application Form
         </h2>
-        <div className="flex items-center mt-2">
-          <span className="text-xl text-gray-600">Application status:</span>
-          <div className="w-50 h-2.5 bg-gray-200 rounded-full ml-2">
+        <div className="max-lg:px-5 flex items-center max-md:justify-center max-md:mx-auto mt-2">
+          <span className="text-[10px] sm:text-sm text-gray-600">Application status:</span>
+          <div className="w-30 md:w-50 h-2.5 bg-gray-200 rounded-full ml-2">
             <div
               className="h-full rounded-full bg-[#0000FE] transition-all duration-700"
               style={{ width: `${progress > 0 ? 25 : 0}%` }}
             ></div>
           </div>
-          <span className="ml-2 text-sm text-[#0000FE]">{appStatus}</span>
+          <span className="ml-2 text-[10px] sm:text-sm text-[#0000FE]">{appStatus}</span>
         </div>
       </div>
     </div>

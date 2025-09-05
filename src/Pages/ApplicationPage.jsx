@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header2anon from '../Component3/Header2anon';
 import pdfIcon from "../assets/image/pdfIcon.png";
-import { Brain } from "lucide-react";
 import Background from "../Components4/Background";
 import Steps2 from "../Components4/Steps2";
 import Navigationresponsive2 from "../Components4/Navigationresponsive2";
@@ -105,6 +104,8 @@ const ScholarshipForm = () => {
     reader.readAsDataURL(file);
   };
 
+
+
   const handleCancelUpload = () => {
     setUploadedFile(null);
   };
@@ -148,7 +149,6 @@ const ScholarshipForm = () => {
           <div className="flex flex-row justify-center">
             <div className="md:hidden mt-8 w-[20%]">
               <Stepsresponsive2
-                progress={progress}
                 step2Progress={step2Progress}
                 appStatus={appStatus}
                 isFillingStep2={isFillingStep2}
@@ -168,6 +168,7 @@ const ScholarshipForm = () => {
                         </label>
                         <input
                           type="text"
+                          name="institution"
                           value={
                             formFilled
                               ? "Egbuna Princess University"
@@ -185,6 +186,7 @@ const ScholarshipForm = () => {
                           </label>
                           <input
                             type="text"
+                            name="program"
                             value={formFilled ? "Computer Science" : programOfStudy}
                             onChange={(e) => setProgramOfStudy(e.target.value)}
                             placeholder="e.g. Computer Science, Engineering"
@@ -214,6 +216,7 @@ const ScholarshipForm = () => {
                         </label>
                         <input
                           type="text"
+                          name="gpa"
                           value={formFilled ? "3.8" : gpa}
                           onChange={(e) => setGpa(e.target.value)}
                           placeholder="Enter your current GPA"
@@ -252,6 +255,7 @@ const ScholarshipForm = () => {
                             </span>
                             <input
                               type="file"
+                              name="browsefiles"
                               className="hidden"
                               onChange={handleFileUpload}
                               accept=".doc,.docx"
@@ -381,14 +385,7 @@ const ScholarshipForm = () => {
               Next
             </button>
           </div>
-          <div className="w-full px-4 pb-4 flex justify-between text-[14px] items-center md:hidden bg-[#FAFAFF]">
-            <button className="px-6 py-3 bg-[#0000FE] text-lg text-white rounded font-bold">
-              Save Progress
-            </button>
-            <button className="px-6 py-3 bg-white text-lg text-[#0000FE] rounded border border-blue-800 font-bold">
-              Back to Homepage
-            </button>
-          </div>
+          
           <p className="mt-2 py-8 flex items-center justify-end text-sm text-indigo-700 font-medium md:hidden mx-auto">
             <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
               i

@@ -25,7 +25,7 @@ const ScholarshipForm = () => {
   useEffect(() => {
     const maxDocuments = 5; // Maximum expected documents
     const filledFields = uploadedFiles.filter(file => !file.error).length;
-    const step3Progress = (filledFields / maxDocuments) * 20; // Each document contributes 4% (20% ÷ 5)
+    const step3Progress = (filledFields / maxDocuments) * 90; // Each document contributes 4% (20% ÷ 5)
     const totalProgress = 40 + step3Progress; // Start at 40% + Step 3 contribution
     setProgress(totalProgress);
     setAppStatus(filledFields > 0 ? 'In Progress' : 'Not Started');

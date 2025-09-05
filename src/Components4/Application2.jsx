@@ -19,6 +19,17 @@ const Application2 = ({ onFormUpdate }) => {
     enrolled: '',
   });
 
+  const fields = [
+    'firstName', 'lastName', 'dobDay', 'dobMonth', 'dobYear', 'email', 'nin',
+    'streetAddress', 'city', 'state', 'country', 'enrolled'
+  ];
+  const filledFields = fields.filter(f => formData[f]);
+  const progress = Math.round((filledFields.length / fields.length) * 100);
+
+  let appStatus = "Not Started";
+  if (progress === 100) appStatus = "Completed";
+  else if (progress > 0) appStatus = "In Progress";
+
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -39,7 +50,7 @@ const Application2 = ({ onFormUpdate }) => {
   return (
     <div className="flex flex-col">
       <div className="flex flex-row justify-center">
-        <div className="w-[20%] md:hidden"><Stepsresponsive /></div>
+        <div className="w-[20%] md:hidden"><Stepsresponsive progress={progress} appStatus={appStatus}/></div>
         <div className="w-[80%] min-h-screen flex flex-col justify-start">
           {/* Main Content Area */}
           <div className="flex-grow flex justify-center px-4 pb-8">
