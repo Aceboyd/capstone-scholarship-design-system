@@ -14,7 +14,7 @@ export default function PortalStep4() {
   useEffect(() => {
     const minWords = 2000;
     const words = sopText.trim().split(/\s+/).filter(word => word.length > 0).length;
-    const step4Progress = Math.min((words / minWords) * 5, 5); // Up to 5% for 2000+ words
+    const step4Progress = Math.min((words / minWords) * 90, 90); // Up to 50% for 2000+ words
     const totalProgress = 75 + step4Progress; // 75% base + Step 4 contribution
     setProgress(totalProgress);
     setAppStatus(words > 0 ? "In Progress" : "Not Started");
@@ -33,8 +33,8 @@ export default function PortalStep4() {
         <div className="flex flex-col">
           <div className="flex flex-row justify-center">
             <div className="md:hidden mt-8 w-[20%]"><Stepsresponsive4 progress={progress} appStatus={appStatus} /></div>
-            <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 px-1 gap-5">
-              <div className="w-full md:w-[70%] p-6 space-y-2 bg-white">
+            <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 px-1 gap-3">
+              <div className="w-full md:w-[70%] p-5 space-y-2 bg-white">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <p className="text-xl">
@@ -102,12 +102,12 @@ export default function PortalStep4() {
                 >
                   Back to Homepage
                 </a>
-                <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
-                  <div className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
+                <div className="mt-2 flex items-center justify-end text-sm text-gray-600">
+                  <p className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
                     i
-                  </div>
+                  </p>
                   Note: Applications closes on 26th March 2025
-                </p>
+                </div>
               </div>
             </div>
           </div>

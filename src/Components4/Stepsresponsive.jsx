@@ -1,53 +1,125 @@
 import React from "react";
-import number1Image from "../assets/image/form/1.png";
-import number2Image from "../assets/image/form/2.png";
-import number3Image from "../assets/image/form/3.png";
-import number4Image from "../assets/image/form/4.png";
-import number5Image from "../assets/image/form/5.png";
 
-const stepDetails = [
-  { label: "STEP 1", borderstyle: "border-blue-700", imagestep: number1Image, style: "mt-1 text-[8px] sm:text-xs text-xs text-[#0000FE] border border-[#0000FE] rounded-full px-1 sm:px-3", status: "In Progress" },
-  { label: "STEP 2", borderstyle: "border-gray-300", imagestep: number2Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 3", borderstyle: "border-gray-300", imagestep: number3Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 4", borderstyle: "border-gray-300", imagestep: number4Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started" },
-  { label: "STEP 5", borderstyle: "border-gray-300", imagestep: number5Image, style: "text-[10px] sm:text-xs text-gray-400", status: "Not Started", style2: "hidden" }
-];
+const Stepsresponsive = ({ progress, appStatus }) => {
+  const stepDetailsmobile = [
+    {
+      label: "STEP 1",
+      title: (
+        <>
+          Personal <br /> Details
+        </>
+      ),
+      number: "1",
+      style:
+        appStatus === "In Progress"
+          ? "mt-1 text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#0000FE] border-opacity-50 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap"
+          : "mt-1 text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border-[0.3px] border-gray-400 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
+      status: appStatus,
+      style2: progress > 0 ? "bg-[#0000FE]" : "bg-gray-200",
+      borderColor: progress > 0 ? "border-[#CCCFFF]" : "border-gray-400",
+      textStroke: progress > 0 ? "#0000FE" : "gray",
+    },
+    {
+      label: "STEP 2",
+      title: (
+        <>
+          Academic <br /> Information
+        </>
+      ),
+      number: "2",
+      style:
+        "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border-[0.3px] border-gray-400 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
+      status: "Not Started",
+      style2: "bg-gray-200",
+      borderColor: "border-gray-400",
+      textStroke: "gray",
+    },
+    {
+      label: "STEP 3",
+      title: (
+        <>
+          Supporting <br /> Documents
+        </>
+      ),
+      number: "3",
+      style:
+        "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border-[0.3px] border-gray-400 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
+      status: "Not Started",
+      style2: "bg-gray-200",
+      borderColor: "border-gray-400",
+      textStroke: "gray",
+    },
+    {
+      label: "STEP 4",
+      title: (
+        <>
+          Statement <br /> of Purpose
+        </>
+      ),
+      number: "4",
+      style:
+        "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border-[0.3px] border-gray-400 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
+      status: "Not Started",
+      style2: "bg-gray-200",
+      borderColor: "border-gray-400",
+      textStroke: "gray",
+    },
+    {
+      label: "STEP 5",
+      title: (
+        <>
+          Review Application <br /> and Submit
+        </>
+      ),
+      number: "5",
+      style:
+        "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border-[0.3px] border-gray-400 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
+      status: "Not Started",
+      style2: "hidden",
+      borderColor: "border-gray-400",
+      textStroke: "gray",
+    },
+  ];
 
-const Stepsresponsive = () => {
-  
-  
-
-    return (
-<div className="md:hidden">
-      <div className="mb-2 ">
-            
-                {stepDetails.map((step, index) => {
-                  
-      
-                  return (
-                    <React.Fragment key={index}>
-                      <div className="flex flex-col m-2  justify-center items-center flex-1 ">
-                        <div
-                          className={`w-10 h-10 rounded-full border-2 border-dashed flex items-center justify-center ${step.borderstyle}`}
-                        >
-                          <img
-                            src={step.imagestep}
-                            className="w-5 h-5 object-contain"
-                          />
-                        </div>
-                        <span className="text-sm text-gray-500">{step.label}</span>
-                        <span className={`${step.style}`}>{step.status}</span>
-                      
-                        <div className={`flex justify-center mx-auto items-center w-[3px] mb-0 h-17 bg-gray-200 rounded-full ${step.style2}`} >
-                          
-                        </div>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
-          </div>
+  return (
+    <div className="md:hidden mb-2">
+      <div className="flex flex-col items-center w-full justify-center mx-auto md:hidden">
+        {stepDetailsmobile.map((step, i) => (
+          <React.Fragment key={i}>
+            <div className="flex flex-col m-2 justify-center items-center flex-1 w-full">
+              <div
+                className={`w-12 h-12 rounded-full border-2 border-dashed flex items-center justify-center ${step.borderColor}`}
+              >
+                <span
+                  className="text-2xl font-bold text-transparent"
+                  style={{
+                    WebkitTextStroke: `1.5px ${step.textStroke}`,
+                  }}
+                >
+                  {step.number}
+                </span>
+              </div>
+              <span className="text-[10px] text-gray-500">{step.label}</span>
+              <span className={`${step.style}`}>{step.status}</span>
+              {/* Progress bar for each step except STEP 5 */}
+              <div className="w-full flex flex-col items-center">
+                {step.label !== "STEP 5" && (
+                  <div className="w-[3px] h-17 bg-gray-200 rounded-full mt-2 mb-1">
+                    <div
+                      className={`h-full rounded-full ${step.style2} transition-all duration-500`}
+                      style={{
+                        height: step.label === "STEP 1" ? `${progress}%` : "0%",
+                      }}
+                    ></div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
     </div>
-     );
+  );
 };
 
 export default Stepsresponsive;

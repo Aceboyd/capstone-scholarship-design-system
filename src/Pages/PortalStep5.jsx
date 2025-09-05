@@ -11,6 +11,10 @@ export default function PortalStep5() {
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [progress, setProgress] = useState(80); // Initial progress at 80%
 
+  let appStatus = "In Progress";
+  if (progress === 100) appStatus = "Completed";
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isConfirmed) {
@@ -38,13 +42,13 @@ export default function PortalStep5() {
 
         {/* Main Content */}
         <main className="mx-auto w-full px-2">
-          <div className="mt-8"><Steps5 progress={progress} appStatus="In Progress" /></div>
+          <div className="mt-8"><Steps5 progress={progress} appStatus={appStatus} /></div>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col justify-between gap-8 lg:flex-row"
           >
             <div className="flex flex-row justify-center">
-              <div className="md:hidden mt-8 w-[20%]"><Stepsresponsive5 /></div>
+              <div className="md:hidden mt-8 w-[20%]"><Stepsresponsive5 progress={progress} appStatus={appStatus}/></div>
               <div className="w-[80%] md:w-full flex flex-row justify-center md:px-10 lg:px-20 gap-5">
                 {/* Step 5: Review Application and Submit */}
                 <div className="w-full md:w-[70%] bg-white p-6">

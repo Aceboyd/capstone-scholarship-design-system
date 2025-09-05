@@ -66,13 +66,13 @@ const Steps5 = ({ progress, appStatus }) => {
       number: "5",
       style:
         progress >= 100
-          ? "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#0000FE] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap"
+          ? "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium"
           : "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border border-gray-400 rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap",
       status: appStatus,
       style2: progress >= 100 ? "bg-[#0000FE]" : "bg-gray-200",
-      borderColor: progress >= 100 ? "border-[#CCCFFF]" : "border-gray-400",
+      borderColor: progress >= 100 ? "border-[#0000FE]" : "border-gray-400",
       textStroke: progress >= 100 ? "#0000FE" : "gray",
-      circleBackground: "transparent",
+      circleBackground: progress>=100 ? "bg-#0000FE" : "transparent",
       progressFill: `${(progress - 80) * 5}%`, // Step 5 contributes 0-20% to total progress
     },
   ];
@@ -88,7 +88,7 @@ const Steps5 = ({ progress, appStatus }) => {
                 {/* Circle with number */}
                 <div
                   className={`w-12 h-12 rounded-full border-2 border-dashed flex items-center justify-center ${step.borderColor}`}
-                  style={{ backgroundColor: step.circleBackground || "transparent" }}
+                  style={{ backgroundColor: step.circleBackground }}
                 >
                   <span
                     className={`text-2xl font-bold ${step.textColor ? `text-[${step.textColor}]` : "text-transparent"}`}
@@ -119,13 +119,21 @@ const Steps5 = ({ progress, appStatus }) => {
       </div>
 
       {/* Title and Application Status */}
-      <div className="mb-20 lg:w-2/3 px-2 lg:px-5 ml-20">
-        <h2 className="text-sm sm:text-xl md:text-3xl font-bold text-gray-800 mb-3.5">
+      <div className="w-full px-4 pb-4 flex justify-between text-[12px] items-center md:hidden bg-[#FAFAFF]">
+        <button className="px-5 py-2 bg-[#0000FE] text-sm text-white rounded font-bold">
+              Save Progress
+            </button>
+            <button className="px-5 py-2 bg-white text-sm text-[#0000FE] rounded border border-blue-800 font-bold">
+              Back to Homepage
+            </button>
+      </div>
+      <div className="mb-20 lg:w-2/3 px-2 lg:px-5 lg:ml-20 max-lg:text-center max-md:mt-7">
+        <h2 className="text-sm sm:text-xl md:text-3xl font-medium text-gray-800 mb-3.5">
           Ghana STEM Excellence Scholarship Application Form
         </h2>
-        <div className="flex items-center mt-2">
-          <span className="text-xl text-gray-600">Application status:</span>
-          <div className="w-50 h-2.5 bg-gray-200 rounded-full ml-2">
+        <div className="max-lg:px-5 flex items-center max-md:justify-center max-md:mx-auto mt-2">
+          <span className="text-[10px] sm:text-sm text-gray-600">Application status:</span>
+          <div className="w-30 md:w-50 h-2.5 bg-gray-200 rounded-full ml-2">
             <div
               className="h-full rounded-full bg-[#0000FE] transition-all duration-700"
               style={{ width: `${adjustedProgress}%` }}

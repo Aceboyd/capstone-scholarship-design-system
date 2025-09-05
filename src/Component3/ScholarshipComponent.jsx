@@ -46,7 +46,7 @@ const ScholarshipComponent = () => {
           </div>
 
           {/* Right Column - Scholarship Details */}
-          <div className="flex-2 md:mt-[230px]">
+          <div className="flex-2 md:mt-[230px] lg:ml-30">
           
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
