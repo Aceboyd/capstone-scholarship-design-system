@@ -72,7 +72,7 @@ const Footer = () => {
             </div>
 
             <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 md:mb-4">
-              Our Social
+              Our Socials
             </h3>
             <div className="flex gap-3 sm:gap-4">
               <a href="#" className="hover:text-blue-200 transition-colors">
