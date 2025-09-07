@@ -4,7 +4,6 @@ import pdfIcon from '../assets/image/pdfIcon.png';
 import jpgIcon from '../assets/image/nice.png';
 import pngIcon from '../assets/image/pngIcon.png';
 import docIcon from '../assets/image/nice.png';
-import { Brain } from 'lucide-react';
 import Header2anon from '../Component3/Header2anon';
 import Background from '../Components4/Background';
 import Navigationresponsive3 from '../Components4/Navigationresponsive3';
@@ -14,21 +13,24 @@ import Stepsresponsive3 from '../Components4/Stepsresponsive3';
 const ScholarshipForm = () => {
   const navigate = useNavigate();
   const [formFilled, setFormFilled] = useState(false);
-  const [institutionName, setInstitutionName] = useState('');
-  const [programOfStudy, setProgramOfStudy] = useState('');
-  const [currentLevel, setCurrentLevel] = useState('');
-  const [gpa, setGpa] = useState('');
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [progress, setProgress] = useState(40); // Start at 40% (Steps 1 and 2 completed)
+  const [uploadedFiles, setUploadedFiles] = useState(() => {
+    // ✅ Load saved uploads from localStorage if available
+    const saved = localStorage.getItem("step3Files");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [progress, setProgress] = useState(40); 
   const [appStatus, setAppStatus] = useState('Not Started');
 
   useEffect(() => {
-    const maxDocuments = 5; // Maximum expected documents
+    const maxDocuments = 5; 
     const filledFields = uploadedFiles.filter(file => !file.error).length;
-    const step3Progress = (filledFields / maxDocuments) * 90; // Each document contributes 4% (20% ÷ 5)
-    const totalProgress = 40 + step3Progress; // Start at 40% + Step 3 contribution
+    const step3Progress = (filledFields / maxDocuments) * 90; 
+    const totalProgress = 40 + step3Progress; 
     setProgress(totalProgress);
     setAppStatus(filledFields > 0 ? 'In Progress' : 'Not Started');
+
+    // ✅ Save to localStorage whenever uploads change
+    localStorage.setItem("step3Files", JSON.stringify(uploadedFiles));
   }, [uploadedFiles]);
 
   const getFileIcon = (fileType) => {
@@ -61,7 +63,7 @@ const ScholarshipForm = () => {
 
     files.forEach(file => {
       if (!supportedTypes.includes(file.type)) {
-        alert(`Unsupported file type: ${file.name}. Please upload PDF, JPG, PNG, JPEG, or Microsoft Word (.doc, .docx) files only.`);
+        alert(`Unsupported file type: ${file.name}.`);
         return;
       }
 
@@ -103,12 +105,15 @@ const ScholarshipForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Uploaded Files:', uploadedFiles);
     if (uploadedFiles.length > 0 && uploadedFiles.every(file => !file.error)) {
       setFormFilled(true);
+
+      // ✅ Persist before moving to step 4
+      localStorage.setItem("step3Files", JSON.stringify(uploadedFiles));
+
       navigate('/portal-step-4');
     } else {
-      alert('Please upload at least one valid document (PDF, JPG, PNG, JPEG, or Microsoft Word, max 5MB) before proceeding.');
+      alert('Please upload at least one valid document before proceeding.');
     }
   };
 
@@ -118,6 +123,7 @@ const ScholarshipForm = () => {
       <div className='mt-8'><Background /></div>
       <main className="mx-auto w-full px-2">
         <div className="mt-8"><Steps3 progress={progress} appStatus={appStatus} /></div>
+
         <div className="flex flex-col">
           <div className="flex flex-row justify-center">
             <div className='md:hidden mt-8 w-[20%]'><Stepsresponsive3 progress={progress} appStatus={appStatus} /></div>

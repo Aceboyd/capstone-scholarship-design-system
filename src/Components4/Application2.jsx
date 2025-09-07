@@ -1,56 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stepsresponsive from './Stepsresponsive';
 import Navigationresponsive from './Navigationresponsive';
 
 const Application2 = ({ onFormUpdate }) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    dobDay: '',
-    dobMonth: '',
-    dobYear: '',
-    email: '',
-    nin: '',
-    streetAddress: '',
-    city: '',
-    state: '',
-    country: '',
-    enrolled: '',
+  const navigate = useNavigate();
+
+  // Load saved data from localStorage on mount
+  const [formData, setFormData] = useState(() => {
+    const saved = localStorage.getItem("step1Data");
+    return saved
+      ? JSON.parse(saved)
+      : {
+          firstName: "",
+          lastName: "",
+          dobDay: "",
+          dobMonth: "",
+          dobYear: "",
+          email: "",
+          nin: "",
+          streetAddress: "",
+          city: "",
+          state: "",
+          country: "",
+          enrolled: "",
+        };
   });
 
+  // Always save to localStorage whenever formData changes
+  useEffect(() => {
+    localStorage.setItem("step1Data", JSON.stringify(formData));
+    if (onFormUpdate) {
+      onFormUpdate(formData); // update parent progress/status
+    }
+  }, [formData]);
+
+  // Calculate progress
   const fields = [
-    'firstName', 'lastName', 'dobDay', 'dobMonth', 'dobYear', 'email', 'nin',
-    'streetAddress', 'city', 'state', 'country', 'enrolled'
+    "firstName",
+    "lastName",
+    "dobDay",
+    "dobMonth",
+    "dobYear",
+    "email",
+    "nin",
+    "streetAddress",
+    "city",
+    "state",
+    "country",
+    "enrolled",
   ];
-  const filledFields = fields.filter(f => formData[f]);
+  const filledFields = fields.filter((f) => formData[f]);
   const progress = Math.round((filledFields.length / fields.length) * 100);
 
   let appStatus = "Not Started";
   if (progress === 100) appStatus = "Completed";
   else if (progress > 0) appStatus = "In Progress";
 
-  const navigate = useNavigate();
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSaveProgress = () => {
+    localStorage.setItem("step1Data", JSON.stringify(formData));
+    alert("Progress saved successfully!");
+  };
 
   const handleBack = () => {
-    navigate('/ghanapage');
+    navigate("/ghanapage");
   };
 
   const handleNext = () => {
-    navigate('/application');
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    const updatedFormData = { ...formData, [name]: value };
-    setFormData(updatedFormData);
-    onFormUpdate(updatedFormData);
+    navigate("/application");
   };
 
   return (
     <div className="flex flex-col">
       <div className="flex flex-row justify-center">
-        <div className="w-[20%] md:hidden"><Stepsresponsive progress={progress} appStatus={appStatus}/></div>
+        <div className="w-[20%] md:hidden">
+          <Stepsresponsive progress={progress} appStatus={appStatus} />
+        </div>
         <div className="w-[80%] min-h-screen flex flex-col justify-start">
           {/* Main Content Area */}
           <div className="flex-grow flex justify-center px-4 pb-8">
@@ -95,8 +125,10 @@ const Application2 = ({ onFormUpdate }) => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     <option value="">Day</option>
-                    {Array.from({ length: 31 }, (_, i) => i + 1).map(day => (
-                      <option key={day} value={day}>{day}</option>
+                    {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
+                      <option key={day} value={day}>
+                        {day}
+                      </option>
                     ))}
                   </select>
                   <select
@@ -106,8 +138,23 @@ const Application2 = ({ onFormUpdate }) => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     <option value="">Month</option>
-                    {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => (
-                      <option key={month} value={month}>{month}</option>
+                    {[
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December",
+                    ].map((month) => (
+                      <option key={month} value={month}>
+                        {month}
+                      </option>
                     ))}
                   </select>
                   <select
@@ -117,8 +164,10 @@ const Application2 = ({ onFormUpdate }) => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     <option value="">Year</option>
-                    {Array.from({ length: 100 }, (_, i) => 2025 - i).map(year => (
-                      <option key={year} value={year}>{year}</option>
+                    {Array.from({ length: 100 }, (_, i) => 2025 - i).map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -135,7 +184,9 @@ const Application2 = ({ onFormUpdate }) => {
                 />
 
                 {/* NIN */}
-                <label className="block text-sm font-medium max-sm:text-sm">National Identity Number (NIN)</label>
+                <label className="block text-sm font-medium max-sm:text-sm">
+                  National Identity Number (NIN)
+                </label>
                 <input
                   type="text"
                   name="nin"
@@ -173,7 +224,7 @@ const Application2 = ({ onFormUpdate }) => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     <option value="">State</option>
-                    {/* Add state options as needed */}
+                    <option value="Lagos">Lagos</option>
                   </select>
                   <select
                     name="country"
@@ -183,7 +234,6 @@ const Application2 = ({ onFormUpdate }) => {
                   >
                     <option value="">Country</option>
                     <option value="Nigeria">Nigeria</option>
-                    {/* Add more countries as needed */}
                   </select>
                 </div>
 
@@ -205,10 +255,16 @@ const Application2 = ({ onFormUpdate }) => {
 
               {/* Right - Buttons */}
               <div className="flex flex-col md:justify-start gap-4 max-md:hidden bg-[#FAFAFF]">
-                <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%]">
+                <button
+                  onClick={handleSaveProgress}
+                  className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%]"
+                >
                   Save Progress
                 </button>
-                <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
+                <button
+                  onClick={handleBack}
+                  className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full"
+                >
                   Back to Homepage
                 </button>
                 <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
@@ -238,7 +294,9 @@ const Application2 = ({ onFormUpdate }) => {
           </div>
         </div>
       </div>
-      <div className="md:hidden"><Navigationresponsive /></div>
+      <div className="md:hidden">
+        <Navigationresponsive />
+      </div>
       <p className="mt-2 py-8 flex items-center justify-end text-sm text-indigo-700 font-medium md:hidden mx-auto">
         <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-indigo-700 text-xs text-indigo-700">
           i

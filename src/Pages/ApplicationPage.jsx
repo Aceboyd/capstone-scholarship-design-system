@@ -15,13 +15,35 @@ const ScholarshipForm = () => {
   const [currentLevel, setCurrentLevel] = useState("");
   const [gpa, setGpa] = useState("");
   const [uploadedFile, setUploadedFile] = useState(null);
-  const [progress, setProgress] = useState(25); // Application status starts at 25% (Step 1 completed)
-  const [step2Progress, setStep2Progress] = useState(0); // Step 2 progress starts at 0%
+  const [progress, setProgress] = useState(25); 
+  const [step2Progress, setStep2Progress] = useState(0);
   const [appStatus, setAppStatus] = useState("In Progress");
-  const [isFillingStep2, setIsFillingStep2] = useState(false); // Tracks if Step 2 form is being filled
+  const [isFillingStep2, setIsFillingStep2] = useState(false);
 
+  // Load saved data on mount
   useEffect(() => {
-    // Determine if any Step 2 fields are filled to set isFillingStep2
+    const savedData = localStorage.getItem("step2Data");
+    if (savedData) {
+      const parsed = JSON.parse(savedData);
+      setInstitutionName(parsed.institutionName || "");
+      setProgramOfStudy(parsed.programOfStudy || "");
+      setCurrentLevel(parsed.currentLevel || "");
+      setGpa(parsed.gpa || "");
+      setUploadedFile(parsed.uploadedFile || null);
+    }
+  }, []);
+
+  // Save data & update progress whenever fields change
+  useEffect(() => {
+    const step2Data = {
+      institutionName,
+      programOfStudy,
+      currentLevel,
+      gpa,
+      uploadedFile,
+    };
+    localStorage.setItem("step2Data", JSON.stringify(step2Data));
+
     const isAnyFieldFilled =
       institutionName.trim() ||
       programOfStudy.trim() ||
@@ -30,7 +52,6 @@ const ScholarshipForm = () => {
       uploadedFile;
     setIsFillingStep2(isAnyFieldFilled);
 
-    // Calculate filled fields for progress
     const totalFields = 5;
     let filledFields = 0;
 
@@ -40,15 +61,12 @@ const ScholarshipForm = () => {
     if (gpa.trim()) filledFields++;
     if (uploadedFile) filledFields++;
 
-    // Application status: 25% (Step 1) + 5% per field in Step 2
     const totalProgress = 25 + (filledFields / totalFields) * 25;
     setProgress(totalProgress);
 
-    // Step 2 progress: 0% to 100% based on fields
     const step2Progress = (filledFields / totalFields) * 100;
     setStep2Progress(step2Progress);
 
-    // Update application status, ensuring Step 2 stays "In Progress" until navigation
     setAppStatus("In Progress");
   }, [institutionName, programOfStudy, currentLevel, gpa, uploadedFile]);
 
@@ -103,8 +121,6 @@ const ScholarshipForm = () => {
     };
     reader.readAsDataURL(file);
   };
-
-
 
   const handleCancelUpload = () => {
     setUploadedFile(null);
@@ -169,11 +185,7 @@ const ScholarshipForm = () => {
                         <input
                           type="text"
                           name="institution"
-                          value={
-                            formFilled
-                              ? "Egbuna Princess University"
-                              : institutionName
-                          }
+                          value={institutionName}
                           onChange={(e) => setInstitutionName(e.target.value)}
                           placeholder="Start typing your institution name"
                           className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -187,7 +199,7 @@ const ScholarshipForm = () => {
                           <input
                             type="text"
                             name="program"
-                            value={formFilled ? "Computer Science" : programOfStudy}
+                            value={programOfStudy}
                             onChange={(e) => setProgramOfStudy(e.target.value)}
                             placeholder="e.g. Computer Science, Engineering"
                             className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -198,7 +210,7 @@ const ScholarshipForm = () => {
                             Current Level
                           </label>
                           <select
-                            value={formFilled ? "Level 300" : currentLevel}
+                            value={currentLevel}
                             onChange={(e) => setCurrentLevel(e.target.value)}
                             className="mt-1 block w-full rounded-md border border-gray-300 p-3 text-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
                           >
@@ -217,7 +229,7 @@ const ScholarshipForm = () => {
                         <input
                           type="text"
                           name="gpa"
-                          value={formFilled ? "3.8" : gpa}
+                          value={gpa}
                           onChange={(e) => setGpa(e.target.value)}
                           placeholder="Enter your current GPA"
                           className="mt-1 block w-full rounded-md border border-gray-300 p-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
