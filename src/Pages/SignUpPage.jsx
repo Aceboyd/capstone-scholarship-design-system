@@ -20,7 +20,7 @@ const register = async (userData) => {
 };
 
 const SignUpPage = () => {
-  const navigate = useNavigate(); // ✅ Move useNavigate inside component
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -59,20 +59,23 @@ const SignUpPage = () => {
 
   return (
     <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
-      {/* Watermark */}
-      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 hidden md:flex items-center justify-center overflow-hidden">
-        <img
-          src={watermark}
-          alt="Watermark"
-          className="h-[265vh] w-[700px] opacity-7"
-          style={{ transform: "rotate(5deg)" }}
-        />
-      </div>
+      {/* Watermark - Desktop only */}
+      {/* Watermark - Visible on all devices */}
+        <div className="pointer-events-none absolute top-0 right-0 left-0 z-0 flex items-center justify-center overflow-hidden">
+          <img
+            src={watermark}
+            alt="Watermark"
+            className="h-[120vh] w-[300px] md:h-[265vh] md:w-[700px] opacity-5 md:opacity-7"
+            style={{ transform: "rotate(5deg)" }}
+          />
+        </div>
 
-      <div className="flex flex-1 flex-col md:flex-row">
+
+      <div className="flex flex-1 flex-col md:flex-row relative z-10">
         <div className="relative z-20 mt-0 flex w-full flex-1 flex-col items-center justify-center p-4 sm:p-6 md:mt-[50px] md:justify-start md:p-8">
           <div className="w-full max-w-sm sm:max-w-md md:max-w-xl rounded-lg">
-            <div className="mb-4 flex justify-center md:mb-12 md:justify-start">
+            {/* Logo */}
+            <div className="mb-4 flex justify-start md:mb-12">
               <img src={nice} alt="Logo" className="h-8 sm:h-10 md:h-30" />
             </div>
 
@@ -85,13 +88,6 @@ const SignUpPage = () => {
                 Login
               </Link>
             </p>
-
-            {/* Google sign up (Mobile only) */}
-            <a href="#" className="block md:hidden mb-6">
-              <button className="flex w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-medium text-gray-700 hover:bg-gray-50">
-                <FcGoogle className="mr-2" /> Sign up with Google
-              </button>
-            </a>
 
             <form className="space-y-5 sm:space-y-6" onSubmit={handleRegister}>
               {/* Full Name */}
@@ -188,12 +184,20 @@ const SignUpPage = () => {
                 </span>
               </div>
 
+              {/* Register Button */}
               <button
                 type="submit"
                 className="w-full rounded-lg bg-gradient-to-r from-[#0000FE] to-[#4B6CB7] py-3 sm:py-4 text-white text-base sm:text-lg md:text-xl font-medium transition hover:opacity-90"
               >
                 Register
               </button>
+
+              {/* Google sign-up - Mobile only (moved below Register) */}
+              <a href="#" className="block md:hidden">
+                <button className="flex w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base font-medium text-gray-700 hover:bg-gray-50 mt-4">
+                  <FcGoogle className="mr-2" /> Sign up with Google
+                </button>
+              </a>
             </form>
 
             {/* Google (desktop) */}
@@ -208,6 +212,7 @@ const SignUpPage = () => {
           </div>
         </div>
 
+        {/* Right Section (Desktop Only) */}
         <div className="relative hidden md:flex w-[500px] lg:w-[650px] items-center justify-center bg-gray-100 rounded-xl shadow-lg p-6">
           <img src={capeImage} alt="Graduation Cap" className="relative z-10 w-full h-full object-cover rounded-lg" />
         </div>
@@ -227,7 +232,7 @@ const SignUpPage = () => {
             <button
               onClick={() => {
                 setShowPopup(false);
-                navigate("/"); // navigate when popup closes
+                navigate("/"); 
               }}
               className="bg-[#0000FE] hover:bg-[#0000CC] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg">
               Get Started
