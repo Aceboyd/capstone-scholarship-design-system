@@ -57,20 +57,20 @@ const Temp = () => {
 
   return (
     <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
-      {/* Watermark */}
-      <div className="pointer-events-none absolute top-[-70px] right-0 left-[50px] z-0 overflow-hidden">
+      {/* Watermark - Visible on all devices */}
+      <div className="pointer-events-none absolute top-0 right-0 left-0 z-0 flex items-center justify-center overflow-hidden">
         <img
           src={watermark}
           alt="Watermark"
-          className="h-[265vh] w-[700px] opacity-7"
+          className="h-[120vh] w-[300px] md:h-[265vh] md:w-[700px] opacity-5 md:opacity-7"
           style={{ transform: "rotate(5deg)" }}
         />
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1">
+      <div className="flex flex-1 relative z-10">
         {/* Left - Form */}
-        <div className="relative z-20 mt-[50px] flex w-full flex-1 flex-col items-center justify-start">
+        <div className="mt-[50px] flex w-full flex-1 flex-col items-center justify-start">
           <div className="w-full max-w-xl rounded-lg p-8">
             {/* Logo */}
             <div className="mb-12 flex justify-start">
@@ -158,9 +158,7 @@ const Temp = () => {
       {/* Popup */}
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div
-            className="fixed inset-0 z-10 bg-black opacity-50"
-          ></div>
+          <div className="fixed inset-0 z-10 bg-black opacity-50"></div>
 
           <div className="max-w-xxl relative z-50 rounded-xl border border-gray-200 bg-white p-8 text-center shadow-lg">
             <h2 className="mb-4 text-[#040498] text-[32.24px] leading-[35.8px] font-medium">
@@ -200,3 +198,4 @@ const Temp = () => {
 };
 
 export default Temp;
+
