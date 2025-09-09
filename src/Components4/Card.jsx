@@ -48,11 +48,17 @@ let Card = (props) => {
               </p>
               <p>{details.student}</p>
             </div>
-            <div>
-              <div className="gap-1 min-[800px]:flex">
-                <p>Application Status:</p>
+            <div className="w-fit">
+              <div className="flex gap-1">
+                <p className="w-fit">Application Status:</p>
+
                 <div className="items-center min-[700px]:gap-1 min-[800px]:flex">
-                  <img src={details.progress} alt="progress bar" />
+                  <img
+                    className="max-w-[85%] object-cover"
+                    src={details.progress}
+                    alt="progress bar"
+                  />
+
                   <p className="self-center text-xs font-bold text-[#0000FE]">
                     {details.appStatus}
                   </p>
@@ -76,13 +82,12 @@ let Card = (props) => {
               </div>
               <div className="flex items-center gap-1 max-[800px]:w-40 max-[800px]:place-self-center max-[700px]:pt-2">
                 {key === 0 ? (
-                 <Link
-                          to="/ghanapage"
-                        className="cursor-pointer rounded-md bg-[#0000FE] px-3 py-2 text-white max-[700px]:text-xs"
-                        >
-                           {details.apply}
+                  <Link
+                    to="/ghanapage"
+                    className="cursor-pointer rounded-md bg-[#0000FE] px-3 py-2 text-white max-[700px]:text-xs"
+                  >
+                    {details.apply}
                   </Link>
-
                 ) : (
                   <button className="cursor-pointer rounded-md bg-[#0000FE] p-2 text-white max-[700px]:text-xs">
                     {details.apply}

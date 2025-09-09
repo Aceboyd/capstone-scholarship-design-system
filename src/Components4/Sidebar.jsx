@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { CiFilter } from "react-icons/ci";
-import { MdClear } from "react-icons/md";
 import { FaChevronDown, FaChevronUp, FaSearch } from "react-icons/fa";
-import ScholarshipAccordionList from "../ScholarshipLising/ScholarshipAccordionLists";
+import { MdClear } from "react-icons/md";
 
 const FilterSection = ({ title, children, defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -10,22 +9,23 @@ const FilterSection = ({ title, children, defaultOpen = false }) => {
   return (
     <div className="space-y-2">
       <button
-        className="flex w-full items-center justify-between text-lg font-bold text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 sm:text-base"
+        className="flex w-full cursor-pointer items-center justify-between text-lg font-bold text-gray-800 focus:outline-none sm:text-base"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls={`${title}-content`}
       >
-        {title}
+        <p className="text-left text-pretty">{title}</p>
+
         {isOpen ? (
-          <FaChevronUp className="h-4 w-4 text-gray-400 sm:h-3 sm:w-3" />
+          <FaChevronUp className="h-4 w-4 text-[#0000FE] sm:h-3 sm:w-3" />
         ) : (
           <FaChevronDown className="h-4 w-4 text-gray-400 sm:h-3 sm:w-3" />
         )}
       </button>
-      <hr className="my-2" />
+      <hr className="my-2 text-gray-400" />
       <div
         id={`${title}-content`}
-        className={`${isOpen ? "block" : "hidden"} mx-4 space-y-2 sm:mx-1`}
+        className={`${isOpen ? "block" : "hidden"} space-y-2 space-x-2`}
       >
         {children}
       </div>
@@ -64,7 +64,16 @@ export default function Sidebar({ isVisible = true }) {
     "Arts and Creative Fields",
   ];
 
-  const countries = ["Ghana", "Nigeria", "Kenya", "South Africa"];
+  const countries = [
+    "Ghana",
+    "Nigeria",
+    "Kenya",
+    "South Africa",
+    "USA",
+    "Canada",
+    "Egypt",
+  ];
+
   const sponsoringOrgs = [
     {
       category: "Africa Wide Sponsorships",
@@ -110,7 +119,7 @@ export default function Sidebar({ isVisible = true }) {
     setSelectedFilters((prev) =>
       prev.includes(filter)
         ? prev.filter((f) => f !== filter)
-        : [...prev, filter]
+        : [...prev, filter],
     );
   };
 
@@ -120,11 +129,7 @@ export default function Sidebar({ isVisible = true }) {
     <aside
       role="complementary"
       aria-label="Filters"
-      className={`
-        ${isVisible ? "translate-x-0" : "-translate-x-full"}
-        fixed left-0 top-0 z-30 w-64 max-w-full bg-white p-4 transition-transform duration-300 md:static md:min-h-screen md:translate-x-0
-        sm:w-full sm:p-2 sm:min-h-0 sm:max-h-[80vh] sm:overflow-y-auto
-      `}
+      className={` ${isVisible ? "translate-x-0" : "-translate-x-full"} fixed top-0 left-0 z-30 w-64 max-w-full bg-white p-4 transition-transform duration-300 sm:max-h-[80vh] sm:min-h-0 sm:w-full sm:overflow-y-auto sm:p-2 md:static md:min-h-screen md:translate-x-0`}
     >
       {/* Selected Filters */}
       <div className="flex items-center justify-between pb-2 sm:pb-1">
@@ -134,7 +139,7 @@ export default function Sidebar({ isVisible = true }) {
         </div>
         <button
           onClick={resetFilters}
-          className="rounded-md text-base font-bold text-blue-600 transition-colors hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 sm:text-sm"
+          className="cursor-pointer rounded-md text-base font-bold text-blue-600 transition-colors hover:text-blue-800 focus:outline-none sm:text-sm"
           aria-label="Reset all filters"
         >
           Reset Filters
@@ -146,18 +151,21 @@ export default function Sidebar({ isVisible = true }) {
         {selectedFilters.map((filter, index) => (
           <button
             key={index}
-            onClick={() => toggleFilter(filter)}
-            className="flex items-center gap-2 rounded-md bg-blue-100 px-2 py-1 text-sm text-gray-800 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-600 sm:px-1 sm:text-xs"
+            className="flex items-center gap-2 rounded-md bg-blue-100 px-2 py-1 text-sm text-gray-800 hover:bg-blue-200 focus:outline-none sm:px-1 sm:text-xs"
             aria-label={`Remove filter ${filter}`}
           >
             {filter}
-            <MdClear className="h-4 w-4 cursor-pointer" />
+
+            <MdClear
+              onClick={() => toggleFilter(filter)}
+              className="h-4 w-4 cursor-pointer hover:text-red-600"
+            />
           </button>
         ))}
       </div>
 
       {/* Filter Sections */}
-      <div className="space-y-4 rounded-lg bg-gray-50 p-4 sm:p-2">
+      <div className="space-y-4 rounded-lg bg-[#f4f5ff] p-4 sm:p-2">
         {/* Study Level */}
         <FilterSection title="By Study Level" defaultOpen={true}>
           {studyLevels.map((level, index) => (
@@ -169,7 +177,10 @@ export default function Sidebar({ isVisible = true }) {
                 onChange={() => toggleFilter(level)}
                 className="h-5 w-5 cursor-pointer rounded text-blue-600 focus:ring-blue-600 sm:h-4 sm:w-4"
               />
-              <label htmlFor={`study-level-${index}`} className="text-base sm:text-sm">
+              <label
+                htmlFor={`study-level-${index}`}
+                className="cursor-pointer text-base sm:text-sm"
+              >
                 {level}
               </label>
             </div>
@@ -180,13 +191,20 @@ export default function Sidebar({ isVisible = true }) {
         <FilterSection title="By Field of Study">
           {fieldsOfStudy.map((field, index) =>
             typeof field === "string" ? (
-              <div key={index} className="flex items-center justify-between pt-2">
+              <div
+                key={index}
+                className="flex items-center justify-between pt-2"
+              >
                 <p className="text-base font-semibold sm:text-sm">{field}</p>
               </div>
             ) : (
-              <FilterSection key={index} title={field.category} defaultOpen={index === 0}>
+              <FilterSection
+                key={index}
+                title={field.category}
+                defaultOpen={index === 0}
+              >
                 {field.items.map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2 sm:gap-1">
+                  <div key={idx} className="items flex gap-2 sm:gap-1">
                     <input
                       type="checkbox"
                       id={`field-${index}-${idx}`}
@@ -194,13 +212,16 @@ export default function Sidebar({ isVisible = true }) {
                       onChange={() => toggleFilter(item)}
                       className="h-5 w-5 cursor-pointer rounded text-blue-600 focus:ring-blue-600 sm:h-4 sm:w-4"
                     />
-                    <label htmlFor={`field-${index}-${idx}`} className="text-base sm:text-sm">
+                    <label
+                      htmlFor={`field-${index}-${idx}`}
+                      className="text-base sm:text-sm"
+                    >
                       {item}
                     </label>
                   </div>
                 ))}
               </FilterSection>
-            )
+            ),
           )}
         </FilterSection>
 
@@ -210,7 +231,7 @@ export default function Sidebar({ isVisible = true }) {
             <FaSearch className="absolute left-2 h-4 w-4 text-gray-400" />
             <input
               type="search"
-              className="w-full rounded-md p-2 pl-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 sm:text-xs"
+              className="w-full rounded-md p-2 pl-8 text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none sm:text-xs"
               placeholder="Search for countries"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -218,7 +239,9 @@ export default function Sidebar({ isVisible = true }) {
             />
           </div>
           {countries
-            .filter((country) => country.toLowerCase().includes(searchQuery.toLowerCase()))
+            .filter((country) =>
+              country.toLowerCase().includes(searchQuery.toLowerCase()),
+            )
             .map((country, index) => (
               <div key={index} className="flex items-center gap-2 sm:gap-1">
                 <input
@@ -228,7 +251,10 @@ export default function Sidebar({ isVisible = true }) {
                   onChange={() => toggleFilter(country)}
                   className="h-5 w-5 cursor-pointer rounded text-blue-600 focus:ring-blue-600 sm:h-4 sm:w-4"
                 />
-                <label htmlFor={`country-${index}`} className="text-base sm:text-sm">
+                <label
+                  htmlFor={`country-${index}`}
+                  className="text-base sm:text-sm"
+                >
                   {country}
                 </label>
               </div>
@@ -239,11 +265,18 @@ export default function Sidebar({ isVisible = true }) {
         <FilterSection title="By Sponsoring Organization">
           {sponsoringOrgs.map((org, index) =>
             typeof org === "string" ? (
-              <div key={index} className="flex items-center justify-between pt-2">
+              <div
+                key={index}
+                className="flex items-center justify-between pt-2"
+              >
                 <p className="text-base font-semibold sm:text-sm">{org}</p>
               </div>
             ) : (
-              <FilterSection key={index} title={org.category} defaultOpen={index === 0}>
+              <FilterSection
+                key={index}
+                title={org.category}
+                defaultOpen={index === 0}
+              >
                 {org.items.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2 sm:gap-1">
                     <input
@@ -253,13 +286,16 @@ export default function Sidebar({ isVisible = true }) {
                       onChange={() => toggleFilter(item)}
                       className="h-5 w-5 cursor-pointer rounded text-blue-600 focus:ring-blue-600 sm:h-4 sm:w-4"
                     />
-                    <label htmlFor={`org-${index}-${idx}`} className="text-base sm:text-sm">
+                    <label
+                      htmlFor={`org-${index}-${idx}`}
+                      className="text-base sm:text-sm"
+                    >
                       {item}
                     </label>
                   </div>
                 ))}
               </FilterSection>
-            )
+            ),
           )}
         </FilterSection>
 
@@ -274,7 +310,10 @@ export default function Sidebar({ isVisible = true }) {
                 onChange={() => toggleFilter(deadline)}
                 className="h-5 w-5 cursor-pointer rounded text-blue-600 focus:ring-blue-600 sm:h-4 sm:w-4"
               />
-              <label htmlFor={`deadline-${index}`} className="text-base sm:text-sm">
+              <label
+                htmlFor={`deadline-${index}`}
+                className="text-base sm:text-sm"
+              >
                 {deadline}
               </label>
             </div>
@@ -283,7 +322,7 @@ export default function Sidebar({ isVisible = true }) {
       </div>
 
       {/* Scholarship Accordion List */}
-      <ScholarshipAccordionList />
+      {/* <ScholarshipAccordionList /> */}
     </aside>
   );
 }
