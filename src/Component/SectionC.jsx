@@ -7,8 +7,9 @@ function SectionC() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#F8F7FF] pt-20 md:pt-0">
-      <div className="animate-fade-slide-up w-[1200px] max-w-full px-4 sm:px-2">
-       <h1 className="animate-fade-in mb-8 md:mb-16 text-center text-2xl sm:text-3xl md:text-5xl font-bold leading-snug">
+      {/* ✅ Reduced mobile padding (px-2) while keeping desktop padding (px-4) */}
+      <div className="animate-fade-slide-up w-[1200px] max-w-full px-1 sm:px-4">
+        <h1 className="animate-fade-in mb-8 md:mb-16 text-center text-2xl sm:text-3xl md:text-5xl font-bold leading-snug">
           Find 
           <br className="block md:hidden" />
           <span className="animate-float inline-block text-[#0000FF]">

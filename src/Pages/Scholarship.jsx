@@ -5,16 +5,20 @@ import Sidebar from "../Components4/Sidebar";
 
 let ScholarshipPortal = () => {
   return (
-    <div>
+    <div className="relative">
       <Navbar />
 
       <SearchBar />
 
-      <div className="grid grid-cols-[2fr_8fr] gap-6 p-4">
-        <Sidebar />
+      <main className="grid grid-cols-[2.5fr_8fr] gap-6 px-4 pt-4">
+        <aside className="sticky top-0 self-start">
+          <Sidebar />
+        </aside>
 
-        <Content />
-      </div>
+        <div className="sticky top-0 self-start">
+          <Content />
+        </div>
+      </main>
     </div>
   );
 };
