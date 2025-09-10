@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 const StepsCompleteds = () => {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    // Get name from localStorage (adjust the key to whatever you saved it as)
     const storedName = localStorage.getItem("name");
-    if (storedName) {
-      setName(storedName);
-    }
+    const storedEmail = localStorage.getItem("email");
+
+    if (storedName) setName(storedName);
+    if (storedEmail) setEmail(storedEmail);
   }, []);
 
   return (
@@ -21,10 +22,14 @@ const StepsCompleteds = () => {
         </h1>
         <p className="mt-2 text-lg md:text-xl text-gray-600">
           Your application has been received. We have sent a confirmation email to{' '}
-          <a href="mailto:princess.egbuna@gmail.com" className="text-[#0000FE] hover:underline">
-            princess.egbuna@gmail.com
+          <a
+            href={`mailto:${email}`}
+            className="text-[#0000FE] hover:underline"
+          >
+            {email || "your email"}
           </a>{' '}
-          <br />with a summary of your submission. You can also view "My Applications" in your dashboard to view <br />your ongoing applications.
+          <br />with a summary of your submission. You can also view "My Applications"
+          in your dashboard to view <br />your ongoing applications.
         </p>
       </div>
 
