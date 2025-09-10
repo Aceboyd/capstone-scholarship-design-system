@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const StepsCompleteds = () => {
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    // Get name from localStorage (adjust the key to whatever you saved it as)
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setName(storedName);
+    }
+  }, []);
+
   return (
     <div className="px-8 py-14 md:py-14 flex flex-col justify-start min-h-screen md:mx-20 mt-15">
       {/* Confirmation Message */}
       <div className="text-left mb-20">
         <h1 className="text-2xl md:text-3xl font-semibold text-gray-800">
-          Dear Princess,
+          Dear {name || "Applicant"},
         </h1>
         <p className="mt-2 text-lg md:text-xl text-gray-600">
           Your application has been received. We have sent a confirmation email to{' '}
@@ -51,16 +61,16 @@ const StepsCompleteds = () => {
 
       {/* Buttons */}
       <div className="w-full px-4 py-4 flex max-md:justify-between items-center md:justify-center md:gap-15 ">
-        <Link to="/user-dashboard"><button
-          className="px-2 py-1 bg-blue-800 text-white rounded font-semibold max-md:text-[12px]"
-        >
-          Go to My Dashboard
-        </button></Link>
-        <Link to="/landing"><button
-          className="px-2 py-1 bg-white text-blue-800 rounded  border-1 border-blue-800 font-bold max-md:text-[12px]"
-        >
-          Back to Homepage
-        </button></Link>
+        <Link to="/user-dashboard">
+          <button className="px-2 py-1 bg-blue-800 text-white rounded font-semibold max-md:text-[12px]">
+            Go to My Dashboard
+          </button>
+        </Link>
+        <Link to="/landing">
+          <button className="px-2 py-1 bg-white text-blue-800 rounded  border-1 border-blue-800 font-bold max-md:text-[12px]">
+            Back to Homepage
+          </button>
+        </Link>
       </div>
     </div>
   );
