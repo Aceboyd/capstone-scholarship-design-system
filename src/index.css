@@ -31,3 +31,7 @@
   .navbar {
     font-family: 'Avenir', sans-serif;
   }
+
+  html {
+  scroll-behavior: smooth;
+}

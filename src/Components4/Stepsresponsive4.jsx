@@ -9,7 +9,7 @@ const Stepsresponsive4 = ({ progress, appStatus }) => {
       title: <>Personal <br /> Details</>,
       number: "1",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[80%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -23,7 +23,7 @@ const Stepsresponsive4 = ({ progress, appStatus }) => {
       title: <>Academic <br /> Information</>,
       number: "2",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[80%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -37,7 +37,7 @@ const Stepsresponsive4 = ({ progress, appStatus }) => {
       title: <>Supporting <br /> Documents</>,
       number: "3",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[80%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -52,7 +52,7 @@ const Stepsresponsive4 = ({ progress, appStatus }) => {
       number: "4",
       style:
         appStatus === "In Progress"
-          ? "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#0000FE] rounded-full px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap"
+          ? "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#0000FE] rounded-full px-2 w-[80%] lg:w-[60%] flex justify-center text-center whitespace-nowrap"
           : "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border border-gray-400 rounded-full px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
       status: appStatus,
       style2: appStatus === "In Progress" ? "bg-[#0000FE]" : "bg-gray-200",

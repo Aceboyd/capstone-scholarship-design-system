@@ -1,6 +1,13 @@
 
 import { Instagram, Twitter } from 'lucide-react';
+import { HashLink } from 'react-router-hash-link';
 import whatsappIcon from '../assets/image/icon/whasapp.png';
+
+const scrollWithOffset = (el) => {
+  const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+  const yOffset = -100; // Offset in px
+  window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -31,9 +38,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-200 transition-colors text-sm sm:text-base">
+                <HashLink to='/landing#faqs'
+                smooth
+                scroll={scrollWithOffset}
+                className="hover:text-blue-200 transition-colors text-sm sm:text-base">
                   FAQs
-                </a>
+                </HashLink>
               </li>
             </ul>
           </div>
@@ -64,7 +74,7 @@ const Footer = () => {
                 />
                 <button
                   type="button"
-                  className="bg-white text-[#000080] px-4 sm:px-6 py-2 rounded-md text-sm sm:text-base font-semibold hover:bg-blue-100 transition-colors"
+                  className="bg-white text-[#000080] px-4 sm:px-6 py-2 rounded-md text-sm sm:text-base font-semibold hover:bg-blue-100 transition-colors cursor-pointer"
                 >
                   Submit
                 </button>
