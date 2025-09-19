@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchBar = ({ toggle }) => {
+const SearchBar = ({ toggle, setSearchQuery }) => {
   return (
     <div
       className="mb-2 flex h-32 items-center justify-center gap-1 bg-cover bg-center sm:h-[25vh] sm:gap-2 mt-20"
@@ -34,7 +34,8 @@ const SearchBar = ({ toggle }) => {
           type="search"
           aria-label="Search scholarships"
           className="w-full p-1 text-xs caret-blue-700 outline-none sm:w-60 sm:p-2 sm:text-base"
-          placeholder="STEM Undergraduate in Ghana"
+          placeholder="Search scholarships..."
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
     </div>
@@ -42,3 +43,6 @@ const SearchBar = ({ toggle }) => {
 };
 
 export default SearchBar;
+
+
+
