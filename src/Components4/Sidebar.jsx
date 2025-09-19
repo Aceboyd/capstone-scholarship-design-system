@@ -15,7 +15,6 @@ const FilterSection = ({ title, children, defaultOpen = false }) => {
         aria-controls={`${title}-content`}
       >
         <p className="text-left text-pretty">{title}</p>
-
         {isOpen ? (
           <FaChevronUp className="h-4 w-4 text-[#0000FE] sm:h-3 sm:w-3" />
         ) : (
@@ -33,9 +32,8 @@ const FilterSection = ({ title, children, defaultOpen = false }) => {
   );
 };
 
-export default function Sidebar({ isVisible = true }) {
+export default function Sidebar({ isVisible, selectedFilters, setSelectedFilters }) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedFilters, setSelectedFilters] = useState([]);
 
   // --- Data ---
   const studyLevels = [
@@ -119,7 +117,7 @@ export default function Sidebar({ isVisible = true }) {
     setSelectedFilters((prev) =>
       prev.includes(filter)
         ? prev.filter((f) => f !== filter)
-        : [...prev, filter],
+        : [...prev, filter]
     );
   };
 
@@ -155,7 +153,6 @@ export default function Sidebar({ isVisible = true }) {
             aria-label={`Remove filter ${filter}`}
           >
             {filter}
-
             <MdClear
               onClick={() => toggleFilter(filter)}
               className="h-4 w-4 cursor-pointer hover:text-red-600"
@@ -320,9 +317,6 @@ export default function Sidebar({ isVisible = true }) {
           ))}
         </FilterSection>
       </div>
-
-      {/* Scholarship Accordion List */}
-      {/* <ScholarshipAccordionList /> */}
     </aside>
   );
 }

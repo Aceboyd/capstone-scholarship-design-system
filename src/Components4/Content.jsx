@@ -1,8 +1,7 @@
 import { useState } from "react";
-
 import Card from "./Card";
 
-const Content = () => {
+const Content = ({ selectedFilters, searchQuery }) => {
   const [grid, setGrid] = useState(false);
 
   const toggleGrid = () => {
@@ -15,15 +14,17 @@ const Content = () => {
       <main className="mx-2 rounded-lg bg-[#F4F5FF] px-6 py-4 sm:mx-4 md:mx-10">
         <div className="rounded-md">
           <p className="pb-3 text-xl sm:text-2xl">
-            21 Scholarships found for{" "}
+            {selectedFilters.length > 0 || searchQuery
+              ? "Filtered Scholarships"
+              : "21 Scholarships found for "}
             <span className="font-bold">
-              “STEM Undergraduate Scholarships in Ghana”
+              {searchQuery || "STEM Undergraduate Scholarships in Ghana"}
             </span>
           </p>
           <hr />
 
           <div className="flex flex-col items-center justify-between gap-3 pt-4 sm:flex-row">
-            <p className="font-medium">RESULTS 21</p>
+            <p className="font-medium">RESULTS {cardInfo.length}</p>
             <div className="flex items-center gap-3">
               <span>SORT BY:</span>
               <select className="w-40 rounded-md border border-gray-500 p-2 font-bold text-[#0000FE] sm:w-56">
@@ -63,7 +64,7 @@ const Content = () => {
           </div>
 
           <div className="pt-6">
-            <Card grid={grid} />
+            <Card grid={grid} selectedFilters={selectedFilters} searchQuery={searchQuery} />
           </div>
         </div>
 
@@ -82,7 +83,7 @@ const Content = () => {
               Next
             </button>
           </div>
-          <p className="text-sm text-gray-500">Showing 1-10 of 21 results</p>
+          <p className="text-sm text-gray-500">Showing 1-10 of {cardInfo.length} results</p>
         </div>
       </main>
     </div>
