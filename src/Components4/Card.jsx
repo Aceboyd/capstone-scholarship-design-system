@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types"; // ✅ import PropTypes
 import { cardInfo } from "./cardInfo";
 
 let Card = ({ grid, selectedFilters, searchQuery }) => {
@@ -53,7 +54,7 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
           </div>
           <div className="flex items-center gap-2">
             <p className="flex">
-              <img src="images/date.png" /> :
+              <img src="images/date.png" alt="date" /> :
             </p>
             <div className="flex gap-1">
               <p>{details.date}</p>
@@ -64,7 +65,7 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
           </div>
           <div className="flex gap-2">
             <p className="flex">
-              <img src="images/student.png" /> :
+              <img src="images/student.png" alt="student" /> :
             </p>
             <p>{details.student}</p>
           </div>
@@ -127,6 +128,13 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
       ))}
     </div>
   );
+};
+
+// ✅ PropTypes validation
+Card.propTypes = {
+  grid: PropTypes.bool,
+  selectedFilters: PropTypes.arrayOf(PropTypes.string),
+  searchQuery: PropTypes.string,
 };
 
 export default Card;

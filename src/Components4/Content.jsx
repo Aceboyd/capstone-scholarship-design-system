@@ -1,5 +1,7 @@
 import { useState } from "react";
+import PropTypes from "prop-types"; // ✅ import PropTypes
 import Card from "./Card";
+import { cardInfo } from "./cardInfo"; // ✅ import cardInfo
 
 const Content = ({ selectedFilters, searchQuery }) => {
   const [grid, setGrid] = useState(false);
@@ -88,6 +90,12 @@ const Content = ({ selectedFilters, searchQuery }) => {
       </main>
     </div>
   );
+};
+
+// ✅ PropTypes validation
+Content.propTypes = {
+  selectedFilters: PropTypes.arrayOf(PropTypes.string),
+  searchQuery: PropTypes.string,
 };
 
 export default Content;
