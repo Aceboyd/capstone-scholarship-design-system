@@ -7,7 +7,7 @@ import React from "react";
 
 import Dashboard from "./component5/Dashboard.jsx";
 import Admin from "./Pages/Admin.jsx";
-import ApplicationPage from "./Pages/Portalstep2.jsx";
+import ApplicationPage from "./Pages/ApplicationPage";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
