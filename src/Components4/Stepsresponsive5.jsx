@@ -10,7 +10,7 @@ const Stepsresponsive5 = ({ progress, appStatus }) => {
       title: <>Personal <br /> Details</>,
       number: "1",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -24,7 +24,7 @@ const Stepsresponsive5 = ({ progress, appStatus }) => {
       title: <>Academic <br /> Information</>,
       number: "2",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -38,7 +38,7 @@ const Stepsresponsive5 = ({ progress, appStatus }) => {
       title: <>Supporting <br /> Documents</>,
       number: "3",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -52,7 +52,7 @@ const Stepsresponsive5 = ({ progress, appStatus }) => {
       title: <>Statement <br /> of Purpose</>,
       number: "4",
       style:
-        "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+        "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -67,8 +67,8 @@ const Stepsresponsive5 = ({ progress, appStatus }) => {
       number: "5",
       style:
         progress >= 100
-          ? "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium"
-          : "text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border border-gray-400 rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap",
+          ? "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium"
+          : "text-[8px] sm:text-[10px] lg:text-[11px] text-gray-400 border border-gray-400 rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap",
       status: appStatus,
       style2: progress >= 100 ? "bg-[#0000FE]" : "bg-gray-200",
       borderColor: progress >= 100 ? "border-[#0000FE]" : "border-gray-400",

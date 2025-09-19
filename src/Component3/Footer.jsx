@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#000080] text-white py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full px-4  lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Quick Links */}
           <div>
@@ -55,16 +55,16 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-6">Subscribe to our newsletter</h3>
             <form className="mb-8" aria-label="Newsletter subscription">
-              <div className="flex gap-2">
+              <div className="max-md:min-xl:flex gap-2  space-x-2 space-y-2">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-2 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 border-none shadow-none"
+                  className="flex-1 w-[70%] px-4 py-2 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 border-none shadow-none"
                   aria-label="Email address"
                 />
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-white text-[#000080] px-6 py-2 rounded-md font-semibold hover:bg-blue-100 transition-colors"
+                  className="w-[30%] sm:w-auto bg-white text-[#000080] px-6 py-2 rounded-md font-semibold hover:bg-blue-100 transition-colors"
                 >
                   Submit
                 </button>

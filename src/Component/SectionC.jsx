@@ -22,18 +22,19 @@ function SectionC() {
     >
       <div className="animate-fade-slide-up w-[1200px] max-w-full px-1 sm:px-4">
         <h1 className="animate-fade-in mb-8 md:mb-16 text-center text-2xl sm:text-3xl md:text-5xl font-bold leading-snug">
-          Find 
-          <br className="block md:hidden" />
+            Find&nbsp;
+            <br className="block md:hidden" />
           <span className="animate-float inline-block text-[#0000FF]">
-            Scholarships <br className="block md:hidden" />
-          </span>{" "}
-          that match your goals
+              Scholarships <br className="block md:hidden" />
+          </span>
+             &nbsp;that match your goals
         </h1>
+
 
         <div className="mx-auto max-w-3xl">
           <div className="flex transform transition-all duration-300 hover:scale-[1.02]">
             <select
-              className="h-[48px] md:h-[60px] w-[100px] md:w-[120px] cursor-pointer appearance-none rounded-l-lg border border-r-0 border-gray-200 bg-white px-3 md:px-4 text-sm md:text-gray-600 transition-colors hover:bg-gray-50 focus:outline-none"
+              className="h-[48px] md:h-[60px] w-[100px] md:w-[120px] lg:w-[160px] cursor-pointer appearance-none rounded-l-lg border border-r-0 border-gray-200 bg-white px-3 md:px-4 text-sm md:text-gray-600 transition-colors hover:bg-gray-50 focus:outline-none"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                 backgroundRepeat: "no-repeat",

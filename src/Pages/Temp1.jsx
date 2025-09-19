@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 
-import capeImage from "../assets/image/cape.png";
+import capeImage from "/cape.png";
 import watermark from "../assets/image/first.png";
 import logo from "../assets/image/nice.png";
 
@@ -56,21 +56,21 @@ const Temp = () => {
   };
 
   return (
-    <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
+    <div className="w-full relative flex flex-row min-h-screen bg-gray-50 font-sans">
       {/* Watermark - Visible on all devices */}
-      <div className="pointer-events-none absolute top-0 right-0 left-0 z-0 flex items-center justify-center overflow-hidden">
+      <div className="w-full md:w-1/2 pointer-events-none absolute top-0 right-0 left-0 z-0 flex items-center justify-center overflow-hidden p-8 px-12 md:px-24 lg:px-45">
         <img
           src={watermark}
           alt="Watermark"
-          className="h-[120vh] w-[300px] md:h-[265vh] md:w-[700px] opacity-5 md:opacity-7"
+          className="h-[100vh] w-full md:h-[100vh] opacity-5 md:opacity-7"
           style={{ transform: "rotate(5deg)" }}
         />
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 relative z-10">
+      <div className="w-full md:w-1/2 z-10 ">
         {/* Left - Form */}
-        <div className="mt-[50px] flex w-full flex-1 flex-col items-center justify-start">
+        <div className="mt-[50px] flex w-full flex-col items-center justify-start">
           <div className="w-full max-w-xl rounded-lg p-8">
             {/* Logo */}
             <div className="mb-12 flex justify-start">
@@ -144,16 +144,20 @@ const Temp = () => {
             </button>
           </div>
         </div>
+        </div>
 
         {/* Right Image Section */}
-        <div className="relative hidden w-[550px] items-center justify-start bg-gray-100 p-0 before:absolute before:z-10 before:h-full before:w-full before:bg-gray-100 before:content-[''] md:flex">
-          <img
-            src={capeImage}
-            alt="Graduation Cap"
-            className="relative z-10 h-auto w-full object-contain"
-          />
+        <div className="hidden w-1/2 z-10 md:flex bg-gray-100"
+        style={{
+          backgroundImage: `url(${capeImage})`,
+          maxHeight: '1000px',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: '40% 30%'
+        }}>
+          
         </div>
-      </div>
+      
 
       {/* Popup */}
       {showPopup && (

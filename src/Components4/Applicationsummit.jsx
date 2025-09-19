@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Pencil } from 'lucide-react';
 import { useNavigate } from 'react-router-dom'; // ✅ Import navigation
+import { Link } from 'react-router-dom';
 
 const SupportingDocuments = () => {
   const documents = [
@@ -129,12 +130,12 @@ export default function ApplicationSummit() {
 
         {/* Sidebar Actions */}
         <div className="w-full lg:w-64 flex flex-col gap-4 bg-[#FAFAFF]">
-          <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full">
+          <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full cursor-pointer">
             Save Progress
           </button>
-          <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
+          <Link to='/landing'><button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full cursor-pointer">
             Back to Homepage
-          </button>
+          </button></Link>
           <p className="text-red-500 text-xs text-center mt-2">
             Note: Applications close on 26th March 2025
           </p>
@@ -145,7 +146,7 @@ export default function ApplicationSummit() {
       <div className="w-full px-4 py-4 flex justify-between items-center bg-white border-t">
         <button
           onClick={() => navigate('/portal-step-4')} // ✅ Back
-          className="px-6 py-2 bg-gray-300 text-black rounded"
+          className="px-6 py-2 bg-gray-300 text-black rounded cursor-pointer"
         >
           Back
         </button>

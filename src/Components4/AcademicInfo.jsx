@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const AcademicInfo = () => { 
     return (
         <div className="min-h-screen bg-white flex justify-center p-6"> {/* ⬅️ changed to bg-white */}
@@ -54,12 +56,12 @@ const AcademicInfo = () => {
 
                 {/* Right - Buttons (No Background) */}
                 <div className="flex flex-col justify-start gap-4 self-start bg-[#FAFAFF]text-[12px]">
-                    <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full">
+                    <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full cursor-pointer">
                         Save Progress
                     </button>
-                    <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
+                    <Link to='/landing'><button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full cursor-pointer">
                         Back to Homepage
-                    </button>
+                    </button></Link>
                     <p className="text-red-500 text-xs text-center mt-4">
                         Note: Applications close on 26th March 2025
                     </p>

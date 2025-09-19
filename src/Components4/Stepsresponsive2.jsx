@@ -19,7 +19,7 @@ const Stepsresponsive2 = ({ step2Progress, appStatus, isFillingStep2 }) => {
         </>
       ),
       number: "1",
-      style: "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+      style: "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",

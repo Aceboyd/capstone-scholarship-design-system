@@ -21,7 +21,7 @@ const Stepsresponsive3 = ({ progress, appStatus }) => {
         </>
       ),
       number: "1",
-      style: "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+      style: "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -36,7 +36,7 @@ const Stepsresponsive3 = ({ progress, appStatus }) => {
         </>
       ),
       number: "2",
-      style: "text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] text-center whitespace-nowrap font-medium",
+      style: "text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#CCCFFF] bg-[#CCCFFF] rounded-full px-2 w-[70%] lg:w-[60%] flex justify-center text-center whitespace-nowrap font-medium",
       status: "Completed",
       style2: "bg-[#0000FE]",
       borderColor: "border-[#0000FE]",
@@ -53,7 +53,7 @@ const Stepsresponsive3 = ({ progress, appStatus }) => {
       number: "3",
       style:
         appStatus === "In Progress"
-          ? "mt-1 text-[9px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#0000FE] border-opacity-50 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap"
+          ? "mt-1 text-[8px] sm:text-[10px] lg:text-[11px] text-[#0000FE] border border-[#0000FE] border-opacity-50 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] flex justify-center text-center whitespace-nowrap"
           : "mt-1 text-[9px] sm:text-[10px] lg:text-[11px] text-gray-400 border-[0.3px] border-gray-400 rounded-full px-1 lg:px-2 w-[80%] lg:w-[60%] text-center whitespace-nowrap",
       status: appStatus,
       style2: appStatus === "In Progress" ? "bg-[#0000FE]" : "bg-gray-200",

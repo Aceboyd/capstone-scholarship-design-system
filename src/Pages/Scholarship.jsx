@@ -1,3 +1,4 @@
+import Header from "../Component/Header";
 import Navbar from "../Component3/Header2";
 import Content from "../Components4/Content";
 import SearchBar from "../Components4/SearchBar";
@@ -6,7 +7,7 @@ import Sidebar from "../Components4/Sidebar";
 let ScholarshipPortal = () => {
   return (
     <div className="relative">
-      <Navbar />
+      <Header/>
 
       <SearchBar />
 

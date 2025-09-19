@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 import Background from "../Components4/Background";
-import Header2anon from "../Component3/Header2anon";
+import Header from '../Component/Header';
 import Steps5 from "../Components4/Steps5";
 import Stepsresponsive5 from "../Components4/Stepsresponsive5";
 
@@ -51,12 +51,21 @@ export default function PortalStep5() {
     setProgress(e.target.checked ? 100 : 80);
   };
 
+  const [selectedCategories, setSelectedCategories] = useState([]); 
+      
+        const handleSetSelectedCategories = useCallback((categories) => {
+          setSelectedCategories(categories);
+        }, []);
+
   return (
     <section className="bg-[#FAFAFF]">
-      <Header2anon />
-
+      <Header
+                              setSelectedCategories={handleSetSelectedCategories}
+                                selectedCategories={selectedCategories}
+                                className="w-full px-3 sm:px-6 lg:px-12"
+                              />
       <div className="space-y-8">
-        <div className="mt-8">
+        <div className="mt-20">
           <Background />
         </div>
 
@@ -194,10 +203,10 @@ export default function PortalStep5() {
                 </div>
 
                 {/* Right Actions */}
-                <div className="flex flex-col items-end max-md:hidden w-[30%] bg-[#FAFAFF]">
+                <div className="flex flex-col md:justify-start gap-4 max-md:hidden text-center bg-[#FAFAFF]">
                   <button
                     type="button"
-                    className="mb-2 w-full max-w-xs rounded-md bg-[#0000FE] px-4 py-2 text-white hover:bg-blue-700"
+                    className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%] cursor-pointer"
                     onClick={() => {
                       localStorage.setItem("step5Data", JSON.stringify(data));
                       alert("Progress Saved!");
@@ -205,12 +214,11 @@ export default function PortalStep5() {
                   >
                     Save Progress
                   </button>
-                  <a
-                    href="/"
-                    className="mb-2 block w-full max-w-xs rounded-md border border-blue-600 px-4 py-2 text-center text-[#0000FE] hover:bg-blue-50"
+                  <Link to='/landing'><div
+                    className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full cursor-pointer"
                   >
                     Back to Homepage
-                  </a>
+                  </div></Link>
                   <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
                     <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
                       i
@@ -243,7 +251,7 @@ export default function PortalStep5() {
           <div className="mt-8 flex justify-between py-4">
             <Link
               to="/portal-step-4"
-              className="flex items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
+              className="flex items-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700 cursor-pointer"
             >
               <svg
                 className="mr-2 h-5 w-5"
@@ -264,7 +272,7 @@ export default function PortalStep5() {
             {/* ✅ Submit navigates to /steps-completed */}
             <Link
               to="/steps-completed"
-              className="flex w-fit items-center justify-between gap-4 rounded-md bg-blue-600 px-3 py-2 text-white hover:bg-blue-700"
+              className="flex w-fit items-center justify-between gap-4 rounded-md bg-blue-600 px-3 py-2 text-white hover:bg-blue-700 cursor-pointer"
               onClick={handleSubmit}
             >
               <span>Submit Application</span>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { BookmarkIcon } from "@heroicons/react/24/solid"; // ✅ import SVG
 
 // Import logos and images
 import googleLogo from '../assets/image/logo/Frame 600.png';
@@ -16,12 +17,20 @@ import ubaLogo from '../assets/image/logo/uba.png';
 import flutterwaveLogo from '../assets/image/logo/flutterwave.png';
 import mastercardLogo from '../assets/image/logo/mastercard-4 1.png';
 import airtelLogo from '../assets/image/logo/airtel.png';
-import bookmark from '../assets/image/icon/bookmark.png';
 import money from '../assets/image/icon/dollar.png';
 import calendar from '../assets/image/icon/calender.png';
 
 const SlideSection = () => {
-  const [bookmarked, setBookmarked] = useState({});
+  // Load bookmarked state from sessionStorage or default to {}
+  const [bookmarked, setBookmarked] = useState(() => {
+    const saved = sessionStorage.getItem("bookmarkedScholarships");
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  // Save bookmarked state to sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem("bookmarkedScholarships", JSON.stringify(bookmarked));
+  }, [bookmarked]);
 
   const scholarships = [
     {
@@ -125,7 +134,7 @@ const SlideSection = () => {
   };
 
   return (
-    <div className="pt-20 sm:pt-8 md:pt-10 pb-6 sm:pb-8 bg-gradient-to-r from-blue-50 to-purple-50">
+    <div className="pt-10 sm:pt-8 md:pt-10 pb-6 sm:pb-8 bg-gradient-to-r from-blue-50 to-purple-50">
       <h2 className="text-xl sm:text-3xl font-bold text-blue-800 text-center mb-4 sm:mb-8">
         <span className="text-[#000000]">FEATURED </span>
         <span className="text-[#0000FE]">SCHOLARSHIPS</span>
@@ -163,23 +172,23 @@ const SlideSection = () => {
               spaceBetween: 30,
             },
           }}
-          className="relative pb-10 sm:pb-12"
+          className="relative pb-10 sm:pb-12 min-h-[200px] md:min-h-[350px]"
         >
           {scholarships.map((scholarship, index) => (
             <SwiperSlide key={index}>
               <div className="relative bg-white rounded-lg shadow-md p-2 sm:p-5 mx-0.5 sm:mx-2 flex flex-col"
-                style={{ height: "auto", minHeight: "260px", maxHeight: "320px" }}>
+                style={{ height: "auto", minHeight: "160px", maxHeight: "320px" }}>
                 
                 {/* Bookmark Image */}
-                <button 
-                  className="absolute top-2 sm:top-5 right-2 sm:right-6 z-10"
-                  onClick={() => toggleBookmark(index)}
-                >
-                  <img 
-                    src={bookmark} 
-                    alt="Bookmark" 
-                    className={`w-4 h-4 sm:w-5 sm:h-6 ${bookmarked[index] ? "filter brightness-75" : "text-gray-300"}`} 
-                  />
+                <button
+                          className="absolute top-2 sm:top-5 right-2 sm:right-6 z-10"
+                    onClick={() => toggleBookmark(index)}
+                  >
+                <BookmarkIcon
+                  className={`w-7 h-7 ${
+                    bookmarked[index] ? "text-[#0000FE]" : "text-gray-400"
+                   }`}
+                 />
                 </button>
                 
                 <div>
@@ -190,12 +199,12 @@ const SlideSection = () => {
                       className="w-8 h-8 sm:w-12 sm:h-12 mr-2 sm:mr-3" 
                     />
                     <div>
-                      <h3 className="text-xs sm:text-md font-semibold text-gray-800 whitespace-pre-line">{scholarship.title}</h3>
-                      <p className="text-[10px] sm:text-xs text-gray-500">{scholarship.provider} • {scholarship.applicants}</p>
+                      <h3 className="text-xs sm:text-[10px] font-semibold text-gray-800">{scholarship.title}</h3>
+                      <p className="text-[10px] sm:text-[10px] text-gray-500">{scholarship.provider} • {scholarship.applicants}</p>
                     </div>
                   </div>
 
-                  <div className="mt-2 sm:mt-6 text-gray-600 text-[10px] sm:text-sm">
+                  <div className="mt-2 sm:mt-6 text-gray-600 text-[10px] sm:text-[11px]">
                     <p className="font-semibold mb-1 sm:mb-3">
                       <img src={money} alt="Amount" className="inline w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-3" />
                       {scholarship.amount}
@@ -208,7 +217,7 @@ const SlideSection = () => {
 
                   <div className="flex flex-wrap gap-1 mt-2 sm:mt-3">
                     {scholarship.tags.map((tag, idx) => (
-                      <span key={idx} className="bg-gray-100 text-gray-600 text-[9px] sm:text-xs px-1 py-0.5 sm:py-1.5 rounded-lg">
+                      <span key={idx} className="bg-gray-100 text-gray-600 text-[9px] px-1 py-0.5 sm:py-1.5 rounded-lg">
                         {tag}
                       </span>
                     ))}
@@ -217,10 +226,10 @@ const SlideSection = () => {
 
                 {/* Buttons closer to content */}
                 <div className="mt-3 sm:mt-8 flex justify-between gap-2">
-                  <button className="bg-gray-200 text-gray-700 px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-gray-300">
+                  <button className="bg-gray-200 text-gray-700 px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-gray-300 cursor-pointer">
                     View Details
                   </button>
-                  <button className="bg-blue-600 text-white px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-blue-700">
+                  <button className="bg-blue-600 text-white px-2 sm:px-4 py-1 sm:py-2 text-[10px] sm:text-sm rounded-md hover:bg-blue-700 cursor-pointer">
                     Quick Apply
                   </button>
                 </div>

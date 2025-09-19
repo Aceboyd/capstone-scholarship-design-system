@@ -4,7 +4,6 @@ import {
   Navigate,
 } from "react-router-dom";
 import React from "react";
-
 import Dashboard from "./component5/Dashboard.jsx";
 import Admin from "./Pages/Admin.jsx";
 import ApplicationPage from "./Pages/ApplicationPage";
@@ -54,7 +53,7 @@ function App() {
         <Route path="/admin/settings" element={<Dashboard />} />
 
         {/* Catch-all: Redirect unknown routes */}
-        <Route path="*" element={<Navigate to="/signup" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </>
   );
