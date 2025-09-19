@@ -6,7 +6,7 @@ function SectionC() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#F8F7FF] pt-20 md:pt-0">
+    <div id="sectionc" className="flex p-5 md:p-15 lg:py-20 items-center justify-center bg-[#F8F7FF] pt-10 md:pt-0">
       {/* ✅ Reduced mobile padding (px-2) while keeping desktop padding (px-4) */}
       <div className="animate-fade-slide-up w-[1200px] max-w-full px-1 sm:px-4">
         <h1 className="animate-fade-in mb-8 md:mb-16 text-center text-2xl sm:text-3xl md:text-5xl font-bold leading-snug">
@@ -21,7 +21,7 @@ function SectionC() {
         <div className="mx-auto max-w-3xl">
           <div className="flex transform transition-all duration-300 hover:scale-[1.02]">
             <select
-              className="h-[48px] md:h-[60px] w-[100px] md:w-[120px] cursor-pointer appearance-none rounded-l-lg border border-r-0 border-gray-200 bg-white px-3 md:px-4 text-sm md:text-gray-600 transition-colors hover:bg-gray-50 focus:outline-none"
+              className="h-[48px] md:h-[60px] w-[100px] md:w-[120px] lg:w-[160px] cursor-pointer appearance-none rounded-l-lg border border-r-0 border-gray-200 bg-white px-3 md:px-4 text-sm md:text-gray-600 transition-colors hover:bg-gray-50 focus:outline-none"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                 backgroundRepeat: "no-repeat",
@@ -52,7 +52,7 @@ function SectionC() {
             </div>
           </div>
 
-          <div className="mt-8 md:mt-12 flex justify-center">
+          <div className="mt-8 md:mt-12 max-md:mb-5 flex justify-center">
             <Link
               to="/scholarship"
               className="animate-search-pulse transform rounded-lg bg-[#0000FF] px-8 md:px-12 py-3 md:py-4 font-semibold text-base md:text-lg text-white transition-all duration-300 hover:scale-105 hover:animate-none hover:bg-blue-700 active:scale-95"

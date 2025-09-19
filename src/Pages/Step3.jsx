@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import pdfIcon from '../assets/image/pdfIcon.png';
 import jpgIcon from '../assets/image/nice.png';
 import pngIcon from '../assets/image/pngIcon.png';
 import docIcon from '../assets/image/nice.png';
-import Header2anon from '../Component3/Header2anon';
+import Header from '../Component/Header';
 import Background from '../Components4/Background';
 import Navigationresponsive3 from '../Components4/Navigationresponsive3';
 import Steps3 from '../Components4/Steps3';
 import Stepsresponsive3 from '../Components4/Stepsresponsive3';
+import { Link } from 'react-router-dom';
 
 const ScholarshipForm = () => {
   const navigate = useNavigate();
@@ -117,10 +118,20 @@ const ScholarshipForm = () => {
     }
   };
 
+  const [selectedCategories, setSelectedCategories] = useState([]); 
+    
+      const handleSetSelectedCategories = useCallback((categories) => {
+        setSelectedCategories(categories);
+      }, []);
+
   return (
     <div className="min-h-screen bg-[#FAFAFF]">
-      <Header2anon />
-      <div className='mt-8'><Background /></div>
+      <Header
+                  setSelectedCategories={handleSetSelectedCategories}
+                    selectedCategories={selectedCategories}
+                    className="w-full px-3 sm:px-6 lg:px-12"
+                  />
+      <div className='mt-20'><Background /></div>
       <main className="mx-auto w-full px-2">
         <div className="mt-8"><Steps3 progress={progress} appStatus={appStatus} /></div>
 
@@ -204,22 +215,28 @@ const ScholarshipForm = () => {
                   </form>
                 </div>
               </div>
-              <div className="md:col-span-1 flex flex-col items-end max-md:hidden bg-[#FAFAFF]">
-                <button className="bg-[#0000FE] text-white px-4 py-2 rounded-md hover:bg-blue-700 mb-2 w-full max-w-xs">
-                  Save Progress
-                </button>
-                <a href="#" className="border border-blue-600 text-[#0000FE] px-4 py-2 rounded-md hover:bg-blue-50 mb-2 w-full max-w-xs text-center block">
-                  Back to Homepage
-                </a>
-                <p className="text-sm text-gray-600 mt-2 flex items-center justify-end">
-                  <span className="w-5 h-5 rounded-full border border-gray-400 flex items-center justify-center mr-2 text-gray-600 text-xs">i</span>
-                  Note: Applications closes on 26th March 2025
-                </p>
-              </div>
+              <div className="flex flex-col md:justify-start gap-4 max-md:hidden bg-[#FAFAFF]">
+                              <button
+                                className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%] cursor-pointer"
+                              >
+                                Save Progress
+                              </button>
+                              <Link to='/landing'><button
+                                className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full cursor-pointer"
+                              >
+                                Back to Homepage
+                              </button></Link>
+                              <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
+                                <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
+                                  i
+                                </span>
+                                Note: Applications closes on 26th March 2025
+                              </p>
+                            </div>
               <div className="md:col-span-3 flex justify-between mt-8 max-md:hidden py-4">
                 <a
                   href="/application"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center cursor-pointer"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
@@ -228,7 +245,7 @@ const ScholarshipForm = () => {
                 </a>
                 <a
                   href="/portal-step-4"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center cursor-pointer"
                   onClick={handleSubmit}
                 >
                   Next

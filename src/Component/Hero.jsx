@@ -84,10 +84,11 @@ const Hero = () => {
           </div>
 
           {/* Search Button (now part of the group) */}
-          <button className="bg-[#0000FE] text-white w-full sm:w-auto px-8 py-3 rounded-lg text-base font-semibold hover:bg-blue-800 transition whitespace-nowrap">
+          
+        </div>
+        <button className="bg-[#0000FE] text-white w-1/2 px-8 py-3 rounded-lg text-base font-semibold hover:bg-blue-800 transition cursor-pointer z-50">
             Search
           </button>
-        </div>
 
         <p className="text-xs text-gray-500 pt-4">
           Accredited by the Federal Ministry of Education and aligned with the
@@ -111,22 +112,22 @@ const Hero = () => {
       {/* Dotted Arrows - Hidden on Mobile */}
       <img
         src={dottedArrow1}
-        className="hidden md:block absolute top-22 left-[300px] w-32 h-35 z-20 animate-pulse"
+        className="hidden md:block absolute top-22 left-[300px] w-32 h-35 z-0 animate-pulse"
         alt="arrow"
       />
       <img
         src={dottedArrow2}
-        className="hidden md:block absolute top-85 right-[625px] w-32 h-25 rotate-[5deg] z-20 animate-pulse"
+        className="hidden md:block absolute top-85 right-[625px] w-32 h-25 rotate-[5deg] z-0 animate-pulse"
         alt="arrow"
       />
       <img
         src={dottedArrow3}
-        className="hidden md:block absolute bottom-[-20px] left-80 w-77 h-100 z-20 animate-pulse"
+        className="hidden md:block absolute bottom-0 left-80 w-77 h-100 z-0 animate-pulse"
         alt="arrow"
       />
       <img
         src={dottedArrow4}
-        className="hidden md:block absolute bottom-55 left-0 w-18 h-30 -rotate-[3deg] z-20 animate-pulse"
+        className="hidden md:block absolute bottom-55 left-0 w-18 h-30 -rotate-[3deg] z-0 animate-pulse"
         alt="arrow"
       />
     </section>

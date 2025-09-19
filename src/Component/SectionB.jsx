@@ -7,7 +7,7 @@ import arrowDown2 from "../assets/image/sectionb/arrow2.png";
 
 const SectionB = () => {
   return (
-    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8 mx-auto" id='howitworks'>
       <div className="max-w-6xl mx-auto text-center relative">
         {/* Header Section */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 uppercase">
@@ -18,9 +18,9 @@ const SectionB = () => {
         </p>
 
         {/* Steps */}
-        <div className="relative flex flex-col items-center space-y-24">
+        <div className="relative flex flex-col items-center space-y-24 mx-auto justify-center md:max-lg:ml-15">
           {/* Step 1 */}
-          <div className="flex flex-col md:flex-row items-center md:justify-start w-full md:ml-130 md:space-x-12 mt-7">
+          <div className="flex flex-col md:flex-row items-center md:justify-start w-full md:ml-10 lg:ml-130 md:space-x-12 mt-7">
             <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0">
               <img src={number1} alt="Step 1" className="w-full h-full object-contain" />
             </div>
@@ -36,11 +36,11 @@ const SectionB = () => {
 
           {/* Arrow 1 */}
           <div className="hidden md:block absolute left-[130px] top-[200px]">
-            <img src={arrowDown1} alt="Arrow Down" className="w-40 h-80" />
+            <img src={arrowDown1} alt="Arrow Down" className="w-40 h-50 lg:h-80" />
           </div>
 
           {/* Step 2 */}
-          <div className="flex flex-col md:flex-row-reverse items-center md:justify-end w-full md:ml-130 md:space-x-12 md:space-x-reverse">
+          <div className="flex flex-col md:flex-row-reverse items-center md:justify-end w-full md:ml-55 lg:ml-130 md:space-x-12 md:space-x-reverse">
             <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0">
               <img src={number2} alt="Step 2" className="w-full h-full object-contain" />
             </div>
@@ -60,7 +60,7 @@ const SectionB = () => {
           </div>
 
           {/* Step 3 */}
-          <div className="flex flex-col md:flex-row items-center md:justify-start w-full md:ml-150 md:space-x-12">
+          <div className="flex flex-col md:flex-row items-center md:justify-start w-full md:ml-10 lg:ml-150 md:space-x-12">
             <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 flex-shrink-0">
               <img src={number3} alt="Step 3" className="w-full h-full object-contain" />
             </div>

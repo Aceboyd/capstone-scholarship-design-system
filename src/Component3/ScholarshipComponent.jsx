@@ -4,6 +4,7 @@ import fundingIcon from "../assets/image/form/dollar.png"; // Placeholder import
 import calendarIcon from "../assets/image/form/calender.png"; // Placeholder import for calendar icon
 import peopleIcon from "../assets/image/form/contact.png"; // Placeholder import for people icon
 import applyArrowIcon from "../assets/image/form/bookmark.png"; // Placeholder import for arrow icon beside Apply button
+import { Link } from "react-router-dom";
 
 const ScholarshipComponent = () => {
   const handleScroll = (sectionId) => {
@@ -35,7 +36,7 @@ const ScholarshipComponent = () => {
                 <h1 className="max-[400px]:text-center text-2xl md:text-4xl font-bold text-black mb-3 lg:whitespace-nowrap">Ghana Stem <br />Excellence Scholarship</h1>
                 <p className="text-[#000000]/70 text-lg mb-3">Ghana Education Trust Fund (GETFund)</p>
                 <div className="flex items-center">
-                  <button className="bg-[#0000FE] text-white px-6 py-2 rounded-md cursor-pointer">Apply Now</button>
+                  <Link to='/step-1'><button className="bg-[#0000FE] text-white px-6 py-2 rounded-md cursor-pointer">Apply Now</button></Link>
                   <img
                     src={applyArrowIcon}
                     alt="Apply Arrow Icon"

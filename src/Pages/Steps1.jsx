@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import Header2anon from "../Component3/Header2anon";
+import { useState, useEffect, useCallback } from "react";
+import Header from "../Component/Header";
 import Steps from "../Components4/Steps";
 import Application2 from "../Components4/Application2";
 import Background from "../Components4/Background";
@@ -54,10 +54,20 @@ const PortalSteps1 = () => {
     setAppStatus(fields.length > 0 ? "In Progress" : "Not Started");
   };
 
+   const [selectedCategories, setSelectedCategories] = useState([]); 
+    
+      const handleSetSelectedCategories = useCallback((categories) => {
+        setSelectedCategories(categories);
+      }, []);
+
   return (
     <div className="bg-[#FAFAFF]">
-      <Header2anon />
-      <div className="flex flex-col mt-8">
+      <Header
+            setSelectedCategories={handleSetSelectedCategories}
+              selectedCategories={selectedCategories}
+              className="w-full px-3 sm:px-6 lg:px-12"
+            />
+      <div className="flex flex-col mt-20">
         <Background />
         <div className="mt-12">
           <Steps progress={progress} appStatus={appStatus} />

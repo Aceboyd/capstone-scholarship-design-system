@@ -3,7 +3,7 @@ import React from "react";
 const SearchBar = ({ toggle }) => {
   return (
     <div
-      className="mb-2 flex h-32 items-center justify-center gap-1 bg-cover bg-center sm:h-[25vh] sm:gap-2"
+      className="mb-2 flex h-32 items-center justify-center gap-1 bg-cover bg-center sm:h-[25vh] sm:gap-2 mt-20"
       style={{ backgroundImage: `url("../images/searchbackground.png")` }}
     >
       {/* Filter toggle button (mobile only) */}

@@ -29,17 +29,17 @@ const menuRef = useRef(null);
         
         <ul
           ref={menuRef} 
-          className={`lg:flex lg:items-center absolute top-20 lg:static w-[40%] text-center gap-7 lg:gap-9 bg-blue-500 opacity-97 min-lg:bg-none max-lg:text-white font-semibold lg:w-auto lg:bg-transparent lg:flex-row z-9999 ${
+          className={`lg:flex lg:items-center absolute top-20 lg:static w-[40%] text-center gap-7 lg:gap-9 bg-white opacity-97 min-lg:bg-none max-lg:text-black font-semibold lg:w-auto lg:bg-transparent lg:flex-row z-9999 ${
             isOpen ? 'h-600px w-full right-0 z-9999' : 'h-[0px]'
           }`}
         >
-          <li className={`block ${isOpen ? "mt-15 text-white" : "max-lg:hidden"} pt-4 pb-4 text-black
+          <li className={`block ${isOpen ? "mt-15 text-black" : "max-lg:hidden"} pt-4 pb-4 text-black
                 hover:text-blue-950`}><a href="#">Home</a></li>
-          <li className={`block ${isOpen ? " text-white" : "max-lg:hidden"} pt-4 pb-4  text-black
+          <li className={`block ${isOpen ? " text-black" : "max-lg:hidden"} pt-4 pb-4  text-black
                 hover:text-blue-950`} ><a href="#">Find Scholarships</a></li>
-          <li className={`block ${isOpen ? " text-white" : "max-lg:hidden"} pt-4 pb-4  text-black
+          <li className={`block ${isOpen ? " text-black" : "max-lg:hidden"} pt-4 pb-4  text-black
                 hover:text-blue-950`} ><a href="#">How It Works</a></li>
-          <li className={`block ${isOpen ? "mb-15 text-white" : "max-lg:hidden"} pt-4 pb-4  text-black
+          <li className={`block ${isOpen ? "mb-15 text-black" : "max-lg:hidden"} pt-4 pb-4  text-black
                 hover:text-blue-950`} ><a href='#'>Categories <span className='inline-block w-3 h-4'><ChevronDown/></span></a></li>
         </ul>
         

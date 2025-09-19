@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Steps = ({ progress, appStatus }) => {
   const stepDetails = [
@@ -125,12 +126,12 @@ const Steps = ({ progress, appStatus }) => {
 
       {/* Title and Status */}
       <div className="w-full px-4 pb-4 flex justify-between text-[12px] items-center md:hidden bg-[#FAFAFF]">
-        <button className="px-5 py-2 bg-[#0000FE] text-sm text-white rounded font-bold">
+        <button className="px-5 py-2 bg-[#0000FE] text-sm text-white rounded font-bold cursor-pointer">
               Save Progress
             </button>
-            <button className="px-5 py-2 bg-white text-sm text-[#0000FE] rounded border border-blue-800 font-bold">
+            <Link to='/landing'><button className="px-5 py-2 bg-white text-sm text-[#0000FE] rounded border border-blue-800 font-bold cursor-pointer">
               Back to Homepage
-            </button>
+            </button></Link>
       </div>
       <div className="mb-20 lg:w-2/3 px-2 lg:px-5 lg:ml-20 max-lg:text-center max-md:mt-7">
         <h2 className="text-sm sm:text-xl md:text-3xl font-medium text-gray-800 mb-3.5">

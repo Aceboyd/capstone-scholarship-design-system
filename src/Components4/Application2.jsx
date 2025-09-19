@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Stepsresponsive from './Stepsresponsive';
 import Navigationresponsive from './Navigationresponsive';
+import { Link } from 'react-router-dom';
 
 const Application2 = ({ onFormUpdate }) => {
   const navigate = useNavigate();
@@ -257,16 +258,16 @@ const Application2 = ({ onFormUpdate }) => {
               <div className="flex flex-col md:justify-start gap-4 max-md:hidden bg-[#FAFAFF]">
                 <button
                   onClick={handleSaveProgress}
-                  className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%]"
+                  className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-[100%] cursor-pointer"
                 >
                   Save Progress
                 </button>
-                <button
+                <Link to='/landing'><button
                   onClick={handleBack}
-                  className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full"
+                  className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full cursor-pointer"
                 >
                   Back to Homepage
-                </button>
+                </button></Link>
                 <p className="mt-2 flex items-center justify-end text-sm text-gray-600">
                   <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full border border-gray-400 text-xs text-gray-600">
                     i
@@ -278,16 +279,16 @@ const Application2 = ({ onFormUpdate }) => {
           </div>
 
           {/* Bottom Navigation - Back Left, Next Right */}
-          <div className="w-full px-4 py-4 flex justify-between items-center bg-[#FAFAFF] max-md:hidden">
+          <div className="w-full px-4 py-4 flex justify-between items-center bg-[#FAFAFF] max-md:hidden cursor-pointer">
             <button
               onClick={handleBack}
-              className="px-6 py-2 bg-gray-300 text-black rounded"
+              className="px-6 py-2 bg-gray-300 text-gray-500 rounded"
             >
               Back
             </button>
             <button
               onClick={handleNext}
-              className="px-6 py-2 bg-blue-600 text-white rounded"
+              className="px-6 py-2 bg-blue-600 cursor-pointer text-white rounded"
             >
               Next
             </button>

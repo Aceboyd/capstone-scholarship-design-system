@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function SOPForm() {
   const [sop, setSop] = useState('');
@@ -82,7 +83,7 @@ export default function SOPForm() {
           <div className="flex justify-between w-full mt-6">
             <button
               onClick={() => navigate('/step-3')}
-              className="flex items-center space-x-2 px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-100"
+              className="flex items-center space-x-2 px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-100 cursor-pointer"
             >
               <ArrowLeft size={18} />
               <span>Back</span>
@@ -90,7 +91,7 @@ export default function SOPForm() {
 
             <button
               onClick={() => navigate('/portal-step-5')}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white cursor-pointer rounded-md hover:bg-blue-700"
             >
               <span>Next</span>
               <ArrowRight size={18} />
@@ -100,12 +101,12 @@ export default function SOPForm() {
 
         {/* Action Buttons and Note */}
         <div className="w-full lg:w-64 flex flex-col gap-4 bg-[#FAFAFF]">
-          <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full">
+          <button className="px-4 py-2 bg-[#0000FE] text-white rounded-md w-full cursor-pointer">
             Save Progress
           </button>
-          <button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full">
+          <Link to='/landing'><button className="px-4 py-2 bg-gray-200 text-[#0000FE] rounded-md w-full cursor-pointer">
             Back to Homepage
-          </button>
+          </button></Link>
           <p className="text-red-500 text-xs text-center mt-2">
             Note: Applications close on 26th March 2025
           </p>

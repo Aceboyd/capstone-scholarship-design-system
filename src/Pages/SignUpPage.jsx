@@ -3,9 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FiEdit, FiEye, FiEyeOff, FiMail } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 
-import capeImage from "../assets/image/cape.png";
 import watermark from "../assets/image/first.png";
-import nice from "../assets/image/nice.png";
+import logo from "../assets/image/nice.png";
 
 const register = async (userData) => {
   return new Promise((resolve, reject) => {
@@ -58,28 +57,27 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="relative mx-auto flex min-h-screen bg-gray-50 font-sans">
-      {/* Watermark - Desktop only */}
-      {/* Watermark - Visible on all devices */}
-        <div className="pointer-events-none absolute top-0 right-0 left-0 z-0 flex items-center justify-center overflow-hidden">
-          <img
-            src={watermark}
-            alt="Watermark"
-            className="h-[120vh] w-[300px] md:h-[265vh] md:w-[700px] opacity-5 md:opacity-7"
-            style={{ transform: "rotate(5deg)" }}
-          />
-        </div>
-
-
-      <div className="flex flex-1 flex-col md:flex-row relative z-10">
-        <div className="relative z-20 mt-0 flex w-full flex-1 flex-col items-center justify-center p-4 sm:p-6 md:mt-[50px] md:justify-start md:p-8">
-          <div className="w-full max-w-sm sm:max-w-md md:max-w-xl rounded-lg">
-            {/* Logo */}
-            <div className="mb-4 flex justify-start md:mb-12">
-              <img src={nice} alt="Logo" className="h-8 sm:h-10 md:h-30" />
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#040498] mb-2 text-start">
+    <div className="w-full relative flex flex-row min-h-screen bg-gray-50 font-sans">
+          {/* Watermark - Visible on all devices */}
+          <div className="w-full md:w-1/2 pointer-events-none absolute top-0 right-0 left-0 z-0 flex items-center justify-center overflow-hidden p-8 px-12 md:px-24 lg:px-45">
+            <img
+              src={watermark}
+              alt="Watermark"
+              className="h-[100vh] w-full md:h-[100vh] opacity-5 md:opacity-7"
+              style={{ transform: "rotate(5deg)" }}
+            />
+          </div>
+    
+          {/* Main Content */}
+            {/* Left - Form */}
+            <div className="md:w-1/2 mt-[50px] flex w-full flex-col items-center justify-start z-10">
+              <div className="w-full max-w-xl rounded-lg p-8">
+                {/* Logo */}
+                <div className="mb-12 flex justify-start">
+                  <img src={logo} alt="Logo" className="h-30" />
+                </div>
+    
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#040498] mb-2 text-start">
               Create an account
             </h2>
             <p className="text-sm sm:text-base text-[#040498] mb-4 text-start">
@@ -209,17 +207,24 @@ const SignUpPage = () => {
                 </button>
               </a>
             </div>
-          </div>
-        </div>
-
-        {/* Right Section (Desktop Only) */}
-        <div className="relative hidden md:flex w-[500px] lg:w-[650px] items-center justify-center bg-gray-100 rounded-xl shadow-lg p-6">
-          <img src={capeImage} alt="Graduation Cap" className="relative z-10 w-full h-full object-cover rounded-lg" />
-        </div>
-      </div>
-
-      {/* Popup */}
-      {showPopup && (
+            </div>
+            </div>
+    
+            {/* Right Image Section */}
+            <div className="hidden w-1/2 z-10 md:flex bg-gray-100"
+            style={{
+              backgroundImage: `url(/cape.png)`,
+              maxHeight: '2000px',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '40% 30%'
+            }}>
+              
+            </div>
+          
+    
+          {/* Popup */}
+          {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black opacity-50"></div>
           <div className="relative z-50 bg-white rounded-xl shadow-lg p-6 sm:p-8 text-center w-full max-w-xs sm:max-w-md mx-auto">
@@ -235,7 +240,7 @@ const SignUpPage = () => {
                 navigate("/"); 
               }}
               className="bg-[#0000FE] hover:bg-[#0000CC] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-lg">
-              Get Started
+              Proceed to Login
             </button>
           </div>
         </div>
@@ -256,7 +261,7 @@ const SignUpPage = () => {
           }
         }
       `}</style>
-    </div>
+        </div>
   );
 };
 
