@@ -116,7 +116,7 @@ const Hero = () => {
       />
       <img
         src={dottedArrow2}
-        className="hidden md:block absolute top-100 right-[700px] w-42 h-25 rotate-[5deg] z-20 animate-pulse"
+        className="hidden md:block absolute top-100 right-[625px] w-42 h-25 rotate-[5deg] z-20 animate-pulse"
         alt="arrow"
       />
       <img
