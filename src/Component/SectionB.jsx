@@ -7,7 +7,7 @@ import arrowDown2 from "../assets/image/sectionb/arrow2.png";
 
 const SectionB = () => {
   return (
-    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <div id="how-it-works" className="bg-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto text-center relative">
         {/* Header Section */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 uppercase">

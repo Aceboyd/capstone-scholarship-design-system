@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+
 import Header from "../Component/Header";
 import Hero from "../Component/Hero";
 import Sponsors from "../Component/Sponsors";
@@ -12,7 +13,7 @@ import SectionG from "../Component/SectionG";
 import Footer from "../Component/Footer";
 
 const LandingPage = () => {
-  const [selectedCategories, setSelectedCategories] = useState([]); 
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const handleSetSelectedCategories = useCallback((categories) => {
     setSelectedCategories(categories);
@@ -34,7 +35,6 @@ const LandingPage = () => {
           className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-8"
         />
 
-        {/* Each section gets responsive spacing */}
         <Sponsors className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
         <SlideSection className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />
         <SectionB className="w-full px-3 sm:px-6 lg:px-12 py-6 sm:py-10" />

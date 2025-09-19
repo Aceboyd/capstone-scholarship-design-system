@@ -7,7 +7,7 @@ import React from "react";
 
 import Dashboard from "./component5/Dashboard.jsx";
 import Admin from "./Pages/Admin.jsx";
-import ApplicationPage from "./Pages/ApplicationPage.jsx";
+import ApplicationPage from "./Pages/Portalstep2.jsx";
 import Ghanapage from "./Pages/Ghanapage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
@@ -15,7 +15,7 @@ import PortalStep5 from "./Pages/PortalStep5.jsx";
 import Scholarship from "./Pages/Scholarship.jsx";
 import SignUpPage from "./Pages/SignUpPage.jsx";
 import Step3 from "./Pages/Step3.jsx";
-import Step1 from "./Pages/Steps1.jsx";
+import Step1 from "./Pages/Step1.jsx";
 import StepsCompleted from "./Pages/StepsCompleted.jsx";
 import Temp from "./Pages/Temp1.jsx";
 import UserDashboard from "./Pages/UserDashboard.jsx";
@@ -33,7 +33,7 @@ function App() {
         {/* User Routes */}
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/application" element={<ApplicationPage />} />
-        <Route path="/step-1" element={<Step1 />} />
+        <Route path="/Step-1" element={<Step1 />} />
         <Route path="/step-3" element={<Step3 />} />
         <Route path="/steps-completed" element={<StepsCompleted />} />
         <Route path="/portal-step-4" element={<PortalStep4 />} />

@@ -3,6 +3,63 @@ import { useNavigate } from 'react-router-dom';
 import Stepsresponsive from './Stepsresponsive';
 import Navigationresponsive from './Navigationresponsive';
 
+// Sample data for African countries and their states/provinces
+const africanCountries = [
+  { name: "Algeria", states: ["Algiers", "Oran", "Constantine", "Annaba"] },
+  { name: "Angola", states: ["Luanda", "Benguela", "Huambo", "Lobito"] },
+  { name: "Benin", states: ["Porto-Novo", "Cotonou", "Parakou", "Djougou"] },
+  { name: "Botswana", states: ["Gaborone", "Francistown", "Molepolole", "Serowe"] },
+  { name: "Burkina Faso", states: ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Banfora"] },
+  { name: "Burundi", states: ["Gitega", "Bujumbura", "Ngozi", "Rutana"] },
+  { name: "Cameroon", states: ["Yaoundé", "Douala", "Garoua", "Bamenda"] },
+  { name: "Cape Verde", states: ["Praia", "Mindelo", "Santa Maria", "Sal Rei"] },
+  { name: "Central African Republic", states: ["Bangui", "Bimbo", "Berbérati", "Carnot"] },
+  { name: "Chad", states: ["N'Djamena", "Moundou", "Sarh", "Abéché"] },
+  { name: "Comoros", states: ["Moroni", "Mutsamudu", "Fomboni"] },
+  { name: "Democratic Republic of the Congo", states: ["Kinshasa", "Lubumbashi", "Goma", "Kisangani"] },
+  { name: "Djibouti", states: ["Djibouti City", "Ali Sabieh", "Dikhil", "Tadjoura"] },
+  { name: "Egypt", states: ["Cairo", "Alexandria", "Giza", "Luxor"] },
+  { name: "Equatorial Guinea", states: ["Malabo", "Bata", "Ebebiyin", "Aconibe"] },
+  { name: "Eritrea", states: ["Asmara", "Keren", "Massawa", "Assab"] },
+  { name: "Eswatini", states: ["Mbabane", "Manzini", "Big Bend", "Malkerns"] },
+  { name: "Ethiopia", states: ["Addis Ababa", "Dire Dawa", "Mekelle", "Gondar"] },
+  { name: "Gabon", states: ["Libreville", "Port-Gentil", "Franceville", "Oyem"] },
+  { name: "Gambia", states: ["Banjul", "Serekunda", "Brikama", "Bakau"] },
+  { name: "Ghana", states: ["Accra", "Kumasi", "Tamale", "Takoradi"] },
+  { name: "Guinea", states: ["Conakry", "Nzérékoré", "Kankan", "Kindia"] },
+  { name: "Guinea-Bissau", states: ["Bissau", "Bafatá", "Gabú", "Buba"] },
+  { name: "Ivory Coast", states: ["Abidjan", "Yamoussoukro", "Bouaké", "Daloa"] },
+  { name: "Kenya", states: ["Nairobi", "Mombasa", "Kisumu", "Nakuru"] },
+  { name: "Lesotho", states: ["Maseru", "Teyateyaneng", "Mafeteng", "Mohale's Hoek"] },
+  { name: "Liberia", states: ["Monrovia", "Gbarnga", "Buchanan", "Ganta"] },
+  { name: "Libya", states: ["Tripoli", "Benghazi", "Misrata", "Tobruk"] },
+  { name: "Madagascar", states: ["Antananarivo", "Toamasina", "Antsirabe", "Fianarantsoa"] },
+  { name: "Malawi", states: ["Lilongwe", "Blantyre", "Mzuzu", "Zomba"] },
+  { name: "Mali", states: ["Bamako", "Sikasso", "Mopti", "Timbuktu"] },
+  { name: "Mauritania", states: ["Nouakchott", "Nouadhibou", "Rosso", "Atar"] },
+  { name: "Mauritius", states: ["Port Louis", "Beau Bassin-Rose Hill", "Vacoas-Phoenix", "Curepipe"] },
+  { name: "Morocco", states: ["Rabat", "Casablanca", "Fes", "Marrakech"] },
+  { name: "Mozambique", states: ["Maputo", "Matola", "Beira", "Nampula"] },
+  { name: "Namibia", states: ["Windhoek", "Walvis Bay", "Swakopmund", "Oshakati"] },
+  { name: "Niger", states: ["Niamey", "Zinder", "Maradi", "Agadez"] },
+  { name: "Nigeria", states: ["Lagos", "Kano", "Ibadan", "Abuja", "Port Harcourt", "Kaduna"] },
+  { name: "Rwanda", states: ["Kigali", "Gisenyi", "Ruhengeri", "Butare"] },
+  { name: "Sao Tome and Principe", states: ["São Tomé", "Neves", "Santana", "Trindade"] },
+  { name: "Senegal", states: ["Dakar", "Thiès", "Kaolack", "Ziguinchor"] },
+  { name: "Seychelles", states: ["Victoria", "Anse Boileau", "Beau Vallon", "Takamaka"] },
+  { name: "Sierra Leone", states: ["Freetown", "Bo", "Kenema", "Makeni"] },
+  { name: "Somalia", states: ["Mogadishu", "Hargeisa", "Kismayo", "Baidoa"] },
+  { name: "South Africa", states: ["Cape Town", "Johannesburg", "Durban", "Pretoria"] },
+  { name: "South Sudan", states: ["Juba", "Wau", "Malakal", "Yei"] },
+  { name: "Sudan", states: ["Khartoum", "Omdurman", "Port Sudan", "Kassala"] },
+  { name: "Tanzania", states: ["Dodoma", "Dar es Salaam", "Mwanza", "Arusha"] },
+  { name: "Togo", states: ["Lomé", "Sokodé", "Kara", "Atakpamé"] },
+  { name: "Tunisia", states: ["Tunis", "Sfax", "Sousse", "Kairouan"] },
+  { name: "Uganda", states: ["Kampala", "Gulu", "Lira", "Mbale"] },
+  { name: "Zambia", states: ["Lusaka", "Kitwe", "Ndola", "Kabwe"] },
+  { name: "Zimbabwe", states: ["Harare", "Bulawayo", "Chitungwiza", "Mutare"] },
+];
+
 const Application2 = ({ onFormUpdate }) => {
   const navigate = useNavigate();
 
@@ -74,6 +131,10 @@ const Application2 = ({ onFormUpdate }) => {
   const handleNext = () => {
     navigate("/application");
   };
+
+  // Get states based on selected country
+  const selectedCountry = africanCountries.find((c) => c.name === formData.country);
+  const states = selectedCountry ? selectedCountry.states : [];
 
   return (
     <div className="flex flex-col">
@@ -224,7 +285,11 @@ const Application2 = ({ onFormUpdate }) => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     <option value="">State</option>
-                    <option value="Lagos">Lagos</option>
+                    {states.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
                   </select>
                   <select
                     name="country"
@@ -233,7 +298,11 @@ const Application2 = ({ onFormUpdate }) => {
                     className="w-full p-2 border border-gray-300 rounded-md"
                   >
                     <option value="">Country</option>
-                    <option value="Nigeria">Nigeria</option>
+                    {africanCountries.map((country) => (
+                      <option key={country.name} value={country.name}>
+                        {country.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

@@ -212,9 +212,9 @@ const ScholarshipForm = () => {
                           <select
                             value={currentLevel}
                             onChange={(e) => setCurrentLevel(e.target.value)}
-                            className="mt-1 block w-full rounded-md border border-gray-300 p-3 text-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                            className="mt-1 block w-full rounded-md border border-gray-300 p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none"
                           >
-                            <option value="">Select your current level</option>
+                            <option className="text-gray-300" value="">Select your current level</option>
                             <option value="Level 100">Level 100</option>
                             <option value="Level 200">Level 200</option>
                             <option value="Level 300">Level 300</option>
