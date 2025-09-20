@@ -6,9 +6,12 @@ import { Link } from "react-router-dom";
 import LogoOnly from "../UserDashboard/UserComponent/logo-only.svg";
 // import HamburgerUserNav from "./HamburgerUserNav";
 import iconFilter from "./icon-filtersvg.svg";
+import Sidebar from "./Sidebar";
 
-export default function FilterDrawer() {
+export default function FilterDrawer({ selectedFilters, setSelectedFilters }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(selectedFilters, setSelectedFilters);
 
   const toggleDrawer = () => setIsOpen((prev) => !prev);
 
@@ -82,8 +85,12 @@ export default function FilterDrawer() {
             </button>
           </div>
 
-          <aside className="h-full space-y-4 p-4 text-white">
-            {/* <HamburgerUserNav /> */}
+          <aside className="size-full">
+            <Sidebar
+              selectedFilters={selectedFilters}
+              setSelectedFilters={setSelectedFilters}
+            />
+            sii
           </aside>
         </div>
       </div>

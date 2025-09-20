@@ -5,9 +5,8 @@ import { BsSortDown } from "react-icons/bs";
 import Card from "./Card";
 import { cardInfo } from "./cardInfo"; // ✅ import cardInfo
 import FiltersDrawer from "./FiltersDrawer";
-import iconFilter from "./icon-filtersvg.svg";
 
-const Content = ({ selectedFilters, searchQuery }) => {
+const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
   const [grid, setGrid] = useState(false);
 
   const toggleGrid = () => {
@@ -47,7 +46,10 @@ const Content = ({ selectedFilters, searchQuery }) => {
                   <BsSortDown size={20} className="rotate-180" />
                 </div>
 
-                <FiltersDrawer />
+                <FiltersDrawer
+                  selectedFilters={selectedFilters}
+                  setSelectedFilters={setSelectedFilters}
+                />
               </div>
             </div>
 
@@ -99,18 +101,20 @@ const Content = ({ selectedFilters, searchQuery }) => {
           </div>
         </div>
 
-        <div className="pagination flex flex-col items-center justify-between gap-4 pt-10 sm:flex-row">
-          <div className="flex items-center gap-6">
-            <button className="cursor-pointer rounded-md border border-gray-500 px-6 py-2 hover:bg-gray-100 focus:ring-2 focus:ring-[#0000FE] focus:outline-none">
+        <div className="pagination flex flex-col items-center justify-between gap-2 pt-10 sm:flex-row sm:gap-4">
+          <div className="flex items-center gap-3 sm:gap-6">
+            <button className="cursor-pointer rounded-md border border-gray-500 px-2 py-2 hover:bg-gray-100 focus:ring-2 focus:ring-[#0000FE] focus:outline-none sm:px-6">
               Previous
             </button>
-            <div className="pages flex gap-6 text-[#0000FE] sm:gap-10">
-              <p className="rounded-md bg-[#F4F5FF] px-4 py-1">1</p>
+
+            <div className="pages flex gap-4 text-sm text-[#0000FE] sm:gap-10 sm:text-base">
+              <p className="rounded-md bg-[#F4F5FF] px-4 py-1 sm:px-4">1</p>
               <p className="cursor-pointer hover:underline">2</p>
               <p>...</p>
               <p className="cursor-pointer hover:underline">3</p>
             </div>
-            <button className="cursor-pointer rounded-md border border-gray-500 px-6 py-2 hover:bg-gray-100 focus:ring-2 focus:ring-[#0000FE] focus:outline-none">
+
+            <button className="cursor-pointer rounded-md border border-gray-500 px-2 py-2 hover:bg-gray-100 focus:ring-2 focus:ring-[#0000FE] focus:outline-none sm:px-6">
               Next
             </button>
           </div>

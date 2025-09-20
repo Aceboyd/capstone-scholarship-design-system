@@ -14,7 +14,7 @@ let ScholarshipPortal = () => {
       <Navbar />
       <SearchBar setSearchQuery={setSearchQuery} />
 
-      <main className="grid gap-6 px-4 pt-4 lg:grid-cols-[2.5fr_8fr]">
+      <main className="grid gap-6 px-2 pt-4 sm:px-4 lg:grid-cols-[2.5fr_8fr]">
         <aside className="sticky top-0 hidden self-start lg:block">
           <Sidebar
             selectedFilters={selectedFilters}
@@ -26,6 +26,7 @@ let ScholarshipPortal = () => {
           <Content
             selectedFilters={selectedFilters}
             searchQuery={searchQuery}
+            setSelectedFilters={setSelectedFilters}
           />
         </div>
       </main>
