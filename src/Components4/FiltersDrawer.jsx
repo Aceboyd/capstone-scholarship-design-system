@@ -3,10 +3,11 @@ import { IoClose } from "react-icons/io5";
 import { LuMenu } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-import HamburgerUserNav from "./HamburgerUserNav";
-import LogoOnly from "./logo-only.svg";
+import LogoOnly from "../UserDashboard/UserComponent/logo-only.svg";
+// import HamburgerUserNav from "./HamburgerUserNav";
+import iconFilter from "./icon-filtersvg.svg";
 
-export default function Drawer() {
+export default function FilterDrawer() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = () => setIsOpen((prev) => !prev);
@@ -29,8 +30,21 @@ export default function Drawer() {
   return (
     <>
       {/* Menu Button */}
-      <button onClick={toggleDrawer} className="cursor-pointer text-white">
+      <button
+        onClick={toggleDrawer}
+        className="sr-only cursor-pointer text-white"
+      >
         <LuMenu size={20} color="0000FE" />
+      </button>
+
+      <button
+        onClick={toggleDrawer}
+        className="flex items-center gap-2 rounded-lg bg-black p-2 text-white transition-colors hover:cursor-pointer hover:bg-black/80"
+      >
+        <span>
+          <img src={iconFilter} alt="Icon Filter" className="size-6" />
+        </span>
+        <p>Filters</p>
       </button>
 
       {/* Overlay */}
@@ -43,7 +57,7 @@ export default function Drawer() {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 z-50 h-full w-64 transform bg-[#0000FE] shadow-lg transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 z-50 h-full w-[80%] transform bg-[#0000FE] shadow-lg transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -69,7 +83,7 @@ export default function Drawer() {
           </div>
 
           <aside className="h-full space-y-4 p-4 text-white">
-            <HamburgerUserNav />
+            {/* <HamburgerUserNav /> */}
           </aside>
         </div>
       </div>

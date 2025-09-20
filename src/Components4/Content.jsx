@@ -1,7 +1,11 @@
-import { useState } from "react";
 import PropTypes from "prop-types"; // ✅ import PropTypes
+import { useState } from "react";
+import { BsSortDown } from "react-icons/bs";
+
 import Card from "./Card";
 import { cardInfo } from "./cardInfo"; // ✅ import cardInfo
+import FiltersDrawer from "./FiltersDrawer";
+import iconFilter from "./icon-filtersvg.svg";
 
 const Content = ({ selectedFilters, searchQuery }) => {
   const [grid, setGrid] = useState(false);
@@ -13,22 +17,43 @@ const Content = ({ selectedFilters, searchQuery }) => {
 
   return (
     <div className="flex-1">
-      <main className="mx-2 rounded-lg bg-[#F4F5FF] px-6 py-4 sm:mx-4 md:mx-10">
-        <div className="rounded-md">
-          <p className="pb-3 text-xl sm:text-2xl">
+      <p className="w-fit lg:hidden">
+        {selectedFilters.length > 0 || searchQuery
+          ? "Filtered Scholarships"
+          : "21 Scholarships found for "}
+        <span className="font-bold">
+          {searchQuery || " STEM Undergraduate Scholarships in Ghana"}
+        </span>
+      </p>
+
+      <main className="bg-[#F4F5FF] px-1 py-4 sm:mx-4 md:mx-10 lg:mx-2 lg:px-6">
+        <div className>
+          <p className="hidden pb-3 text-xl sm:text-2xl lg:block">
             {selectedFilters.length > 0 || searchQuery
               ? "Filtered Scholarships"
               : "21 Scholarships found for "}
             <span className="font-bold">
-              {searchQuery || "STEM Undergraduate Scholarships in Ghana"}
+              {searchQuery || " STEM Undergraduate Scholarships in Ghana"}
             </span>
           </p>
-          <hr />
+          <hr className="hidden lg:block" />
 
           <div className="flex flex-col items-center justify-between gap-3 pt-4 sm:flex-row">
-            <p className="font-medium">RESULTS {cardInfo.length}</p>
-            <div className="flex items-center gap-3">
+            <div className="flex w-full items-center justify-between lg:w-fit">
+              <p className="font-medium">RESULTS {cardInfo.length}</p>
+
+              <div className="flex items-center gap-4 lg:hidden">
+                <div className="rounded-lg border-2 p-2 text-[#0000FE]">
+                  <BsSortDown size={20} className="rotate-180" />
+                </div>
+
+                <FiltersDrawer />
+              </div>
+            </div>
+
+            <div className="hidden items-center gap-3 lg:flex">
               <span>SORT BY:</span>
+
               <select className="w-40 rounded-md border border-gray-500 p-2 font-bold text-[#0000FE] sm:w-56">
                 <option>Latest</option>
                 <option>Earliest</option>
@@ -40,7 +65,7 @@ const Content = ({ selectedFilters, searchQuery }) => {
             </div>
           </div>
 
-          <div className="my-4 flex justify-center gap-8">
+          <div className="my-4 hidden justify-center gap-8 lg:flex">
             <button
               aria-label="Switch to list view"
               onClick={toggleGrid}
@@ -66,7 +91,11 @@ const Content = ({ selectedFilters, searchQuery }) => {
           </div>
 
           <div className="pt-6">
-            <Card grid={grid} selectedFilters={selectedFilters} searchQuery={searchQuery} />
+            <Card
+              grid={grid}
+              selectedFilters={selectedFilters}
+              searchQuery={searchQuery}
+            />
           </div>
         </div>
 
@@ -85,7 +114,9 @@ const Content = ({ selectedFilters, searchQuery }) => {
               Next
             </button>
           </div>
-          <p className="text-sm text-gray-500">Showing 1-10 of {cardInfo.length} results</p>
+          <p className="text-sm text-gray-500">
+            Showing 1-10 of {cardInfo.length} results
+          </p>
         </div>
       </main>
     </div>

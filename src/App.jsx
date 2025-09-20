@@ -1,9 +1,4 @@
-import {
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Dashboard from "./component5/Dashboard.jsx";
 import Admin from "./Pages/Admin.jsx";
 import ApplicationPage from "./Pages/ApplicationPage";
@@ -12,13 +7,13 @@ import LandingPage from "./Pages/LandingPage.jsx";
 import PortalStep4 from "./Pages/PortalStep4.jsx";
 import PortalStep5 from "./Pages/PortalStep5.jsx";
 import Scholarship from "./Pages/Scholarship.jsx";
+import ScrollToTop from "./Pages/ScrollToTop.jsx"; // ✅ helper
 import SignUpPage from "./Pages/SignUpPage.jsx";
-import Step3 from "./Pages/Step3.jsx";
 import Step1 from "./Pages/Step1.jsx";
+import Step3 from "./Pages/Step3.jsx";
 import StepsCompleted from "./Pages/StepsCompleted.jsx";
 import Temp from "./Pages/Temp1.jsx";
 import UserDashboard from "./Pages/UserDashboard.jsx";
-import ScrollToTop from "./Pages/ScrollToTop.jsx"; // ✅ helper
 
 function App() {
   return (

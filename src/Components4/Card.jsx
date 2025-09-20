@@ -1,6 +1,8 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types"; // ✅ import PropTypes
+import { useState } from "react";
+import { IoBookmarkOutline, IoBookmarkSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
+
 import { cardInfo } from "./cardInfo";
 
 let Card = ({ grid, selectedFilters, searchQuery }) => {
@@ -15,37 +17,61 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
       : true;
 
     // Filter by selected filters
-    const matchesFilters = selectedFilters.length > 0
-      ? selectedFilters.some((filter) =>
-          [
-            details.tag1,
-            details.tag2,
-            details.tag3,
-            details.expiry,
-            details.student,
-          ].includes(filter)
-        )
-      : true;
+    const matchesFilters =
+      selectedFilters.length > 0
+        ? selectedFilters.some((filter) =>
+            [
+              details.tag1,
+              details.tag2,
+              details.tag3,
+              details.expiry,
+              details.student,
+            ].includes(filter),
+          )
+        : true;
 
     return matchesSearch && matchesFilters;
   });
 
+  const [isFilled, setIsFilled] = useState(false);
+
   return (
     <div
-      className={`${grid ? "grid grid-cols-2 flex-col gap-2 max-[800px]:flex" : ""} space-y-6`}
+      className={`${grid ? "max-w-[800px]:flex grid grid-cols-2 flex-col gap-2" : ""} space-y-6`}
     >
       {filteredInfo.map((details, key) => (
         <div
           key={key}
           className={`${key !== undefined && key !== null ? "cursor-pointer duration-1500 hover:scale-101" : ""} space-y-1 rounded-md bg-white p-4 shadow-lg`}
         >
-          <div className="flex justify-between">
-            <p className="text-2xl max-[700px]:text-xl">{details.mainTitle}</p>
-            <p className="self-center text-xs text-gray-900">
-              Posted {details.time}
-            </p>
+          <div className="flex items-center justify-between gap-2 lg:block">
+            <div>
+              <div className="flex justify-between">
+                <p className="text-2xl max-[700px]:text-xl">
+                  {details.mainTitle}
+                </p>
+                <p className="hidden self-center text-xs text-gray-900 lg:block">
+                  Posted {details.time}
+                </p>
+              </div>
+              <p className="max-[700px]:text-sm">{details.subTitle}</p>
+              <p className="text-sm text-gray-900">Posted {details.time}</p>
+            </div>
+
+            <span
+              onClick={() => setIsFilled(!isFilled)}
+              className="text-[#0000FE] transition-transform hover:scale-105 hover:cursor-pointer lg:hidden"
+            >
+              {isFilled ? (
+                <IoBookmarkSharp size={20} />
+              ) : (
+                <IoBookmarkOutline size={20} />
+              )}
+            </span>
           </div>
-          <p className="max-[700px]:text-sm">{details.subTitle}</p>
+
+          <hr className="mt-4 mb-2 text-gray-200 lg:hidden" />
+
           <div className="flex items-center gap-2">
             <p className="flex">
               <img src="images/tuition.png" alt="tuition" /> :
@@ -72,7 +98,12 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
           <div className="w-fit">
             <div className="flex gap-1">
               <p className="w-fit">Application Status:</p>
-              <div className="items-center min-[700px]:gap-1 min-[800px]:flex">
+
+              <p className="self-center text-sm font-medium text-[#0000FE] lg:hidden">
+                {details.appStatus}
+              </p>
+
+              <div className="hidden items-center min-[700px]:gap-1 min-[800px]:flex lg:flex">
                 <img
                   className="max-w-[85%] object-cover"
                   src={details.progress}
@@ -84,11 +115,12 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
               </div>
             </div>
           </div>
-          <hr />
+          <hr className="hidden lg:block" />
+
           <div
             className={`${grid ? "grid grid-cols-1 place-items-center space-y-1" : "items-center justify-between min-[800px]:flex"}`}
           >
-            <div className="flex gap-2 text-sm">
+            <div className="flex gap-2 text-center text-sm lg:text-left">
               <p className="w-fit rounded-md bg-[#ebedff] p-2">
                 {details.tag1}
               </p>
@@ -99,7 +131,8 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
                 {details.tag3}
               </p>
             </div>
-            <div className="flex items-center gap-1 max-[800px]:w-40 max-[800px]:place-self-center max-[700px]:pt-2">
+
+            <div className="hidden items-center gap-1 max-[800px]:w-40 max-[800px]:place-self-center max-[700px]:pt-2 lg:flex">
               {key === 0 ? (
                 <Link
                   to="/ghanapage"
@@ -123,6 +156,16 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
                 alt="bookmark"
               />
             </div>
+          </div>
+
+          {/* For mobile */}
+          <div className="flex w-full pt-4 lg:hidden">
+            <Link
+              to="/ghanapage"
+              className="w-full cursor-pointer rounded-md bg-[#0000FE] px-3 py-4 text-center text-sm text-white"
+            >
+              {details.apply}
+            </Link>
           </div>
         </div>
       ))}
