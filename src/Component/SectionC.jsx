@@ -14,14 +14,14 @@ function SectionC() {
   return (
     <div id="sectionc" className="flex p-5 md:p-15 lg:py-20 items-center justify-center bg-[#F8F7FF] pt-10 md:pt-0">
       <div className="animate-fade-slide-up w-[1200px] max-w-full px-1 sm:px-4">
-        <h1 className="animate-fade-in mb-8 md:mb-16 text-center text-2xl sm:text-3xl md:text-5xl font-bold leading-snug">
-          Find 
-          <br className="block md:hidden" />
-          <span className="animate-float inline-block text-[#0000FF]">
-            Scholarships <br className="block md:hidden" />
-          </span>{" "}
-          that match your goals
-        </h1>
+       <h1 className="animate-fade-in mb-8 md:mb-16 text-center text-2xl sm:text-3xl md:text-5xl font-bold leading-snug">
+            Find&nbsp;
+            <br className="block md:hidden" />
+            <span className="animate-float inline-block text-[#0000FF]">
+              Scholarships&nbsp;<br className="block md:hidden" />
+            </span>&nbsp;
+               that match your goals
+                  </h1>
 
         <div className="mx-auto max-w-3xl">
           <div className="flex transform transition-all duration-300 hover:scale-[1.02]">
