@@ -60,7 +60,7 @@ export default function FilterDrawer({ selectedFilters, setSelectedFilters }) {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 z-50 h-full w-[90%] transform bg-[#0000FE] shadow-lg transition-transform duration-300 ease-in-out sm:w-[80%] ${
+        className={`fixed top-0 left-0 z-[999] h-full w-[90%] transform bg-[#0000FE] shadow-lg transition-transform duration-300 ease-in-out sm:w-[80%] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

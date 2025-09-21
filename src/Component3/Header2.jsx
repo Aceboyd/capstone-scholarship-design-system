@@ -57,7 +57,7 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
 
       {/* Hamburger Menu for Mobile */}
       <button
-        className="z-50 ml-auto lg:hidden"
+        className="z-0 ml-auto lg:hidden"
         onClick={toggleMobileMenu}
         aria-label="Toggle mobile menu"
       >
