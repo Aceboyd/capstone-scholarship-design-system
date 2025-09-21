@@ -52,26 +52,25 @@ export default function PortalStep4() {
       // Collect all step data from localStorage
       const step1 = JSON.parse(localStorage.getItem("step1Data") || "{}");
       const step2 = JSON.parse(localStorage.getItem("step2Data") || "{}");
-      const step3 = JSON.parse(localStorage.getItem("step3Files") || "[]"); // ✅ fixed key
+      const step3 = JSON.parse(localStorage.getItem("step3Files") || "[]");
 
-      // Merge all for AI
+      // Merge only previous step data, excluding aiPrompt and sopText
       const allData = {
         ...step1,
         ...step2,
         uploadedFiles: step3,
-        sopInstruction: aiPrompt,
       };
 
-      // 🚀 Mock AI generation (replace later with backend call)
+      // Mock AI generation based only on previous step data
       const generated = `
-Dear Scholarship Committee,
+        Dear Scholarship Committee,
 
-I am excited to apply for this opportunity. My academic journey, as shown in my documents, highlights my persistence and achievements. ${aiPrompt ? `I would especially like to emphasize: ${aiPrompt}.` : ""}
+        I am excited to apply for this opportunity. Based on the information provided, my journey highlights my academic achievements and dedication.
 
-I believe my background and dedication make me an excellent candidate for this scholarship.
+        I believe my background and dedication make me an excellent candidate for this scholarship.
 
-Sincerely,
-${step1.firstName || "Your Name"} ${step1.lastName || ""}
+        Sincerely,
+        ${step1.firstName || "Your Name"} ${step1.lastName || ""}
       `.trim();
 
       setAiGeneratedText(generated);
@@ -85,17 +84,17 @@ ${step1.firstName || "Your Name"} ${step1.lastName || ""}
 
   const [selectedCategories, setSelectedCategories] = useState([]); 
       
-        const handleSetSelectedCategories = useCallback((categories) => {
-          setSelectedCategories(categories);
-        }, []);
+  const handleSetSelectedCategories = useCallback((categories) => {
+    setSelectedCategories(categories);
+  }, []);
 
   return (
     <section className="bg-[#FAFAFF]">
       <Header
-                        setSelectedCategories={handleSetSelectedCategories}
-                          selectedCategories={selectedCategories}
-                          className="w-full px-3 sm:px-6 lg:px-12"
-                        />
+        setSelectedCategories={handleSetSelectedCategories}
+        selectedCategories={selectedCategories}
+        className="w-full px-3 sm:px-6 lg:px-12"
+      />
       <div className="mt-20"><Background /></div>
       <main className="mx-auto w-full px-2">
         <div className="mt-8"><Steps4 progress={progress} appStatus={appStatus} /></div>
