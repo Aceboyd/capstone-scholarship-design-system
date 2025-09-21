@@ -4,9 +4,9 @@ import { LuMenu } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
 import LogoOnly from "../UserDashboard/UserComponent/logo-only.svg";
+import FilterDrawerSidebar from "./FilterDrawerSidebar";
 // import HamburgerUserNav from "./HamburgerUserNav";
 import iconFilter from "./icon-filtersvg.svg";
-import Sidebar from "./Sidebar";
 
 export default function FilterDrawer({ selectedFilters, setSelectedFilters }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,11 +60,11 @@ export default function FilterDrawer({ selectedFilters, setSelectedFilters }) {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 left-0 z-50 h-full w-[80%] transform bg-[#0000FE] shadow-lg transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 z-[999] h-full w-[90%] transform bg-[#0000FE] shadow-lg transition-transform duration-300 ease-in-out sm:w-[80%] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col justify-between">
+        <div className="relative flex flex-col justify-between">
           <div className="flex h-full items-center justify-between px-4 pt-4">
             <Link to="/landing" className="flex items-center gap-2">
               <img
@@ -78,20 +78,17 @@ export default function FilterDrawer({ selectedFilters, setSelectedFilters }) {
               </p>
             </Link>
 
-            <span></span>
-
             <button onClick={toggleDrawer} className="cursor-pointer">
               <IoClose size={20} color="fff" />
             </button>
           </div>
 
-          <aside className="size-full">
-            <Sidebar
+          <div>
+            <FilterDrawerSidebar
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
             />
-            sii
-          </aside>
+          </div>
         </div>
       </div>
     </>

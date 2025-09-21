@@ -131,6 +131,7 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
 Content.propTypes = {
   selectedFilters: PropTypes.arrayOf(PropTypes.string),
   searchQuery: PropTypes.string,
+  setSelectedFilters: PropTypes.func.isRequired,
 };
 
 export default Content;
