@@ -18,7 +18,7 @@ function SectionC() {
             Find&nbsp;
             <br className="block md:hidden" />
             <span className="animate-float inline-block text-[#0000FF]">
-              Scholarships&nbsp;<br className="block md:hidden" />
+              Scholarships<br className="block md:hidden" />
             </span>&nbsp;
                that match your goals
                   </h1>
