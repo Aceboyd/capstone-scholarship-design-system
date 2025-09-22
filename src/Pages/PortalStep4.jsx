@@ -45,7 +45,7 @@ export default function PortalStep4() {
     setAppStatus(words > 0 ? "In Progress" : "Not Started");
   }, [sopText]);
 
-  // ✅ Handle AI generation (local mock until backend exists)
+  // ✅ Handle AI generation (local mock using only previous step data)
   const handleGenerateAI = async () => {
     setLoading(true);
     try {
@@ -65,12 +65,12 @@ export default function PortalStep4() {
       const generated = `
         Dear Scholarship Committee,
 
-        I am excited to apply for this opportunity. Based on the information provided, my journey highlights my academic achievements and dedication.
+        I am thrilled to submit my application for this scholarship opportunity. My academic journey and experiences, as reflected in my submitted documents, demonstrate my commitment to excellence and passion for my field of study. My background has equipped me with the skills and determination to contribute meaningfully to my chosen discipline.
 
-        I believe my background and dedication make me an excellent candidate for this scholarship.
+        Thank you for considering my application.
 
         Sincerely,
-        ${step1.firstName || "Your Name"} ${step1.lastName || ""}
+        ${step1.firstName || "Applicant"} ${step1.lastName || ""}
       `.trim();
 
       setAiGeneratedText(generated);
