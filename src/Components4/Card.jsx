@@ -1,6 +1,6 @@
+import { Bookmark } from "lucide-react";
 import PropTypes from "prop-types"; // ✅ import PropTypes
 import { useState } from "react";
-import { IoBookmarkOutline, IoBookmarkSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 import { cardInfo } from "./cardInfo";
@@ -33,7 +33,14 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
     return matchesSearch && matchesFilters;
   });
 
-  const [isFilled, setIsFilled] = useState(false);
+  const [activeBookmarks, setActiveBookmarks] = useState({});
+
+  const toggleBookmark = (key) => {
+    setActiveBookmarks((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   return (
     <div
@@ -58,16 +65,18 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
               <p className="text-sm text-gray-900">Posted {details.time}</p>
             </div>
 
-            <span
-              onClick={() => setIsFilled(!isFilled)}
-              className="text-[#0000FE] transition-transform hover:scale-105 hover:cursor-pointer lg:hidden"
+            <button
+              onClick={() => toggleBookmark(key)}
+              className="flex items-center"
             >
-              {isFilled ? (
-                <IoBookmarkSharp size={20} />
-              ) : (
-                <IoBookmarkOutline size={20} />
-              )}
-            </span>
+              <Bookmark
+                className={`h-5 w-5 transition-colors sm:h-6 sm:w-6 ${
+                  activeBookmarks[key]
+                    ? "fill-[#0000FE] text-[#0000FE]"
+                    : "fill-none text-black"
+                }`}
+              />
+            </button>
           </div>
 
           <hr className="mt-4 mb-2 text-gray-200 lg:hidden" />

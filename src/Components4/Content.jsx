@@ -19,18 +19,18 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
       <p className="w-fit lg:hidden">
         {selectedFilters.length > 0 || searchQuery
           ? "Filtered Scholarships"
-          : "21 Scholarships found for "}
+          : "13 Scholarships found for "}
         <span className="font-bold">
           {searchQuery || " STEM Undergraduate Scholarships in Ghana"}
         </span>
       </p>
 
       <main className="bg-[#F4F5FF] px-1 py-4 sm:mx-4 md:mx-10 lg:mx-2 lg:px-6">
-        <div className>
+        <div>
           <p className="hidden pb-3 text-xl sm:text-2xl lg:block">
             {selectedFilters.length > 0 || searchQuery
               ? "Filtered Scholarships"
-              : "21 Scholarships found for "}
+              : "13 Scholarships found for "}
             <span className="font-bold">
               {searchQuery || " STEM Undergraduate Scholarships in Ghana"}
             </span>
@@ -42,9 +42,9 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
               <p className="font-medium">RESULTS {cardInfo.length}</p>
 
               <div className="flex items-center gap-4 lg:hidden">
-                <div className="rounded-lg border-2 p-2 text-[#0000FE]">
+                {/* <div className="rounded-lg border-2 p-2 text-[#0000FE]">
                   <BsSortDown size={20} className="rotate-180" />
-                </div>
+                </div> */}
 
                 <FiltersDrawer
                   selectedFilters={selectedFilters}
