@@ -1,6 +1,8 @@
 import { Bookmark } from "lucide-react";
 import PropTypes from "prop-types"; // ✅ import PropTypes
 import { useState } from "react";
+import { AiFillInfoCircle } from "react-icons/ai";
+import { RiInformationLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 import { cardInfo } from "./cardInfo";
@@ -34,9 +36,17 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
   });
 
   const [activeBookmarks, setActiveBookmarks] = useState({});
+  const [activeInfos, setActiveInfos] = useState({});
 
   const toggleBookmark = (key) => {
     setActiveBookmarks((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const toggleInfo = (key) => {
+    setActiveInfos((prev) => ({
       ...prev,
       [key]: !prev[key],
     }));
@@ -70,7 +80,7 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
               className="flex items-center"
             >
               <Bookmark
-                className={`h-5 w-5 transition-colors sm:h-6 sm:w-6 ${
+                className={`h-5 w-5 cursor-pointer transition-colors sm:h-6 sm:w-6 lg:hidden ${
                   activeBookmarks[key]
                     ? "fill-[#0000FE] text-[#0000FE]"
                     : "fill-none text-black"
@@ -154,16 +164,42 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
                   {details.apply}
                 </button>
               )}
-              <img
+
+              {/* <img
                 src="images/info icon.png"
                 className="w-fit rounded-md bg-[#DCDDFF] p-2"
                 alt="info"
-              />
-              <img
+              /> */}
+
+              <button
+                onClick={() => toggleInfo(key)}
+                className="rounded-md bg-[#DCDDFF] p-2 text-[#0000FE] transition-colors hover:cursor-pointer"
+              >
+                {activeInfos[key] ? (
+                  <AiFillInfoCircle size={28} />
+                ) : (
+                  <RiInformationLine size={28} />
+                )}
+              </button>
+
+              {/* <img
                 src={details.bookmark}
                 className="w-fit rounded-md bg-[#DCDDFF] p-2"
                 alt="bookmark"
-              />
+              /> */}
+
+              <button
+                onClick={() => toggleBookmark(key)}
+                className="cursor-pointer items-center rounded-md bg-[#DCDDFF] p-2.5"
+              >
+                <Bookmark
+                  className={`h-5 w-5 transition-colors sm:h-6 sm:w-6 ${
+                    activeBookmarks[key]
+                      ? "fill-[#0000FE] text-[#0000FE]"
+                      : "fill-none text-[#0000FE]"
+                  }`}
+                />
+              </button>
             </div>
           </div>
 
