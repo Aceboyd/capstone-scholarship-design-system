@@ -1,11 +1,12 @@
-import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import heroImage from "../assets/image/heropng.png";
+import { useState, useRef, useEffect } from "react";
+
 import bgImage from "../assets/image/bgimage.png";
 import dottedArrow1 from "../assets/image/dotted-arrow1.png";
 import dottedArrow2 from "../assets/image/dotted-arrow2.png";
 import dottedArrow3 from "../assets/image/dotted-arrow3.png";
 import dottedArrow4 from "../assets/image/dotted-arrow4.png";
+import heroImage from "../assets/image/heropng.png";
 
 const Hero = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

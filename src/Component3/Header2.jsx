@@ -46,6 +46,7 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
     setIsOpen(false); // Close Categories dropdown when toggling mobile menu
   };
 
+  const [isFilled, setIsFilled] = useState(false);
   return (
     <header className="font-avenir z-50 flex w-full items-center justify-between bg-white px-4 py-3 shadow-md sm:px-6 sm:py-4 xl:px-12">
       {/* Logo */}
@@ -160,7 +161,18 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
           <Bell className="h-5 w-5 text-gray-700 hover:text-blue-600 sm:h-6 sm:w-6" />
           <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-red-500"></span>
         </div>
-        <Bookmark className="h-5 w-5 fill-[#0000FE] text-[#0000FE] sm:h-6 sm:w-6" />
+
+        <span
+          onClick={() => setIsFilled(!isFilled)}
+          className="transition-transform hover:scale-105 hover:cursor-pointer"
+        >
+          {isFilled ? (
+            <Bookmark className="h-5 w-5 fill-[#0000FE] text-[#0000FE] sm:h-6 sm:w-6" />
+          ) : (
+            <Bookmark className="h-5 w-5 sm:h-6 sm:w-6" />
+          )}
+        </span>
+
         <Link
           to="/scholarship"
           className="rounded-lg bg-[#0000FE] px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700 sm:px-6 sm:text-base lg:text-lg"
