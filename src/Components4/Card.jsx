@@ -118,7 +118,7 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
                   src={details.progress}
                   alt="progress bar"
                 />
-                <p className="self-center text-xs font-bold text-[#0000FE]">
+                <p className="self-center text-center text-xs font-bold text-[#0000FE]">
                   {details.appStatus}
                 </p>
               </div>
