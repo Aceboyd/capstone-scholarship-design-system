@@ -1,6 +1,8 @@
+import { Bookmark } from "lucide-react";
 import PropTypes from "prop-types"; // ✅ import PropTypes
 import { useState } from "react";
-import { IoBookmarkOutline, IoBookmarkSharp } from "react-icons/io5";
+import { AiFillInfoCircle } from "react-icons/ai";
+import { RiInformationLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 import { cardInfo } from "./cardInfo";
@@ -33,7 +35,22 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
     return matchesSearch && matchesFilters;
   });
 
-  const [isFilled, setIsFilled] = useState(false);
+  const [activeBookmarks, setActiveBookmarks] = useState({});
+  const [activeInfos, setActiveInfos] = useState({});
+
+  const toggleBookmark = (key) => {
+    setActiveBookmarks((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const toggleInfo = (key) => {
+    setActiveInfos((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
 
   return (
     <div
@@ -58,16 +75,18 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
               <p className="text-sm text-gray-900">Posted {details.time}</p>
             </div>
 
-            <span
-              onClick={() => setIsFilled(!isFilled)}
-              className="text-[#0000FE] transition-transform hover:scale-105 hover:cursor-pointer lg:hidden"
+            <button
+              onClick={() => toggleBookmark(key)}
+              className="flex items-center"
             >
-              {isFilled ? (
-                <IoBookmarkSharp size={20} />
-              ) : (
-                <IoBookmarkOutline size={20} />
-              )}
-            </span>
+              <Bookmark
+                className={`h-5 w-5 cursor-pointer transition-colors sm:h-6 sm:w-6 lg:hidden ${
+                  activeBookmarks[key]
+                    ? "fill-[#0000FE] text-[#0000FE]"
+                    : "fill-none text-black"
+                }`}
+              />
+            </button>
           </div>
 
           <hr className="mt-4 mb-2 text-gray-200 lg:hidden" />
@@ -109,7 +128,7 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
                   src={details.progress}
                   alt="progress bar"
                 />
-                <p className="self-center text-xs font-bold text-[#0000FE]">
+                <p className="self-center text-center text-xs font-bold text-[#0000FE]">
                   {details.appStatus}
                 </p>
               </div>
@@ -145,16 +164,42 @@ let Card = ({ grid, selectedFilters, searchQuery }) => {
                   {details.apply}
                 </button>
               )}
-              <img
+
+              {/* <img
                 src="images/info icon.png"
                 className="w-fit rounded-md bg-[#DCDDFF] p-2"
                 alt="info"
-              />
-              <img
+              /> */}
+
+              <button
+                onClick={() => toggleInfo(key)}
+                className="rounded-md bg-[#DCDDFF] p-2 text-[#0000FE] transition-colors hover:cursor-pointer"
+              >
+                {activeInfos[key] ? (
+                  <AiFillInfoCircle size={28} />
+                ) : (
+                  <RiInformationLine size={28} />
+                )}
+              </button>
+
+              {/* <img
                 src={details.bookmark}
                 className="w-fit rounded-md bg-[#DCDDFF] p-2"
                 alt="bookmark"
-              />
+              /> */}
+
+              <button
+                onClick={() => toggleBookmark(key)}
+                className="cursor-pointer items-center rounded-md bg-[#DCDDFF] p-2.5"
+              >
+                <Bookmark
+                  className={`h-5 w-5 transition-colors sm:h-6 sm:w-6 ${
+                    activeBookmarks[key]
+                      ? "fill-[#0000FE] text-[#0000FE]"
+                      : "fill-none text-[#0000FE]"
+                  }`}
+                />
+              </button>
             </div>
           </div>
 

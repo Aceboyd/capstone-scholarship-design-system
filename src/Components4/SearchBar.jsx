@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const SearchBar = ({ setSearchQuery }) => {
   return (
     <div
@@ -5,7 +7,7 @@ const SearchBar = ({ setSearchQuery }) => {
       style={{ backgroundImage: `url("../images/searchbackground.png")` }}
     >
       {/* Search input */}
-      <div className="flex items-center rounded-md bg-white p-1 sm:px-4 sm:py-2">
+      <div className="focus-within:-p-4 flex items-center rounded-md bg-white p-1 focus-within:ring-2 focus-within:ring-blue-700 sm:px-4 sm:py-2">
         <img
           src="images/search.png"
           alt="search icon"
@@ -21,6 +23,10 @@ const SearchBar = ({ setSearchQuery }) => {
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  setSearchQuery: PropTypes.func.isRequired, // ✅ validates the prop
 };
 
 export default SearchBar;

@@ -12,6 +12,7 @@ let ScholarshipPortal = () => {
   return (
     <div className="relative">
       <Navbar />
+      
       <SearchBar setSearchQuery={setSearchQuery} />
 
       <main className="grid gap-6 px-2 pt-4 sm:px-4 lg:grid-cols-[2.5fr_8fr]">

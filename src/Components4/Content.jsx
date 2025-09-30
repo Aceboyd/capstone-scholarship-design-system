@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"; // ✅ import PropTypes
 import { useState } from "react";
-import { BsSortDown } from "react-icons/bs";
+// import { BsSortDown } from "react-icons/bs";
 
 import Card from "./Card";
 import { cardInfo } from "./cardInfo"; // ✅ import cardInfo
@@ -14,23 +14,52 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
     console.log("Grid view:", !grid);
   };
 
+  // FILTER LOGIC HERE
+  const filteredInfo = cardInfo.filter((details) => {
+    const matchesSearch = searchQuery
+      ? details.mainTitle.includes(searchQuery) ||
+        details.subTitle.includes(searchQuery)
+      : true;
+
+    // FOR LOWERCASE
+    // const matchesSearch = searchQuery
+    //   ? details.mainTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    //     details.subTitle.toLowerCase().includes(searchQuery.toLowerCase())
+    //   : true;
+
+    const matchesFilters =
+      selectedFilters.length > 0
+        ? selectedFilters.some((filter) =>
+            [
+              details.tag1,
+              details.tag2,
+              details.tag3,
+              details.expiry,
+              details.student,
+            ].includes(filter),
+          )
+        : true;
+
+    return matchesSearch && matchesFilters;
+  });
+
   return (
     <div className="flex-1">
       <p className="w-fit lg:hidden">
         {selectedFilters.length > 0 || searchQuery
-          ? "Filtered Scholarships"
-          : "21 Scholarships found for "}
+          ? "Filtered Scholarships: "
+          : "13 Scholarships found for "}
         <span className="font-bold">
           {searchQuery || " STEM Undergraduate Scholarships in Ghana"}
         </span>
       </p>
 
       <main className="bg-[#F4F5FF] px-1 py-4 sm:mx-4 md:mx-10 lg:mx-2 lg:px-6">
-        <div className>
-          <p className="hidden pb-3 text-xl sm:text-2xl lg:block">
+        <div>
+          <p className="hidden pb-3 text-xl capitalize sm:text-2xl lg:block">
             {selectedFilters.length > 0 || searchQuery
-              ? "Filtered Scholarships"
-              : "21 Scholarships found for "}
+              ? "Filtered Scholarships: "
+              : "13 Scholarships found for "}
             <span className="font-bold">
               {searchQuery || " STEM Undergraduate Scholarships in Ghana"}
             </span>
@@ -39,12 +68,16 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
 
           <div className="flex flex-col items-center justify-between gap-3 pt-4 sm:flex-row">
             <div className="flex w-full items-center justify-between lg:w-fit">
-              <p className="font-medium">RESULTS {cardInfo.length}</p>
+              <p className="font-medium">RESULTS {filteredInfo.length}</p>
+
+              {/* <p className="font-medium">
+                RESULTS {filteredInfo.length} of {cardInfo.length}
+              </p> */}
 
               <div className="flex items-center gap-4 lg:hidden">
-                <div className="rounded-lg border-2 p-2 text-[#0000FE]">
+                {/* <div className="rounded-lg border-2 p-2 text-[#0000FE]">
                   <BsSortDown size={20} className="rotate-180" />
-                </div>
+                </div> */}
 
                 <FiltersDrawer
                   selectedFilters={selectedFilters}
@@ -97,6 +130,7 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
               grid={grid}
               selectedFilters={selectedFilters}
               searchQuery={searchQuery}
+              filteredInfo={filteredInfo}
             />
           </div>
         </div>
@@ -119,7 +153,11 @@ const Content = ({ selectedFilters, searchQuery, setSelectedFilters }) => {
             </button>
           </div>
           <p className="text-sm text-gray-500">
-            Showing 1-10 of {cardInfo.length} results
+            Showing{" "}
+            {filteredInfo.length > 0
+              ? `1-${Math.min(10, filteredInfo.length)}`
+              : 0}{" "}
+            of {filteredInfo.length} results
           </p>
         </div>
       </main>

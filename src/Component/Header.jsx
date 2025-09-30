@@ -1,7 +1,7 @@
 import { Bell, ChevronDown, Bookmark, Menu, X } from "lucide-react";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import PropTypes from "prop-types";
 import { NavHashLink } from "react-router-hash-link";
 
 import logo from "../assets/image/nice.png";
@@ -19,12 +19,11 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
   const location = useLocation();
 
   // Handle Home click
- const handleHomeClick = (e) => {
-  e.preventDefault(); // stop default navigation
-  window.location.href = "/landing"; // ✅ force reload the landing page
-  setIsMobileMenuOpen(false);
-};
-
+  const handleHomeClick = (e) => {
+    e.preventDefault(); // stop default navigation
+    window.location.href = "/landing"; // ✅ force reload the landing page
+    setIsMobileMenuOpen(false);
+  };
 
   // Handle Category click
   const handleCategoryClick = (category) => {
@@ -47,22 +46,20 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
     setIsOpen(false); // Close Categories dropdown when toggling mobile menu
   };
 
+  const [isFilled, setIsFilled] = useState(false);
+
   return (
-    <header className="font-avenir fixed top-0 left-0 z-50 flex w-full items-center justify-between bg-white px-4 sm:px-6 xl:px-12 py-3 sm:py-4 shadow-md">
+    <header className="font-avenir fixed top-0 left-0 z-50 flex w-full items-center justify-between bg-white px-4 py-3 shadow-md sm:px-6 sm:py-4 xl:px-12">
       {/* Logo */}
       <div className="flex items-center">
         <Link to="/landing">
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-auto h-18 object-contain"
-          />
+          <img src={logo} alt="Logo" className="h-18 w-auto object-contain" />
         </Link>
       </div>
 
       {/* Hamburger Menu for Mobile */}
       <button
-        className="lg:hidden z-50 ml-auto"
+        className="z-50 ml-auto lg:hidden"
         onClick={toggleMobileMenu}
         aria-label="Toggle mobile menu"
       >
@@ -77,7 +74,7 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
       <nav
         className={`${
           isMobileMenuOpen ? "flex" : "hidden"
-        } lg:flex flex-col lg:flex-row absolute lg:static top-14 left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-md lg:shadow-none px-4 sm:px-6 md:px-2 xl:px-6 py-6 lg:py-0 space-y-4 lg:space-y-0 md:space-x-4 xl:space-x-6 text-base sm:text-lg z-40`}
+        } absolute top-14 left-0 z-40 w-full flex-col space-y-4 bg-white px-4 py-6 text-base shadow-md sm:px-6 sm:text-lg md:space-x-4 md:px-2 lg:static lg:flex lg:w-auto lg:flex-row lg:space-y-0 lg:bg-transparent lg:py-0 lg:shadow-none xl:space-x-6 xl:px-6`}
       >
         <Link
           to="/landing"
@@ -113,7 +110,7 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
         <div className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center justify-between w-full lg:w-auto space-x-1 hover:text-blue-600"
+            className="flex w-full items-center justify-between space-x-1 hover:text-blue-600 lg:w-auto"
           >
             <span>Categories</span>
             <ChevronDown className="h-4 w-4" />
@@ -160,15 +157,26 @@ const Header = ({ setSelectedCategories, selectedCategories }) => {
       </nav>
 
       {/* Icons and Apply Button */}
-      <div className="hidden lg:flex items-center space-x-3 lg:space-x-4">
+      <div className="hidden items-center space-x-3 lg:flex lg:space-x-4">
         <div className="relative">
-          <Bell className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 hover:text-blue-600" />
+          <Bell className="h-5 w-5 text-gray-700 hover:text-blue-600 sm:h-6 sm:w-6" />
           <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-red-500"></span>
         </div>
-        <Bookmark className="h-5 w-5 sm:h-6 sm:w-6 fill-[#0000FE] text-[#0000FE]" />
+
+        <span
+          onClick={() => setIsFilled(!isFilled)}
+          className="transition-transform hover:scale-105 hover:cursor-pointer"
+        >
+          {isFilled ? (
+            <Bookmark className="h-5 w-5 fill-[#0000FE] text-[#0000FE] sm:h-6 sm:w-6" />
+          ) : (
+            <Bookmark className="h-5 w-5 sm:h-6 sm:w-6" />
+          )}
+        </span>
+
         <Link
           to="/scholarship"
-          className="rounded-lg bg-[#0000FE] px-4 sm:px-6 py-2 text-sm sm:text-base lg:text-lg text-white hover:bg-blue-700 transition-colors"
+          className="rounded-lg bg-[#0000FE] px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700 sm:px-6 sm:text-base lg:text-lg"
         >
           Apply Now
         </Link>
